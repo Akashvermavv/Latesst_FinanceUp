@@ -1,0 +1,428 @@
+{% extends 'dashboard/sidebar.html' %}
+
+{% load static %}
+{% load widget_tweaks %
+
+    {% block head %}
+
+    <!-- Custom styles for this template -->
+
+    <script async="" src="https://www.google-analytics.com/analytics.js"></script>
+
+
+
+
+ <!-- Favicon -->
+    <link rel="icon" href="{% static 'src/img/fuf.png' %}" type="image/gif" sizes="16x16">
+
+    <!-- External Style Sheet -->
+    <link rel="stylesheet" href="{% static 'src/css/font-awesome.css' %}">
+   
+
+    <!-- Main Style Sheet -->
+
+
+<link rel="stylesheet" href="{% static 'src/css/kyc_style.css' %}" >
+
+    <script src="{% static 'src/js/jquery.min.js' %}"></script>
+    <script src="{% static 'src/js/jquery.bundle.js' %}"></script>
+
+    <!-- Main JavaScript File -->
+    <script src="{% static 'src/js/key.js' %}"></script>
+    {% endblock head %}
+{% block content %}
+
+{% if kyc_obj %}
+    <p  style="margin-top:210px;"></p>
+   {% if kyc_obj.pending %}
+        <center><h3>Your KYC Verification is pending for approval.</h3></center>
+    {% endif %}
+
+    {% if kyc_obj.approved %}
+                <center><h3>Your KYC Verification is approved.</h3></center>
+    {% endif %}
+
+    {% if kyc_obj.rejected %}
+        <center><h3>Your KYC Verification is rejected.</h3></center>
+    {% endif %}
+
+{% else %}
+
+    {% if form.errors %}
+        {% for field in form %}
+        {% for error in field.errors %}
+        <div class="alert alert-danger">
+           <center> <strong>{{ error|escape }}</strong></center>
+        </div>
+        {% endfor %}
+        {% endfor %}
+        {% for error in form.non_field_errors %}
+        <div class="alert alert-danger">
+            <center><strong>{{ error|escape }}</strong></center>
+        </div>
+        <br/>
+        {% endfor %}
+    {% endif %}
+
+        
+<br/>
+
+
+ <div class="page-header">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 col-xl-7 text-center">
+                    <h2 class="page-title">Begin your ID-Verification</h2>
+                    <p class="page-subTitle">Verify your identity to participate in FinanceUp.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page-content">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 col-xl-9 bg-white">
+                   <form method="POST" action="{% url 'kyc_verification2' %}" enctype="multipart/form-data" style="">{% csrf_token %}
+                        <div class="form-step form-step1">
+                            <div class="step-head d-flex">
+                                <div class="step-number"><span>01</span></div>
+                                <div class="step-head-text">
+                                    <h4>Personal Details</h4>
+                                    <p>Your simple personal information required for identification</p>
+                                </div>
+                            </div>
+                            <div class="step-content">
+                                <div class="note d-flex">
+                                    <em class="fas fa-info-circle"></em>
+                                    <p>Please type carefully and fill out the form with your personal details. Your can’t edit these details once you submitted the form.</p>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="firstName">First Name <span class="text-danger">*</span></label>
+<!--                                            <input type="text" id="firstName" class="form-control">-->
+                                             {{ form.first_name }}
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="lastName">Last Name <span class="text-danger">*</span></label>
+<!--                                            <input type="text" id="lastName" class="form-control">-->
+                                            {{ form.last_name }}
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="email">Email Address <span class="text-danger">*</span></label>
+<!--                                            <input type="email" id="email" class="form-control">-->
+                                            {{ form.email }}
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="telephone">Phone Number <span class="text-danger">*</span></label>
+<!--                                            <input type="tel" id="telephone" class="form-control">-->
+                                    {{ form.mobile }}
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="dob">Date of Birth <span class="text-danger">*</span></label>
+<!--                                            <input type="date" id="dob" class="form-control">-->
+                                                    {{ form.dob}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <h4 class="text-secondary address">Your Address</h4>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="address">Address <span class="text-danger">*</span></label>
+<!--                                            <input type="text" id="address" class="form-control">-->
+                                            {{ form.address }}
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="city">City <span class="text-danger">*</span></label>
+<!--                                            <input type="text" id="city" class="form-control">-->
+                                            {{ form.city }}
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="state">State <span class="text-danger">*</span></label>
+<!--                                            <input type="email" id="state" class="form-control">-->
+                                            {{ form.state }}
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="country">Nationality <span class="text-danger">*</span></label>
+
+                                            {{ form.nationality }}
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="zipCode">Zip Code <span class="text-danger">*</span></label>
+<!--                                            <input type="text" id="zipCode" class="form-control">-->
+                                            {{ form.zipcode }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-step form-step2">
+                            <div class="step-head d-flex">
+                                <div class="step-number"><span>02</span></div>
+                                <div class="step-head-text">
+                                    <h4>Document Upload</h4>
+                                    <p>To verify your identity, please upload any of your document</p>
+                                </div>
+                            </div>
+                            <div class="step-content">
+                                <div class="note d-flex">
+                                    <em class="fas fa-info-circle"></em>
+                                    <p>Please type carefully and fill out the form with your personal details. Your can’t edit these details once you submitted the form.</p>
+                                </div>
+                                 <br/>
+                             <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="ID">ID Number <span class="text-danger">*</span></label>
+<!--                                            <input type="text" id="id" class="form-control" value="">-->
+                                            {{form.id_number}}
+
+                                        </div>
+                                    </div>
+                                <ul class="nav nav-tabs nav-tabs-bordered row flex-wrap guttar-20px" role="tablist">
+                                    <li class="nav-item flex-grow-0">
+                                        <a class="nav-link d-flex align-items-center active" data-toggle="tab" href="#passport">
+                                            <div class="nav-tabs-icon">
+                                                <img src="{% static 'src/img/icon-passport.png' %}" alt="icon">
+                                                <img src="{% static 'src/img/icon-passport-color.png' %}" class="active" alt="icon">
+                                            </div>
+                                            <span>Passport</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item flex-grow-0">
+                                        <a class="nav-link d-flex align-items-center" data-toggle="tab" href="#national-card">
+                                            <div class="nav-tabs-icon">
+                                                <img src="{% static 'src/img/icon-national-id.png' %}" alt="icon">
+                                                <img src="{% static 'src/img/icon-national-id-color.png' %}" class="active" alt="icon">
+                                            </div>
+                                            <span>National Card</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item flex-grow-0">
+                                        <a class="nav-link d-flex align-items-center" data-toggle="tab" href="#driver-licence">
+                                            <div class="nav-tabs-icon">
+                                                <img src="{% static 'src/img/icon-licence.png' %}" alt="icon">
+                                                <img src="{% static 'src/img/icon-licence-color.png' %}" class="active" alt="icon">
+                                            </div>
+                                            <span>Driver’s License</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item flex-grow-0">
+                                        <a class="nav-link d-flex align-items-center" data-toggle="tab" href="#others">
+                                            <div class="nav-tabs-icon">
+                                                <img src="{% static 'src/img/icon-licence.png' %}" alt="icon">
+                                                <img src="{% static 'src/img/icon-licence-color.png' %}" class="active" alt="icon">
+                                            </div>
+                                            <span>Others</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <!-- .nav-tabs-line -->
+                                <div class="tab-content" id="myTabContent">
+                                    <div class="tab-pane fade show active" id="passport">
+                                        <h5 class="text-secondary font-bold">To avoid delays when verifying account, Please make sure bellow:</h5>
+                                        <ul class="list-check">
+                                            <li><i class="fas fa-check"></i> Chosen credential must not be expired.</li>
+                                            <li><i class="fas fa-check"></i> Document should be good condition and clearly visible.</li>
+                                            <li><i class="fas fa-check"></i> Make sure that there is no light glare on the card.</li>
+                                        </ul>
+                                        <h5 class="font-mid upload">Upload Here Your Passport Copy</h5>
+                                        <div class="row align-items-center">
+                                            <div class="col-sm-8">
+                                                <div class="upload-box">
+                                                    <div class="upload-zone dropzone dz-clickable">
+                                                        <div class="dz-message" data-dz-message="">
+                                                            <span>Drag and drop file</span>
+                                                            <span class="upper">OR</span>
+<!--                                                            <button class="btn-primary">Select</button>-->
+                                                            {{form.passport_image}}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4 d-none d-sm-block">
+                                                <div class="mx-md-4">
+                                                    <img src="{% static 'src/img/vector-passport.png' %}" alt="vector">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <!-- .tab-pane -->
+                                    <div class="tab-pane fade" id="national-card">
+                                        <h5 class="text-secondary font-bold">
+                                            To avoid delays when verifying account, Please make sure bellow:</h5>
+                                        <ul class="list-check">
+                                            <li><i class="fas fa-check"></i> Chosen credential must not be expired.</li>
+                                            <li><i class="fas fa-check"></i> Document should be good condition and clearly visible.</li>
+                                            <li> <i class="fas fa-check"></i> Make sure that there is no light glare on the card.</li>
+                                        </ul>
+                                        <h5 class="font-mid upload">Upload Here Your National id Front Side</h5>
+                                        <div class="row align-items-center mb-5">
+                                            <div class="col-sm-8">
+                                                <div class="upload-box">
+                                                    <div class="upload-zone dropzone dz-clickable">
+                                                        <div class="dz-message" data-dz-message="">
+                                                            <span>Drag and drop file</span>
+                                                            <span class="upper">OR</span>
+<!--                                                            <button class="btn-primary">Select</button>-->
+                                                            {{form.national_id_front_image}}
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4 d-none d-sm-block">
+                                                <div class="mx-md-4"><img src="{% static 'src/img/vector-id-front.png' %}" alt="vector"></div>
+                                            </div>
+                                        </div>
+                                        <h5 class="font-mid upload">Upload Here Your National id Back Side</h5>
+                                        <div class="row align-items-center">
+                                            <div class="col-sm-8">
+                                                <div class="upload-box">
+                                                    <div class="upload-zone dropzone dz-clickable">
+                                                        <div class="dz-message" data-dz-message="">
+                                                            <span>Drag and drop file</span>
+                                                            <span class="upper">OR</span>
+<!--                                                            <button class="btn-primary">Select</button>-->
+                                                            {{form.national_id_back_image}}
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4 d-none d-sm-block">
+                                                <div class="mx-md-4"><img src="{% static 'src/img/vector-id-back.png' %}" alt="vector"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- .tab-pane -->
+                                    <div class="tab-pane fade" id="driver-licence">
+                                        <h5 class="text-secondary font-bold">To avoid delays when verifying account, Please make sure bellow:</h5>
+                                        <ul class="list-check">
+                                            <li><i class="fas fa-check"></i> Chosen credential must not be expired.</li>
+                                            <li><i class="fas fa-check"></i> Document should be good condition and clearly visible.</li>
+                                            <li><i class="fas fa-check"></i> Make sure that there is no light glare on the card.</li>
+                                        </ul>
+                                        <h5 class="font-mid upload">Upload Here Your Driving Licence Copy</h5>
+                                        <div class="row align-items-center">
+                                            <div class="col-sm-8">
+                                                <div class="upload-box">
+                                                    <div class="upload-zone dropzone dz-clickable">
+                                                        <div class="dz-message" data-dz-message="">
+                                                            <span>Drag and drop file</span>
+                                                            <span class="upper">OR</span>
+<!--                                                            <button class="btn-primary">Select</button>-->
+                                                            {{form.driver_license_image}}
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4 d-none d-sm-block">
+                                                <div class="mx-md-4"><img src="{% static 'src/img/vector-passport.png' %}" alt="vector"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+
+
+                                      <div class="tab-pane fade" id="others">
+                                        <h5 class="text-secondary font-bold">To avoid delays when verifying account, Please make sure bellow:</h5>
+                                        <ul class="list-check">
+                                            <li><i class="fas fa-check"></i> Chosen credential must not be expired.</li>
+                                            <li><i class="fas fa-check"></i> Document should be good condition and clearly visible.</li>
+                                            <li><i class="fas fa-check"></i> Make sure that there is no light glare on the card.</li>
+                                        </ul>
+                                        <h5 class="font-mid upload">Upload Here Your Other Document Copy</h5>
+                                        <div class="row align-items-center">
+                                            <div class="col-sm-8">
+                                                <div class="upload-box">
+                                                    <div class="upload-zone dropzone dz-clickable">
+                                                        <div class="dz-message" data-dz-message="">
+                                                            <span>Drag and drop file</span>
+                                                            <span class="upper">OR</span>
+<!--                                                            <button class="btn-primary">Select</button>-->
+                                                            {{form.driver_license_image}}
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4 d-none d-sm-block">
+                                                <div class="mx-md-4"><img src="{% static 'src/img/vector-passport.png' %}" alt="vector"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- .tab-pane -->
+                                </div>
+                                <!-- .tab-content -->
+                            </div>
+                        </div>
+                        <div class="form-stem final-step">
+                            <div class="step-content">
+                                <div class="form-group">
+                                    <input type="checkbox" class="input-checkbox" id="term-condition">
+                                    <label for="term-condition">
+                                    I have read the <a href="#">Term of Condition</a> and <a href="#">Privacy Policy</a>
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <input type="checkbox" class="input-checkbox" id="info-correct">
+                                    <label for="info-correct">
+                                    All the personal information I have entered is correct
+                                    </label>
+                                </div>
+                                <button type="submit"  style="color:#fff;" class="btn btn-primary">Process for verify </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endif %}
+
+
+                                {% endblock content %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,27 @@
+
+
+
+{% extends 'dashboard/sidebar.html' %}
+
+{% block content %}
+
+
+<div class="row row d-flex justify-content-center">
+    <div class="card" style="width: 80%;">
+        <div class="card-header text-center">
+            <h4>Whoops!!!</h4>
+        </div>
+        <div class="card-body d-flex justify-content-center">
+            <div class="col-sm-12" style="max-width: max-content;">
+                <div class="alert alert-danger" role="alert">
+                    Something is wrong....
+                </div>
+                <br>
+                <a href="{% url 'add_fund' %}" class="btn btn-primary m-b-0 ml-4">Try Again</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}

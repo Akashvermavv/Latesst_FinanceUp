@@ -1,0 +1,76 @@
+{% extends 'dashboard/admin_sidebar.html' %}
+
+{% block content %}
+
+<!--- main content -->
+    <center>
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+    </center>
+
+                                <div class="page-wrapper">
+                                    <!-- Page-header start -->
+                                    <div class="page-header">
+                                        <div class="row align-items-end">
+                                            <div class="col-lg-8">
+                                                <div class="page-header-title">
+                                                    <div class="d-inline">
+                                                        <h4>Notice For all users</h4>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Page-header end -->
+
+                                    <!-- Page body start -->
+                                    <div class="page-body navbar-page">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <!-- Default Navbar card start -->
+                                                <div class="card">
+                                                    <div class="card-block">
+                                                        <div class="row row d-flex justify-content-center">
+
+                                                            <div class="card" style="width: 100%;">
+                                                                <div class="card-body d-flex justify-content-center" style="padding-left: 0">
+                                                                    <div class="col-sm-12">
+                                                                        <form action="{% url 'all_user_notice' %}" method="post">
+                                                                            {% csrf_token %}
+                                                                            {{ form.as_p}}
+                                                                            <button type="submit" class="btn btn-success">Submit</button>
+
+
+                                                                        </form>
+
+
+
+
+
+
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Default Navbar card end -->
+
+                                        </div>
+                                    </div>
+                                    <!-- Page body end -->
+                                </div>
+                                </div>
+
+
+
+                                <!--- main content end -->
+
+                                {% endblock content %}

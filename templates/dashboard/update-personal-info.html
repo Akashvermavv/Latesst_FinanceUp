@@ -1,0 +1,115 @@
+﻿{% extends 'dashboard/sidebar.html' %}
+
+{% block content %}
+{% load static %}
+
+
+                                <!--- main content --->
+
+                                <div class="page-wrapper">
+                                    <!-- Page-header start -->
+                                    <div class="page-header">
+                                        <div class="row align-items-end">
+                                            <div class="col-lg-8">
+                                                <div class="page-header-title">
+                                                    <div class="d-inline">
+                                                        <h4>Update Information</h4>
+                                                        <span>Update your personal information</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--<div class="container">-->
+                                    <center>
+{% if messages %}
+<div class="alert alert-success messages">
+    {% for message in messages %}
+    <span{% if message.tags %} class="{{ message.tags }}" {% endif %}>
+        {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}
+        {{ message }}
+    <br/>
+    </span>
+    {% endfor %}
+<!--</div>-->
+{% endif %}
+    </center>
+                                    <!-- Page-header end -->
+
+                                    <!-- Page body start -->
+
+
+                                    <div class="page-body navbar-page">
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <div class="card">
+                <div class="card-body text-center border-bottom">
+                      {% if request.user.image %}
+                    <img class="rounded-circle account-img" src="{{ request.user.image.url }}" style=" height: 125px;
+  width: 125px;
+  margin-right: 20px;
+  margin-bottom: 16px;">
+                    {% else %}
+                    <img class="rounded-circle account-img" src="" style=" height: 125px;
+  width: 125px;
+  margin-right: 20px;
+  margin-bottom: 16px;">
+                    {% endif %}
+                    <h5 class="card-title mt-3"></h5>
+                </div>
+                <div class="card-body">
+                    <p class="clearfix">
+                        <span class="float-left">Username</span>
+                        <span class="float-right font-weight-bold">{{ request.user.username }}</span>
+                    </p>
+                    <p class="clearfix">
+                        <span class="float-left">E-mail</span>
+                        <span class="float-right text-muted">{{ request.user.email}}</span>
+                    </p>
+                    <p class="clearfix">
+                        <span class="float-left">Phone</span>
+                        <span class="float-right text-muted">{{ request.user.mobile}}</span>
+                    </p>
+
+                    <p class="clearfix">
+                        <span class="float-left">Status</span>
+                        <span class="float-right text-muted">
+                                                        <span class="badge badge-pill badge-success">{% if request.user.is_active  %}Active{% else %}Inactive{% endif %}</span>
+                                                </span>
+                    </p>
+                </div>
+            </div>
+                                            </div>
+                                            <div class="col-sm-9">
+                                                <!-- Default Navbar card start -->
+                                                <div class="card">
+                                                    <div class="card-block">
+                                                        <div class="row row d-flex justify-content-center">
+                                                            <div class="card" style="width: 100%;">
+                                                                <div class="card-body d-flex justify-content-center">
+
+                                                                    <div class="col-sm-12" style="max-width: max-content;"><br>
+                                                                        <form action="" method="post" enctype="multipart/form-data">
+                                                                            
+                                                                            {% csrf_token %}
+                                                                  {{ form.as_p}}
+
+                                                                        <button type="submit" class="btn btn-primary m-b-0">Update</button>
+                                                                    </form>
+                                                                        <br><br>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Default Navbar card end -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Page body end -->
+                                </div>
+
+                                <!--- main content end -->
+
+                                {% endblock content %}

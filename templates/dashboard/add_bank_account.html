@@ -1,0 +1,102 @@
+{% extends 'dashboard/sidebar.html' %}
+
+{% block content %}
+                                <!--- main content --->
+
+                                <div class="page-wrapper">
+                                    <!-- Page-header start -->
+                                    <div class="page-header">
+                                        <div class="row align-items-end">
+                                            <div class="col-lg-8">
+                                                <div class="page-header-title">
+                                                    <div class="d-inline">
+                                                        <h4>Bank Account Setup</h4>
+                                                        <span>Manage your bank account</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Page-header end -->
+
+                                    <!-- Page body start -->
+                                    <div class="page-body navbar-page">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <!-- Default Navbar card start -->
+                                                <div class="card">
+                                                    <div class="card-block">
+                                                        <div class="row row d-flex justify-content-center">
+                                                            <div class="col-sm-9">
+                                                                <!-- Add Bank Account Start -->
+                                                                <div class="card">
+                                                                    <div class="card-block">
+                                                                        <form>
+                                                                            <div class="form-group row">
+                                                                                <label class="col-sm-2 col-form-label" style="text-align: right;max-width: 25%;flex: 0 0 25%;">Account Type</label>
+                                                                                <div class="col-sm-10" style="max-width: 75%;">
+                                                                                    <select name="select" class="form-control">
+                                                                                        <option value="opt1">Select One Value Only</option>
+                                                                                        <option value="opt2">Perfect Money</option>
+                                                                                        <option value="opt3">PayPal</option>
+                                                                                    </select>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="form-group row">
+                                                                                <label class="col-sm-2 col-form-label" style="text-align: right;max-width: 25%;flex: 0 0 25%;">Account Number<font color="red">*</font></label>
+                                                                                <div class="col-sm-10" style="max-width: 75%;">
+                                                                                    <input type="text" class="form-control" placeholder="Account NUmber ">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="form-group row">
+                                                                                <label class="col-sm-2 col-form-label" style="text-align: right;max-width: 25%;flex: 0 0 25%;">Account Holder Name<font color="red">*</font></label>
+                                                                                <div class="col-sm-10" style="max-width: 75%;">
+                                                                                    <input type="text" class="form-control" placeholder="Account Holder Name">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="form-group row">
+                                                                                <label class="col-sm-2 col-form-label" style="text-align: right;max-width: 25%;flex: 0 0 25%;">Bank Name<font color="red">*</font></label>
+                                                                                <div class="col-sm-10" style="max-width: 75%;">
+                                                                                    <input type="text" class="form-control" placeholder="Bank Name">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="form-group row">
+                                                                                <label class="col-sm-2 col-form-label" style="text-align: right;max-width: 25%;flex: 0 0 25%;">Branch Name<font color="red">*</font></label>
+                                                                                <div class="col-sm-10" style="max-width: 75%;">
+                                                                                    <input type="text" class="form-control" placeholder="Branch Name">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="form-group row">
+                                                                                <label class="col-sm-2 col-form-label" style="text-align: right;max-width: 25%;flex: 0 0 25%;">IFSC Code<font color="red">*</font></label>
+                                                                                <div class="col-sm-10" style="max-width: 75%;">
+                                                                                    <input type="text" class="form-control" placeholder="IFSC Code">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="form-group row">
+                                                                                <label class="col-sm-2 col-form-label" style="text-align: right;max-width: 25%;flex: 0 0 25%;">Description</label>
+                                                                                <div class="col-sm-10" style="max-width: 75%;">
+                                                                                    <textarea type="text" class="form-control"></textarea>
+                                                                                    <br>
+
+                                                                                    <button class="btn btn-primary">Add Bank Account</button>
+                                                                                </div>
+                                                                            </div>
+                                                                        </form>
+                                                                    </div>
+                                                                    <!-- Add Bank Account End -->
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Default Navbar card end -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Page body end -->
+                                </div>
+
+                                <!--- main content end -->
+
+                                {% endblock content %}
+

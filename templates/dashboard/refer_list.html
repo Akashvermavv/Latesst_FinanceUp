@@ -1,0 +1,111 @@
+
+{% extends 'dashboard/sidebar.html' %}
+
+{% block content %}
+<!--- main content --->
+
+<div class="page-wrapper">
+    <!-- Page-header start -->
+    <div class="page-header">
+        <div class="row align-items-end">
+            <div class="col-lg-8">
+                <div class="page-header-title">
+                    <div class="d-inline">
+                        <h4>Referral</h4>
+                        <span>Share and manage your refer</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page-header end -->
+
+    <!-- Page body start -->
+    <div class="page-body navbar-page">
+        <div class="row">
+            <div class="col-sm-12">
+                <!-- Default Navbar card start -->
+                <div class="card">
+                    <div class="card-block">
+                        <div class="row row d-flex justify-content-center">
+                            <div class="card" style="width: 100%;">
+                                <!--
+                                <div class="card-body d-flex justify-content-center">
+                                    <div class="col-sm-12" style="max-width: max-content;">
+                                        <div class="input-group" style="margin: 0;">
+
+                                            <div style="width: inherit;text-align: center;margin: 0;" class="alert alert-primary border-primary">
+                                                <lnk id="lnk">http://127.0.0.1:8000/accounts/signup/?ref={{request.user.id}}</lnk>
+                                                <button style="padding: 2px 0 2px 5px;margin-left: 10px;" onclick="CopyToClipboard('lnk')" type="submit" class="btn btn-primary waves-effect" data-toggle="tooltip" data-placement="top" title="" data-original-title="Click to copy">
+                                                    <i class="feather icon-layers"></i></button>
+                                            </div>
+
+                                        </div>
+                                        <script>
+                                            function CopyToClipboard(containerid) {
+                                                if (document.selection) {
+                                                    var range = document.body.createTextRange();
+                                                    range.moveToElementText(document.getElementById(containerid));
+                                                    range.select().createTextRange();
+                                                    document.execCommand("copy");
+                                                } else if (window.getSelection) {
+                                                    var range = document.createRange();
+                                                    range.selectNode(document.getElementById(containerid));
+                                                    window.getSelection().addRange(range);
+                                                    document.execCommand("copy");
+                                                }
+                                            }
+
+                                        </script>
+                                    </div>
+                                </div> -->
+                        
+                                <!-- table -->
+                                                                <div class="card-body d-flex justify-content-center">
+                                    <div class="card-block table-border-style" style="width: 95%;">
+                                        <h4 style="font-weight: bold;margin: 10px 0;font-size: 18px;border-left: 1px solid red;">My Refer List </h4>
+                                        <div class="table-responsive">
+                                             {% if message %}
+                                                                            <div class="alert alert-danger">
+                                                                                {{message}}
+                                                                            </div>
+                                                                            {% endif %}
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>#</th>
+                                                        <th>Email</th>
+                                                        <th>Name</th>
+                                                        <th>Country</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    {% for refered in hist %}
+                                                    <tr>
+                                                        <th scope="row">{{forloop.counter}}</th>
+                                                        <td>{{refered.email}}</td>
+                                                        <td>{{refered.name}} </td>
+                                                        <td>{{refered.country.name}}</td>
+                                                    </tr>
+
+                                                    {% endfor %}
+                                                   
+                                                </tbody>
+                                            </table> 
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--- end table -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Default Navbar card end -->
+            </div>
+        </div>
+    </div>
+    <!-- Page body end -->
+</div>
+
+<!--- main content end -->
+{% endblock content %}

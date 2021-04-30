@@ -1,0 +1,1005 @@
+{% extends 'dashboard/sidebar.html' %}
+{% load static %}
+{% block head %}
+
+<link rel="shortcut icon" type="image/png" href="{% static 'dashboard-static/favicon.png' %}">
+<link rel="stylesheet" href="{% static 'dashboard-static/dashboard.min.css' %}">
+<link rel="stylesheet" href="{% static 'dashboard-static/custom.css' %}">
+<link rel="stylesheet" href="{% static 'dashboard-static/color.css' %}">
+<link rel="stylesheet" href="{% static 'dashboard-static/iziToast.min.css' %}">
+<style>
+    .picolor{
+    background-color:#f34859!important;
+    border-radius: 25px;
+    }
+
+
+    .picolor1{
+    background-color:#071e3d!important;
+    border-radius: 25px;
+    }
+
+     .picolor2{
+    background-color:#4fcdc3!important;
+    border-radius: 25px;
+    }
+
+</style>
+{% endblock head %}
+
+{% block content %}
+
+<!--- main content --->
+
+<div class="page-wrapper">
+    <!-- Page-header start -->
+    <div class="">
+        <div class="row ">
+            <div class="col-md-12">
+                <div class="">
+                    <div class="" style="margin-bottom:30px;">
+                        <center><h2> Our Investment Plans</h2></center>
+                        <center><span>Choose your package and invest to get maximum profit</span>
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page-header end -->
+
+    <!-- Page body start -->
+    <div class="page-body navbar-page">
+        <div class="row">
+            <div class="col-sm-12">
+                {% if messages %}
+
+                {% for message in messages %}
+                <div class="alert alert-info">{{message}}</div>
+
+                {% endfor %}
+
+                {% endif %}
+                <!-- Default Navbar card start -->
+                <div class="row" style="">
+
+                    <div class="col-xl-4 col-lg-6 col-md-4 col-sm-6">
+
+
+                        <div class="price-body text-center " style="background-color:#fff;">
+                            <ul class="">
+                                <li class="picolor" style="color:#fff;"><strong> Starter</strong></li>
+                                <li><strong> Investment: none</strong></li>
+                                <li><strong> Daily Earn:$00.00</strong></li>
+                                <li><strong> Total days: None</strong></li>
+                                <li><strong> Total Earn: None</strong></li>
+                                <li><strong> Sponsor Bonus:5%</strong></li>
+                                <li><strong> Matching Bonus:5%</strong></li>
+                                <li><strong> Daily Cap: $100</strong></li>
+                                <li class="picolor" style="color:#fff;">
+
+
+
+                                    <button class="picolor" data-toggle="modal" data-target="#starterModal"
+                                            style="color:#fff;"><strong> Buy Now</strong></button>
+
+
+                                </li>
+
+                            </ul>
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="col-xl-4 col-lg-6 col-md-4 col-sm-6">
+
+                        <input type="text" name="package" value="silver" hidden>
+                        <input type="text" name="package_type" value="investment" hidden>
+
+
+                        <div class="price-body text-center" style="background-color:#fff;">
+                            <ul class="margin-bottom-30">
+                                <li class="picolor1" style="color:#fff;"><strong> Silver</strong></li>
+                                <li><strong> Investment: $20-$1000</strong></li>
+                                <li><strong> Daily Earn:1.00%</strong></li>
+                                <li><strong> Total days: 200</strong></li>
+                                <li><strong> Total Earn: 200%</strong></li>
+                                <li><strong> Sponsor Bonus:5%</strong></li>
+                                <li><strong> Matching Bonus:7%</strong></li>
+                                <li><strong>Daily Cap: $500</strong></li>
+                                <li class="picolor1" style="color:#fff;">
+
+
+
+
+                                    <button class="picolor1" style="color:#fff;"
+                                            data-toggle="modal" data-target="#silverModal" type="submit"><strong> Buy Now</strong></button>
+
+
+                                </li>
+
+                            </ul>
+                        </div>
+
+
+                    </div>
+
+                    <!--                    <div class="pricingTable-signup">-->
+
+                    <!--                                            </div>-->
+
+
+                    <div class="col-xl-4 col-lg-6 col-md-4 col-sm-6">
+
+                        <input type="text" name="package" value="gold" hidden>
+                        <input type="text" name="package_type" value="investment" hidden>
+
+
+                        <div class="price-body text-center" style="background-color:#fff;">
+                            <ul class="margin-bottom-30">
+                                <li class="picolor" style="color:#fff;"><strong> Gold</strong></li>
+                                <li><strong> Investment: $1001-$3000</strong></li>
+                                <li><strong> Daily Earn:1.00%</strong></li>
+                                <li><strong> Total days: 210</strong></li>
+                                <li><strong> Total Earn: 210%</strong></li>
+                                <li><strong> Sponsor Bonus:6%</strong></li>
+                                <li><strong> Matching Bonus:8%</strong></li>
+                                <li><strong> Daily Cap: $1000</strong></li>
+                                <li class="picolor" style="color:#fff;">
+
+
+                                    <button class="picolor" style="color:#fff;" type="submit" data-toggle="modal"
+                                            data-target="#goldModal"><strong> Buy Now</strong></button>
+
+
+
+                                </li>
+                            </ul>
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+                <div class="row" style="">
+                    <div class="col-xl-4 col-lg-6 col-md-4 col-sm-6">
+
+                        <input type="text" name="package" value="platinum_low" hidden>
+                        <input type="text" name="package_type" value="investment" hidden>
+
+                        <div class="price-body text-center " style="background-color:#fff;">
+                            <ul class=" ">
+                                <li class="picolor2" style="color:#fff;"><strong> Platinum</strong></li>
+                                <li><strong> Investment: $3001 - $10000</strong></li>
+                                <li><strong> Daily Earn:1.00 %</strong></li>
+                                <li><strong> Total days: 220</strong></li>
+                                <li><strong> Total Earn: 220%</strong></li>
+                                <li><strong> Sponsor Bonus:7%</strong></li>
+                                <li><strong> Matching Bonus:8%</strong></li>
+                                <li><strong> Daily Cap: $1500</strong></li>
+                                <li class="picolor2" style="color:#fff;">
+
+                                    <button class="picolor2" style="color:#fff;" type="submit" data-toggle="modal"
+                                            data-target="#platinumModal"><strong> Buy Now</strong></button>
+
+                                </li>
+
+                            </ul>
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="col-xl-4 col-lg-6 col-md-4 col-sm-6">
+
+                        <input type="text" name="package" value="diamond" hidden>
+                        <input type="text" name="package_type" value="investment" hidden>
+
+
+                        <div class="price-body text-center" style="background-color:#fff;">
+                            <ul class="margin-bottom-30">
+                                <li class="picolor" style="color:#fff;"><strong> Diamond</strong></li>
+                                <li><strong> Investment: $10001-$50000</strong></li>
+                                <li><strong> Daily Earn:1.00%</strong></li>
+                                <li><strong> Total days: 230</strong></li>
+                                <li><strong> Total Earn: 230%</strong></li>
+                                <li><strong> Sponsor Bonus:8%</strong></li>
+                                <li><strong> Matching Bonus:9%</strong></li>
+                                <li><strong>Daily Cap: $2000</strong></li>
+                                <li class="picolor" style="color:#fff;">
+
+
+                                    <button class="picolor" style="color:#fff;" type="submit" data-toggle="modal"
+                                            data-target="#diamondModal"><strong> Buy Now</strong></button>
+
+                                </li>
+
+                            </ul>
+                        </div>
+
+
+                    </div>
+
+                    <!--                    <div class="pricingTable-signup">-->
+
+                    <!--                                            </div>-->
+
+
+                    <div class="col-xl-4 col-lg-6 col-md-4 col-sm-6">
+
+                        <input type="text" name="package" value="platinum_high" hidden>
+                        <input type="text" name="package_type" value="investment" hidden>
+
+
+                        <div class="price-body text-center" style="background-color:#fff;">
+                            <ul class="margin-bottom-30">
+                                <li class="picolor2" style="color:#fff;"><strong> Titanium</strong></li>
+                                <li><strong> Investment: $50001-$100000</strong></li>
+                                <li><strong> Daily Earn:1.00%</strong></li>
+                                <li><strong> Total days: 240</strong></li>
+                                <li><strong> Total Earn: 240%</strong></li>
+                                <li><strong> Sponsor Bonus:9%</strong></li>
+                                <li><strong> Matching Bonus:10%</strong></li>
+                                <li><strong> Daily Cap: $10000</strong></li>
+                                <li class="picolor2" style="color:#fff;">
+
+                                    <button class="picolor2" style="color:#fff;" type="submit" data-toggle="modal"
+                                            data-target="#titaniumModal"><strong> Buy Now</strong></button>
+
+                                </li>
+
+                            </ul>
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="row" style="">
+                    <div class="col-xl-4 col-lg-6 col-md-4 col-sm-6">
+
+
+                        <div class="price-body text-center picolor" style="color:#fff;">
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <strong> Finance up is a trusted investment platform</strong>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <strong> Contact</strong>
+
+                            <br/>
+                            <strong>+1234567890</strong>
+                            <br/>
+                            <br/>
+
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="col-xl-4 col-lg-6 col-md-4 col-sm-6">
+
+                        <input type="text" name="package" value="vip" hidden>
+                        <input type="text" name="package_type" value="investment" hidden>
+
+
+                        <div class="price-body text-center" style="background-color:#fff;">
+                            <ul class="margin-bottom-30">
+                                <li class="picolor1" style="color:#fff;"><strong> VIP</strong></li>
+                                <li><strong> Investment: $100001-Unlimited</strong></li>
+                                <li><strong> Daily Earn:1.00%</strong></li>
+                                <li><strong> Total days: 250</strong></li>
+                                <li><strong> Total Earn: 250%</strong></li>
+                                <li><strong> Sponsor Bonus:9%</strong></li>
+                                <li><strong> Matching Bonus:10%</strong></li>
+                                <li><strong> Daily Cap: Unlimited</strong></li>
+                                <li class="picolor1" style="color:#fff;">
+
+                                    <button class="picolor1" style="color:#fff;" type="submit" data-toggle="modal"
+                                            data-target="#vipModal"><strong> Buy Now</strong></button>
+
+                                </li>
+
+                            </ul>
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="col-xl-4 col-lg-6 col-md-4 col-sm-6">
+
+
+                        <div class="price-body text-center picolor" style="color:#fff;">
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <strong> Finance up is a trusted investment platform</strong>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <strong>Contact</strong>
+
+                            <br/>
+                            <strong>+1234567890</strong>
+                            <br/>
+                            <br/>
+
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                    <!--- main content end -->
+                </div>
+                <div class="page-wrapper">
+                    <!-- Page-header start -->
+                    <div class="">
+                        <div class="row ">
+                            <div class="col-md-12">
+                                <div class="">
+                                    <div class="" style="margin-bottom:30px;">
+                                        <center><h2> Our Partnership Plans</h2></center>
+                                        <center><span>Choose your package and invest to get maximum profit</span>
+                                        </center>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Page-header end -->
+
+                    <!-- Page body start -->
+                    <div class="page-body navbar-page">
+                        <div class="row">
+                            <div class="col-sm-12">
+
+                                <!-- Default Navbar card start -->
+                                <div class="row" style="">
+                                    <div class="col-xl-4 col-lg-6 col-md-4 col-sm-6">
+
+
+                                        <input type="text" name="package" value="basic" hidden>
+                                        <input type="text" name="package_type" value="partnership" hidden>
+                                        <div class="price-body text-center " style="background-color:#fff;">
+                                            <ul class=" ">
+                                                <li class="picolor1" style="color:#fff;"><strong> Basic</strong></li>
+                                                <li><strong> Investment: $2500</strong></li>
+                                                <li><strong> Daily Earn:1.00%</strong></li>
+                                                <li><strong> Total days: 310</strong></li>
+                                                <li><strong> Total Earn: 310%</strong></li>
+                                                <li><strong> Monthly Royality: 2%(Lifetime)</strong></li>
+                                                <li><strong> Sponsor Bonus:10%</strong></li>
+                                                <li><strong> Matching Bonus:8%</strong></li>
+                                                <li><strong> Daily Cap: $3000</strong></li>
+                                                <li class="picolor1" style="color:#fff;">
+                                                    {% if 'basic' in package_list %}
+                                                    <button class="picolor1" style="color:#fff;" type="submit" disabled>
+                                                        <strong style="color:#fff;"> Purchased</strong>
+                                                    </button>
+                                                    {% else %}
+                                                    <button class="picolor1" style="color:#fff;" type="submit"
+                                                            data-toggle="modal" data-target="#basicModal"><strong> Buy
+                                                        Now</strong></button>
+                                                    {% endif %}
+                                                </li>
+
+                                            </ul>
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="col-xl-4 col-lg-6 col-md-4 col-sm-6">
+
+
+                                        <input type="text" name="package" value="standard" hidden>
+                                        <input type="text" name="package_type" value="partnership" hidden>
+
+                                        <div class="price-body text-center" style="background-color:#fff;">
+                                            <ul class="margin-bottom-30">
+                                                <li class="picolor" style="color:#fff;"><strong> Standard</strong></li>
+                                                <li><strong> Investment: $5500</strong></li>
+                                                <li><strong> Daily Earn:1.00%</strong></li>
+                                                <li><strong> Total days: 310</strong></li>
+                                                <li><strong> Total Earn: 310%</strong></li>
+                                                <li><strong> Monthly Royality:3% (Lifetime)</strong></li>
+                                                <li><strong> Sponsor Bonus:10%</strong></li>
+                                                <li><strong> Matching Bonus:10%</strong></li>
+                                                <li><strong> Daily Cap: $5000</strong></li>
+                                                <li class="picolor" style="color:#fff;">
+                                                    {% if 'standard' in package_list %}
+                                                    <button class="picolor" style="color:#fff;" type="submit" disabled>
+                                                        <strong style="color:#fff;"> Purchased</strong>
+                                                    </button>
+                                                    {% else %}
+                                                    <button class="picolor" style="color:#fff;" type="submit"
+                                                            data-toggle="modal" data-target="#standardModal"><strong> Buy
+                                                        Now</strong></button>
+                                                    {% endif %}
+                                                </li>
+
+                                            </ul>
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="col-xl-4 col-lg-6 col-md-4 col-sm-6">
+
+
+                                        <input type="text" name="package" value="royal" hidden>
+                                        <input type="text" name="package_type" value="partnership" hidden>
+
+                                        <div class="price-body text-center" style="background-color:#fff;">
+                                            <ul class="margin-bottom-30">
+                                                <li class="picolor2" style="color:#fff;"><strong> Royal</strong></li>
+                                                <li><strong> Investment: $10500</strong></li>
+                                                <li><strong> Daily Earn:1.00%</strong></li>
+                                                <li><strong> Total days: 310</strong></li>
+                                                <li><strong> Total Earn: 310%</strong></li>
+                                                <li><strong> Monthly Royality: 5% (Lifetime)</strong></li>
+                                                <li><strong> Sponsor Bonus:12%</strong></li>
+                                                <li><strong> Matching Bonus:10%</strong></li>
+                                                <li><strong> Daily Cap: $10500</strong></li>
+                                                <li class="picolor2" style="color:#fff;">
+                                                    {% if 'royal' in package_list %}
+                                                    <button class="picolor2" style="color:#fff;" type="submit" disabled>
+                                                        <strong style="color:#fff;"> Purchased</strong>
+                                                    </button>
+                                                    {% else %}
+                                                    <button class="picolor2" style="color:#fff;" type="submit"
+                                                            data-toggle="modal" data-target="#royalModal"><strong> Buy
+                                                        Now</strong></button>
+                                                    {% endif %}
+                                                </li>
+
+                                            </ul>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+
+                                <!-- Default Navbar card end -->
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Page body end -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="starterModal" role="dialog" style="">
+    <div class="modal-dialog" style="">
+        <center>
+            <!-- Modal content-->
+            <div class="modal-content"
+                 style="margin-top:300px;margin-right:-95px;width: 60%;height:220px;background-color:#404e67;color:#fff;">
+
+
+                <div class="card-body d-flex justify-content-center">
+                    <div class="col-sm-12" style="max-width: max-content;">
+                        <form action="{% url 'plans' %}" method="POST">
+                            {% csrf_token %}
+                            <input type="text" name="package" value="starter" hidden>
+                            <input type="text" name="package_type" value="investment" hidden>
+                            <div class="input-group">
+
+
+                            </div>
+
+                            <br/>
+                            <h5>Select Amount and Proceed</h5>
+                            <center>$<input type="number" name='amount' placeholder="enter your amount"></center>
+                            <br/>
+
+
+                            <button type="submit" class="form-control" id="" style="font-size:15px;">Proceed to buy
+                            </button>
+                            <br/>
+
+                        </form>
+
+
+                    </div>
+                </div>
+
+
+            </div>
+        </center>
+
+    </div>
+</div>
+
+<div class="modal fade" id="silverModal" role="dialog" style="">
+    <div class="modal-dialog" style="">
+        <center>
+            <!-- Modal content-->
+            <div class="modal-content"
+                 style="margin-top:300px;margin-right:-95px;width: 60%;height:220px;background-color:#404e67;color:#fff;">
+
+
+                <div class="card-body d-flex justify-content-center">
+                    <div class="col-sm-12" style="max-width: max-content;">
+                        <form action="{% url 'plans' %}" method="POST">
+                            {% csrf_token %}
+                            <input type="text" name="package" value="silver" hidden>
+                            <input type="text" name="package_type" value="investment" hidden>
+                            <div class="input-group">
+
+
+                            </div>
+
+                            <br/>
+                            <h5>Select Amount and Proceed</h5>
+                            <center>$<input type="number" name='amount' placeholder="enter your amount"></center>
+                            <br/>
+
+
+                            <button type="submit" class="form-control" id="" style="font-size:15px;">Proceed to buy
+                            </button>
+                            <br/>
+
+                        </form>
+
+
+                    </div>
+                </div>
+
+
+            </div>
+        </center>
+
+    </div>
+</div>
+
+
+
+<div class="modal fade" id="goldModal" role="dialog" style="">
+    <div class="modal-dialog" style="">
+        <center>
+            <!-- Modal content-->
+            <div class="modal-content"
+                 style="margin-top:300px;margin-right:-95px;width: 60%;height:220px;background-color:#404e67;color:#fff;">
+
+
+                <div class="card-body d-flex justify-content-center">
+                    <div class="col-sm-12" style="max-width: max-content;">
+                        <form action="{% url 'plans' %}" method="POST">
+                            {% csrf_token %}
+                            <input type="text" name="package" value="gold" hidden>
+                            <input type="text" name="package_type" value="investment" hidden>
+                            <div class="input-group">
+
+
+                            </div>
+
+                            <br/>
+                            <h5>Select Amount and Proceed</h5>
+                            <center>$<input type="number" name='amount' placeholder="enter your amount"></center>
+                            <br/>
+
+
+                            <button type="submit" class="form-control" id="" style="font-size:15px;">Proceed to buy
+                            </button>
+                            <br/>
+
+                        </form>
+
+
+                    </div>
+                </div>
+
+
+            </div>
+        </center>
+
+    </div>
+</div>
+
+
+<div class="modal fade" id="paltinumModal" role="dialog" style="">
+    <div class="modal-dialog" style="">
+        <center>
+            <!-- Modal content-->
+            <div class="modal-content"
+                 style="margin-top:300px;margin-right:-95px;width: 60%;height:220px;background-color:#404e67;color:#fff;">
+
+
+                <div class="card-body d-flex justify-content-center">
+                    <div class="col-sm-12" style="max-width: max-content;">
+                        <form action="{% url 'plans' %}" method="POST">
+                            {% csrf_token %}
+                            <input type="text" name="package" value="platinum" hidden>
+                            <input type="text" name="package_type" value="investment" hidden>
+                            <div class="input-group">
+
+
+                            </div>
+
+                            <br/>
+                            <h5>Select Amount and Proceed</h5>
+                            <center>$<input type="number" name='amount' placeholder="enter your amount"></center>
+                            <br/>
+
+
+                            <button type="submit" class="form-control" id="" style="font-size:15px;">Proceed to buy
+                            </button>
+                            <br/>
+
+                        </form>
+
+
+                    </div>
+                </div>
+
+
+            </div>
+        </center>
+
+    </div>
+</div>
+
+
+<div class="modal fade" id="platinumModal" role="dialog" style="">
+    <div class="modal-dialog" style="">
+        <center>
+            <!-- Modal content-->
+            <div class="modal-content"
+                 style="margin-top:300px;margin-right:-95px;width: 60%;height:220px;background-color:#404e67;color:#fff;">
+
+
+                <div class="card-body d-flex justify-content-center">
+                    <div class="col-sm-12" style="max-width: max-content;">
+                        <form action="{% url 'plans' %}" method="POST">
+                            {% csrf_token %}
+                            <input type="text" name="package" value="platinum" hidden>
+                            <input type="text" name="package_type" value="investment" hidden>
+                            <div class="input-group">
+
+
+                            </div>
+
+                            <br/>
+                            <h5>Select Amount and Proceed</h5>
+                            <center>$<input type="number" name='amount' placeholder="enter your amount"></center>
+                            <br/>
+
+
+                            <button type="submit" class="form-control" id="" style="font-size:15px;">Proceed to buy
+                            </button>
+                            <br/>
+
+                        </form>
+
+
+                    </div>
+                </div>
+
+
+            </div>
+        </center>
+
+    </div>
+</div>
+
+
+
+
+<div class="modal fade" id="diamondModal" role="dialog" style="">
+    <div class="modal-dialog" style="">
+        <center>
+            <!-- Modal content-->
+            <div class="modal-content"
+                 style="margin-top:300px;margin-right:-95px;width: 60%;height:220px;background-color:#404e67;color:#fff;">
+
+
+                <div class="card-body d-flex justify-content-center">
+                    <div class="col-sm-12" style="max-width: max-content;">
+                        <form action="{% url 'plans' %}" method="POST">
+                            {% csrf_token %}
+                            <input type="text" name="package" value="diamond" hidden>
+                            <input type="text" name="package_type" value="investment" hidden>
+                            <div class="input-group">
+
+
+                            </div>
+
+                            <br/>
+                            <h5>Select Amount and Proceed</h5>
+                            <center>$<input type="number" name='amount' placeholder="enter your amount"></center>
+                            <br/>
+
+
+                            <button type="submit" class="form-control" id="" style="font-size:15px;">Proceed to buy
+                            </button>
+                            <br/>
+
+                        </form>
+
+
+                    </div>
+                </div>
+
+
+            </div>
+        </center>
+
+    </div>
+</div>
+
+
+<div class="modal fade" id="titaniumModal" role="dialog" style="">
+    <div class="modal-dialog" style="">
+        <center>
+            <!-- Modal content-->
+            <div class="modal-content"
+                 style="margin-top:300px;margin-right:-95px;width: 60%;height:220px;background-color:#404e67;color:#fff;">
+
+
+                <div class="card-body d-flex justify-content-center">
+                    <div class="col-sm-12" style="max-width: max-content;">
+                        <form action="{% url 'plans' %}" method="POST">
+                            {% csrf_token %}
+                            <input type="text" name="package" value="titanium" hidden>
+                            <input type="text" name="package_type" value="investment" hidden>
+                            <div class="input-group">
+
+
+                            </div>
+
+                            <br/>
+                            <h5>Select Amount and Proceed</h5>
+                            <center>$<input type="number" name='amount' placeholder="enter your amount"></center>
+                            <br/>
+
+
+                            <button type="submit" class="form-control" id="" style="font-size:15px;">Proceed to buy
+                            </button>
+                            <br/>
+
+                        </form>
+
+
+                    </div>
+                </div>
+
+
+            </div>
+        </center>
+
+    </div>
+</div>
+
+
+
+<div class="modal fade" id="vipModal" role="dialog" style="">
+    <div class="modal-dialog" style="">
+        <center>
+            <!-- Modal content-->
+            <div class="modal-content"
+                 style="margin-top:300px;margin-right:-95px;width: 60%;height:220px;background-color:#404e67;color:#fff;">
+
+
+                <div class="card-body d-flex justify-content-center">
+                    <div class="col-sm-12" style="max-width: max-content;">
+                        <form action="{% url 'plans' %}" method="POST">
+                            {% csrf_token %}
+                            <input type="text" name="package" value="vip" hidden>
+                            <input type="text" name="package_type" value="investment" hidden>
+                            <div class="input-group">
+
+
+                            </div>
+
+                            <br/>
+                            <h5>Select Amount and Proceed</h5>
+                            <center>$<input type="number" name='amount' placeholder="enter your amount"></center>
+                            <br/>
+
+
+                            <button type="submit" class="form-control" id="" style="font-size:15px;">Proceed to buy
+                            </button>
+                            <br/>
+
+                        </form>
+
+
+                    </div>
+                </div>
+
+
+            </div>
+        </center>
+
+    </div>
+</div>
+
+
+<div class="modal fade" id="basicModal" role="dialog" style="">
+    <div class="modal-dialog" style="">
+        <center>
+            <!-- Modal content-->
+            <div class="modal-content"
+                 style="margin-top:300px;margin-right:-95px;width: 60%;height:220px;background-color:#404e67;color:#fff;">
+
+
+                <div class="card-body d-flex justify-content-center">
+                    <div class="col-sm-12" style="max-width: max-content;">
+                        <form action="{% url 'plans' %}" method="POST">
+                            {% csrf_token %}
+                            <input type="text" name="package" value="basic" hidden>
+                            <input type="text" name="package_type" value="partnership" hidden>
+                            <div class="input-group">
+
+
+                            </div>
+
+                            <br/>
+                            <h5>Select Amount and Proceed</h5>
+                            <center>$<input type="number" name='amount' placeholder="enter your amount"></center>
+                            <br/>
+
+
+                            <button type="submit" class="form-control" id="" style="font-size:15px;">Proceed to buy
+                            </button>
+                            <br/>
+
+                        </form>
+
+
+                    </div>
+                </div>
+
+
+            </div>
+        </center>
+
+    </div>
+</div>
+
+
+
+<div class="modal fade" id="standardModal" role="dialog" style="">
+    <div class="modal-dialog" style="">
+        <center>
+            <!-- Modal content-->
+            <div class="modal-content"
+                 style="margin-top:300px;margin-right:-95px;width: 60%;height:220px;background-color:#404e67;color:#fff;">
+
+
+                <div class="card-body d-flex justify-content-center">
+                    <div class="col-sm-12" style="max-width: max-content;">
+                        <form action="{% url 'plans' %}" method="POST">
+                            {% csrf_token %}
+                            <input type="text" name="package" value="standard" hidden>
+                            <input type="text" name="package_type" value="partnership" hidden>
+                            <div class="input-group">
+
+
+                            </div>
+
+                            <br/>
+                            <h5>Select Amount and Proceed</h5>
+                            <center>$<input type="number" name='amount' placeholder="enter your amount"></center>
+                            <br/>
+
+
+                            <button type="submit" class="form-control" id="" style="font-size:15px;">Proceed to buy
+                            </button>
+                            <br/>
+
+                        </form>
+
+
+                    </div>
+                </div>
+
+
+            </div>
+        </center>
+
+    </div>
+</div>
+
+
+
+<div class="modal fade" id="royalModal" role="dialog" style="">
+    <div class="modal-dialog" style="">
+        <center>
+            <!-- Modal content-->
+            <div class="modal-content"
+                 style="margin-top:300px;margin-right:-95px;width: 60%;height:220px;background-color:#404e67;color:#fff;">
+
+
+                <div class="card-body d-flex justify-content-center">
+                    <div class="col-sm-12" style="max-width: max-content;">
+                        <form action="{% url 'plans' %}" method="POST">
+                            {% csrf_token %}
+                            <input type="text" name="package" value="royal" hidden>
+                            <input type="text" name="package_type" value="partnership" hidden>
+                            <div class="input-group">
+
+
+                            </div>
+
+                            <br/>
+                            <h5>Select Amount and Proceed</h5>
+                            <center>$<input type="number" name='amount' placeholder="enter your amount"></center>
+                            <br/>
+
+
+                            <button type="submit" class="form-control" id="" style="font-size:15px;">Proceed to buy
+                            </button>
+                            <br/>
+
+                        </form>
+
+
+                    </div>
+                </div>
+
+
+            </div>
+        </center>
+
+    </div>
+</div>
+
+
+{% endblock %}
+
+
+

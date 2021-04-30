@@ -1,0 +1,233 @@
+body {
+    background-color: #F7F7F7;
+    color: #495463;
+}
+
+.page-header {
+    margin: 50px 0;
+}
+
+
+
+.page-content img{
+width: 100%;}
+
+
+.page-header .page-title {
+    color: #7857FE;
+    font-size: 40px;
+    font-weight: 300;
+    margin-bottom: 10px;
+}
+
+
+.logo-image img {
+    width: 110px!important;
+}
+
+
+
+.page-header .page-subTitle {
+    color: #495463;
+}
+
+.step-head,
+.step-content {
+    padding: 25px 30px;
+    border-bottom: 1px solid #e0e8f3;
+}
+
+.step-content .note {
+    margin-bottom: 20px;
+}
+
+.step-content em,
+.step-content p {
+    font-size: 14px;
+    color: #758698;
+}
+
+.step-content em {
+    transform: translateY(5px);
+    margin-right: 10px;
+}
+
+.step-head .step-number {
+    min-width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 2px solid #b1becc;
+    font-size: 20px;
+    margin-right: 18px;
+    color: #758698;
+    text-align: center;
+    line-height: 45px;
+}
+
+.page-content h4 {
+    color: #7857FE!important;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.address {
+    margin: 2rem 0;
+}
+
+.step-head-text p {
+    font-size: 14px;
+}
+
+
+/* Input Design */
+
+.form-group {
+    margin-bottom: 2rem;
+}
+
+.form-control {
+    border-radius: 4px;
+    border: 1px solid #d2dde9;
+    padding: 10px 15px;
+    font-size: 16px;
+    color: rgba(73, 84, 99, 0.7);
+    transition: all .4s;
+}
+
+.form-control:focus {
+    box-shadow: none;
+    outline: none;
+    border-color: #b1becc;
+    color: rgba(73, 84, 99, 0.7);
+}
+
+#dob,
+#country {
+    padding: 0 15px;
+}
+
+
+/* Document Upload */
+
+.form-step .nav {
+    margin-bottom: 30px;
+}
+
+.form-step .nav-item a {
+    padding: 5px 20px;
+    color: inherit;
+}
+
+.form-step .nav-item a.active {
+    color: #2c80ff;
+}
+
+.form-step .nav-item a img.active {
+    display: none;
+}
+
+.form-step .nav-item a.active img {
+    display: none;
+}
+
+.form-step .nav-item a.active img.active {
+    display: block;
+}
+
+.nav-tabs-icon {
+    width: 44px;
+    margin-right: 10px;
+}
+
+.tab-content h5 {
+    font-size: 16px;
+    color: #253992!important;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.tab-content h5.upload {
+    font-size: 17px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.tab-content li {
+    margin: 10px 0;
+    color: #495463;
+    font-size: 14px;
+    padding-left: 5px;
+}
+
+.tab-content li i {
+    margin-right: 5px;
+}
+
+.tab-content li i::before {
+    color: #495463;
+}
+
+.tab-content .list-check {
+    margin-bottom: 30px;
+}
+
+.final-step .form-group {
+    margin-bottom: 1rem;
+}
+
+.final-step label {
+    font-size: 14px;
+    line-height: 24px;
+}
+
+.final-step input[type="checkbox"] {
+    margin-right: 10px;
+    display: inline-block;
+}
+
+.final-step a[type="submit"] {
+    padding: 10px 25px;
+    text-decoration: none;
+    transition: 0.5s all ease;
+    margin-top: 20px;
+    display: inline-block;
+    border-radius: 4px;
+}
+
+.upload-zone {
+    border: 1px dashed #b1becc;
+    background: #e0e8f3;
+    border-radius: 4px;
+    padding: 50px 0 20px;
+    text-align: center;
+}
+
+.upload-zone span {
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.upload-zone button {
+    padding: 5px 30px;
+    border-radius: 4px;
+    border: none;
+}
+
+@media only screen and (max-width: 767px) {
+    .nav-tabs {
+        flex-direction: column;
+        border-bottom: 0;
+    }
+    .nav-tabs li {
+        margin: 20px 0;
+    }
+    .nav-tabs .nav-link.active {
+        border-color: #2c80ff;
+    }
+}
+
+@media only screen and (max-width: 575px) {
+    .page-header .page-title {
+        font-size: 30px;
+    }
+}

@@ -1,0 +1,287 @@
+{% extends 'dashboard/sidebar.html' %}
+
+{% block content %}
+
+                                <!--- main content --->
+
+                                <div class="page-wrapper">
+                                    <!-- Page-header start -->
+                                    <div class="page-header">
+                                        <div class="row align-items-end">
+                                            <div class="col-lg-8">
+                                                <div class="page-header-title d-flex text-center">
+                                                    <div class="d-inline text-center">
+                                                        <h4 class="text-center">Payment information Setup</h4>
+                                                        <span></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Page-header end -->
+
+                                    <!-- Page body start -->
+                                    <div class="page-body navbar-page">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <!-- Default Navbar card start -->
+                                                <div class="card">
+                                                    <div class="card-block">
+                                                        <div class="row row d-flex justify-content-center">
+                                                            <div class="col-sm-9">
+                                                                {% if messages %}
+                                                                {% for message in messages %}
+                                                                <div class="alert alert-success">{{message}}</div>
+                                                                {% endfor %}
+                                                                {% endif %}
+                                                                <div class="card">
+                                                                    <!-- Nav tabs -->
+                                                                    <ul class="nav nav-tabs  tabs" role="tablist">
+                                                                        <li class="nav-item">
+                                                                            <a class="nav-link active" data-toggle="tab" href="#prnr" role="tab" aria-expanded="true">Parfect Money</a>
+                                                                        </li>
+                                                                        <li class="nav-item">
+                                                                            <a class="nav-link" data-toggle="tab" href="#btnr" role="tab" aria-expanded="false">Bank Transfer</a>
+                                                                        </li>
+                                                                        <li class="nav-item">
+                                                                            <a class="nav-link" data-toggle="tab" href="#atnr" role="tab" aria-expanded="false">Agent Transfer</a>
+                                                                        </li>
+                                                                        <li class="nav-item">
+                                                                            <a class="nav-link" data-toggle="tab" href="#bkash" role="tab" aria-expanded="false">Bkash</a>
+                                                                        </li>
+                                                                        <li class="nav-item">
+                                                                            <a class="nav-link" data-toggle="tab" href="#rocket" role="tab" aria-expanded="false">Rocket</a>
+                                                                        </li>
+                                                                        <li class="nav-item">
+                                                                            <a class="nav-link" data-toggle="tab" href="#nagad" role="tab" aria-expanded="false">Nagad</a>
+                                                                        </li>
+                                                                    </ul>
+                                                                    <!-- Tab panes -->
+                                                                    <div class="tab-content tabs card-block">
+                                                                        <div class="tab-pane active" id="prnr" role="tabpanel" aria-expanded="true">
+                                                                            <div class="card-block">
+                                                                                <form method="post" action="{% url 'pm_add' %}">
+                                                                                    {% csrf_token %}
+                                                                                    <div class="form-group row">
+                                                                                        <label class="col-sm-2 col-form-label dtm">Username<font color="red">*</font></label>
+                                                                                        <div class="col-sm-10 dtnr">
+                                                                                            <input type="text" class="form-control" placeholder="U0123456 "
+                                                                                            name="pm_account"
+                                                                                            value="{{pm_info.pm_account}}" 
+
+
+                                                                                            />
+                                                                                            <br>
+                                                                                            <button class="btn btn-primary">Add account</button>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </form>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="tab-pane" id="btnr" role="tabpanel" aria-expanded="false">
+                                                                            <div class="card-block">
+                                                                                <form method="post" action="{% url 'bank_info_add' %}">
+                                                                                    {% csrf_token %}
+                                                                                    <div class="form-group row">
+                                                                                        <label class="col-sm-2 col-form-label dtm">Account Number<font color="red">*</font></label>
+                                                                                        <div class="col-sm-10 dtnr">
+                                                                                            <input type="text" class="form-control"
+                                                                                            name="bank_account_number" 
+
+                                                                                            placeholder="Account Number "
+
+                                                                                            value="{{bank_info.account_number}}" 
+
+                                                                                            required>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="form-group row">
+                                                                                        <label class="col-sm-2 col-form-label dtm">Account Holder Name<font color="red">*</font></label>
+                                                                                        <div class="col-sm-10 dtnr">
+                                                                                            <input type="text" class="form-control" placeholder="Account Holder Name" name="account_holder_name"
+                                                                                            value="{{bank_info.account_holder_name}}" 
+
+
+                                                                                            required>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="form-group row">
+                                                                                        <label class="col-sm-2 col-form-label dtm">Bank Name<font color="red">*</font></label>
+                                                                                        <div class="col-sm-10 dtnr">
+                                                                                            <input type="text" class="form-control" placeholder="Bank Name"
+                                                                                            name="bank_name"
+                                                                                            value="{{bank_info.bank_name}}" 
+
+
+                                                                                            required>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="form-group row">
+                                                                                        <label class="col-sm-2 col-form-label dtm">Branch Name<font color="red">*</font></label>
+                                                                                        <div class="col-sm-10 dtnr">
+                                                                                            <input type="text" class="form-control" placeholder="Branch Name"
+                                                                                            name="branch_name" 
+                                                                                            value="{{bank_info.branch_name}}" 
+
+                                                                                            required>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="form-group row">
+                                                                                        <label class="col-sm-2 col-form-label dtm">IFSC Code<font color="red">*</font></label>
+                                                                                        <div class="col-sm-10 dtnr">
+                                                                                            <input type="text" class="form-control" placeholder="IFSC Code" name="ifsccode"
+                                                                                            value="{{bank_info.ifsc_code}}">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="form-group row">
+                                                                                        <label class="col-sm-2 col-form-label dtm">Description</label>
+                                                                                        <div class="col-sm-10 dtnr">
+                                                                                            <textarea type="text" class="form-control" name="description"
+                                                                            
+                                                                                            >{{bank_info.description}}</textarea>
+                                                                                            <br>
+                                                                                            <button class="btn btn-primary">Add account</button>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </form>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="tab-pane" id="atnr" role="tabpanel" aria-expanded="false">
+                                                                            <div class="card-block">
+                                                                                <form method="post" action="{% url 'agent_account_add' %}">{% csrf_token %}
+                                                                                    <div class="form-group row">
+                                                                                        <label class="col-sm-2 col-form-label dtm">Agent Email<font color="red">*</font></label>
+                                                                                        <div class="col-sm-10 dtnr">
+                                                                                            <input type="text" class="form-control" 
+                                                                                            name="agent_email" 
+                                                                                            placeholder="Email "
+                                                                                            value="{{agent_info.agent_email}}">
+                                                                                            <br>
+                                                                                            <button class="btn btn-primary">Submit</button>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </form>
+                                                                            </div>
+                                                                        </div>
+
+
+                                                                        <!-- bkash adding form here -->
+                                                                            <div class="tab-pane" id="bkash" role="tabpanel" aria-expanded="true">
+                                                                            <div class="card-block">
+                                                                                <form method="post" action="{% url 'bkash_add' %}">
+                                                                                    {% csrf_token %}
+                                                                                    <div class="form-group row">
+                                                                                        <label class="col-sm-2 col-form-label dtm">Bkash number<font color="red">*</font></label>
+                                                                                        <div class="col-sm-10 dtnr">
+                                                                                            <input type="text" class="form-control" placeholder="+8801xxxxxxxx"
+                                                                                            name="bkash_account"
+                                                                                            value="{{bkash_info.bkash_number}}" 
+
+
+                                                                                            />
+                                                                                            <br>
+                                                                                            <button class="btn btn-primary">Add account</button>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </form>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <!-- end of bkash adding form -->
+
+                                                                        <!-- rocket nunber adding from here -->
+
+
+                                                                            <div class="tab-pane" id="rocket" role="tabpanel" aria-expanded="true">
+                                                                            <div class="card-block">
+                                                                                <form method="post" action="{% url 'rocket_add' %}">
+                                                                                    {% csrf_token %}
+                                                                                    <div class="form-group row">
+                                                                                        <label class="col-sm-2 col-form-label dtm">Rocket number<font color="red">*</font></label>
+                                                                                        <div class="col-sm-10 dtnr">
+                                                                                            <input type="text" class="form-control" placeholder="+8801xxxxxxxx"
+                                                                                            name="rocket_account"
+                                                                                            value="{{rocket_info.rocket_number}}" 
+
+
+                                                                                            />
+                                                                                            <br>
+                                                                                            <button class="btn btn-primary">Add account</button>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </form>
+                                                                            </div>
+                                                                        </div>
+
+
+                                                                     
+
+                                                                                                                                    
+
+
+                                                                        <!--rocket number adding done here -->
+
+
+                                                                <!-- nagad number adding system starts here -->
+                                                                 <div class="tab-pane" id="nagad" role="tabpanel" aria-expanded="true">
+                                                                            <div class="card-block">
+                                                                                <form method="post" action="{% url 'nagad_add' %}">
+                                                                                    {% csrf_token %}
+                                                                                    <div class="form-group row">
+                                                                                        <label class="col-sm-2 col-form-label dtm">Nagad number<font color="red">*</font></label>
+                                                                                        <div class="col-sm-10 dtnr">
+                                                                                            <input type="text" class="form-control" placeholder="+8801xxxxxxxx"
+                                                                                            name="nagad_account"
+                                                                                            value="{{nagad_info.nagad_number}}" 
+
+
+                                                                                            />
+                                                                                            <br>
+                                                                                            <button class="btn btn-primary">Add account</button>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </form>
+                                                                            </div>
+                                                                        </div>
+
+
+                                                                <!-- nagad number adding ends here -->
+
+
+
+
+
+
+
+                                                                    </div>
+                                                                    <style>
+                                                                        @media only screen and (min-width: 600px) {
+                                                                            .dtm {
+                                                                                text-align: right !important;
+                                                                                max-width: 25% !important;
+                                                                                flex: 0 0 25% !important;
+                                                                            }
+
+                                                                            .dtnr {
+                                                                                max-width: 75% !important;
+                                                                            }
+                                                                        }
+
+                                                                    </style>
+                                                                </div>
+                                                            </div>
+
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Default Navbar card end -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Page body end -->
+                                </div>
+
+                                <!--- main content end -->
+
+                                {% endblock content %}

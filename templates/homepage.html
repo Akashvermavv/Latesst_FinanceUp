@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinanceUp Trade</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="{% static 'src/img/fuf.png' %}" type="image/gif" sizes="16x16">
+
+    <!-- External Style Sheet -->
+    <link rel="stylesheet" href="{% static 'src/css/font-awesome.css' %}">
+    <link rel="stylesheet" href="{% static 'src/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'src/css/owl.carousel.min.css' %}">
+
+    <!-- Main Style Sheet -->
+    <link rel="stylesheet" href="{% static 'src/css/style.css' %}">
+
+</head>
+<style>
+
+ul {
+            list-style-type: none;
+        }
+        
+        .list-half {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        .list-half .list-half-item {
+            flex: 0 0 50%;
+            max-width: 50%;
+        }
+        
+        .list-half .list-half-item i {
+            color: red;
+            margin-right: 10px;
+            transition: 0.5s all ease;
+        }
+        
+        .list-half .list-half-item span {
+            font-size: 16px;
+            text-transform: capitalize;
+            font-weight: 600;
+        }
+        
+        .list-half .list-half-item:hover {
+            cursor: pointer;
+        }
+        
+        .list-half .list-half-item:hover i {
+            margin-right: 5px;
+            margin-left: 5px;
+        }
+        
+        /* Number counting Css */
+
+.counting {
+    background: url("{% static 'src/img/happy.jpg' %}");
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    position: relative;
+    z-index: 1;
+}
+
+.counting::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(178, 36, 239, 0.7);
+    z-index: -1;
+}
+
+.counting .counting-item {
+    margin: 2rem 0;
+}
+
+.counting .counting-item .counting-inner {
+    padding: 3rem;
+}
+
+.counting .counting-item .counting-inner .icon {
+    width: 8rem;
+    height: 8rem;
+    border-radius: 50%;
+    border: .2rem solid #ffffff;
+    text-align: center;
+    margin: 2rem auto;
+}
+
+.counting .counting-item .counting-inner .icon i {
+    font-size: 4rem;
+    line-height: 8rem;
+    color: #ffffff;
+}
+
+.counting .counting-item .counting-inner h4.number {
+    font-size: 4rem;
+    font-weight: 500;
+    color: var(--color-0);
+}
+
+.counting .counting-item .counting-inner p {
+    color: var(--color-0);
+}
+</style>
+<body>
+    <!-- Preloader Start -->
+    <div class="preloader">
+        <span></span>
+    </div>
+    <!-- Preloader End -->
+
+    <!-- Header Start -->
+    <header class="fixed-top">
+        <div class="header-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 d-flex">
+                        <div class="header-social-link">
+                            <ul class="d-flex justify-content-start">
+                               <li><a href="https://www.facebook.com/financeup.trade"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="https://www.youtube.com/channel/UC1a9ND8QpWMZrIsIutoJMMA"><i class="fab fa-youtube"></i></a></li>
+                        <li><a href="http://www.linkedin.com/company/financeup-trade"><i class="fab fa-linkedin-in"></i></a></li>
+                        <li><a href="https://twitter.com/financeupT"><i class="fab fa-twitter"></i></a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="reg-login ml-auto d-flex">
+
+                            {% if request.user.is_authenticated %}
+                            <a href="{% url 'logout' %}" class="nav-link"><button class="btn-0 btn-login" type="button">Logout</button></a>
+                            <a href="{% url 'dashboard' %}" class="nav-link"><button class="btn-0 btn-register" type="button">Dashboard</button>
+                            </a>
+                            {% else %}
+
+                           <a href="{% url 'login' %}" class="nav-link">
+                               <button class="btn-0 btn-login" type="button">Login</button>
+                           </a>
+                            <a href="{% url 'register' %}" class="nav-link">
+                                <button class="btn-0 btn-register" type="button">Register</button>
+                            </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Navbar Start -->
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <!-- Navbar Brand -->
+                <a href="{% url 'home' %}" class="navbar-brand">
+                    <img src="{% static 'src/img/financenewlogo.png' %}" alt="FinanceUp Trade">
+                </a>
+
+                <!-- Toggler/collapsible Button -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <!-- Main Nav -->
+                <div id="collapsibleNavbar" class="collapse navbar-collapse">
+                    <ul class="navbar-nav ml-auto">
+                         <li class="nav-item"><a href="{% url 'home' %}" class="nav-link active">Home</a></li>
+                        <li class="nav-item"><a href="{% url 'about' %}" class="nav-link">About</a></li>
+                        <li class="nav-item"><a href="{% url 'investment' %}" class="nav-link">Invest Plans</a></li>
+                       <li class="nav-item"><a href="{% static 'dashboard-static/finance_up.pdf' %}" class="nav-link" target="blank">Business</a></li>
+                        <li class="nav-item"><a href="{% url 'terms' %}" class="nav-link">policy</a></li>
+                        <li class="nav-item"><a href="{% url 'testimonial' %}" class="nav-link">Success Story</a></li>
+                        <li class="nav-item"><a href="{% url 'contact_page' %}" class="nav-link">Support</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Navbar End -->
+    </header>
+    <!-- Header End -->
+
+    <!-- Home Section Start -->
+    <section class="home">
+        <div class="row">
+            <div class="owl-carousel home-carousel">
+                <div class="home-carousel-item home-item-1">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-6 banner-offset">
+                                <div class="banner-text">
+                                  <strong>Easy Trading</strong>
+                                    <h1>Get the benefits from <span style="color:#02C6C3;">Shipping, Crypto Trading, Oil Business, Trading Robot, and Forex Trading</span></h1>
+                                    <p>Trade with the lowest spreads in the industry</p>
+                                    <div class="home-btn">
+                                         <a href="{% url 'register' %}" class="nav-link">
+                                        <button  type="button" class="btn btn-1">Register Now</button>
+                                         </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="home-carousel-item home-item-2">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-6 banner-offset">
+                                <div class="banner-text">
+                                    <strong>Success through People</strong>
+                                    <h1>Welcome to the <span>FinanceUP, Have faith in us, get rich with us.</span></h1>
+                                    <p>Service 24/7</p>
+                                    <div class="home-btn">
+                                         <a href="{% url 'register' %}" class="nav-link">
+                                        <button  type="button" class="btn btn-1">Register Now</button>
+                                         </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="home-carousel-item home-item-3">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-6 banner-offset">
+                                <div class="banner-text">
+                                    <strong>100% Secured</strong>
+                                    <h1>High Level <span> Trade Crypto Currencies</span></h1>
+                                    <p>trusted profits with FinanceUp</p>
+                                    <div class="home-btn">
+                                         <a href="{% url 'register' %}" class="nav-link">
+                                        <button  type="button" class="btn btn-1">Register Now</button>
+                                         </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="effect">
+                <div class="effect-1">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div class="effect-2"></div>
+                <div class="effect-3"></div>
+            </div>
+        </div>
+    </section>
+    <!-- Home Section End -->
+
+    <!-- Trading view widget start -->
+    <div class="widget">
+        <div class="row">
+            <div class="tradingview-widget-container">
+                <div class="tradingview-widget-container__widget"></div>
+                <div class="tradingview-widget-copyright">
+                    <a href="https://www.tradingview.com" rel="noopener" target="_blank"><span class="blue-text">Ticker Tape</span></a> by TradingView</div>
+                <script src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+                    { 
+                        "symbols": [  {   
+                            "proName": "FOREXCOM:SPXUSD",
+                               "title": "S&P 500"  
+                        },    {   
+                            "proName": "FOREXCOM:NSXUSD",
+                               "title": "Nasdaq 100"  
+                        },    {   
+                            "proName": "FX_IDC:EURUSD",
+                               "title": "EUR/USD"  
+                        },    {   
+                            "proName": "BITSTAMP:BTCUSD",
+                               "title": "BTC/USD"  
+                        },    {   
+                            "proName": "BITSTAMP:ETHUSD",
+                               "title": "ETH/USD"  
+                        } ],
+                         "showSymbolLogo": true,
+                         "colorTheme": "light",
+                         "isTransparent": false,
+                         "displayMode": "adaptive",
+                         "locale": "en"
+                    }
+                </script>
+            </div>
+            <!-- TradingView Widget END -->
+        </div>
+    </div>
+    <!-- Trading view widget End -->
+
+    <!-- Client Logo Section Start -->
+    <section class="client-logos section-padding">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-lg-12">
+                    <div class="owl-carousel logo-carousel">
+                        <div class="logo-item">
+                            <div class="logo-item-inner">
+                                <img src="{% static 'src/img/binance.png' %}" alt="Binance Logo">
+                            </div>
+                        </div>
+                        <div class="logo-item">
+                            <div class="logo-item-inner">
+                                <img src="{% static 'src/img/bitfinex.png' %}" alt="Bitfinex Logo">
+                            </div>
+                        </div>
+                        <div class="logo-item">
+                            <div class="logo-item-inner">
+                                <img src="{% static 'src/img/bitmex.png' %}" alt="Bitmex Logo">
+                            </div>
+                        </div>
+                        <div class="logo-item">
+                            <div class="logo-item-inner">
+                                <img src="{% static 'src/img/bitstamp.png' %}" alt="Bitstamp Logo">
+                            </div>
+                        </div>
+                        <div class="logo-item">
+                            <div class="logo-item-inner">
+                                <img src="{% static 'src/img/bittrex.png' %}" alt="Bittrex Logo">
+                            </div>
+                        </div>
+                        <div class="logo-item">
+                            <div class="logo-item-inner">
+                                <img src="{% static 'src/img/kraken.png' %}" alt="kraken Logo">
+                            </div>
+                        </div>
+                        <div class="logo-item">
+                            <div class="logo-item-inner">
+                                <img src="{% static 'src/img/poloniex.png' %}" alt="Poloniex Logo">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Client Logo Section End -->
+<section class="counting section-padding">
+        <div class="container">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-3 col-md-6">
+                    <div class="counting-item">
+                        <div class="counting-inner">
+                            <div class="icon"><i class="fas fa-calendar-alt"></i></div>
+                            <h4 class="number count-num">9981</h4>
+                            <p>Register User</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="counting-item">
+                        <div class="counting-inner">
+                            <div class="icon"><i class="fas fa-users"></i></div>
+                            <h4 class="number count-num">675916</h4>
+                            <p>Total Deposit</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="counting-item">
+                        <div class="counting-inner">
+                            <div class="icon"><i class="fas fa-money-check"></i></div>
+                            <h4 class="number count-num">22</h4>
+                            <p>Days Online</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="counting-item">
+                        <div class="counting-inner">
+                            <div class="icon"><i class="fas fa-money-bill-alt"></i></div>
+                            <h4 class="number count-num">85670</h4>
+                            <p>Total Withdraw</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Why Choose Section Start -->
+    <section class="why-choose section-padding">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="section-title">
+                        <h2>Why Choose <span> Finance up Trade </span></h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-7">
+                    <div class="video-gallery">
+                        <iframe src="https://www.youtube.com/embed/wBNMMM0nZR0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="about-text">
+                        <p>It's our regard for the Vast Venture, planning of courses of events and sharp project management that makes us stand apart from the rest. We are inventive, while watching out for the schedule and your financial limit. You need
+                            outcome. We have discovered that the most ideal approach to get them is with advance research – of your Needs. Finance up Trade was as far as possible Live on the Web Portal with a Plan of progress after we completely comprehended
+                            our Clients. We bring our assorted foundation of trading, branding, advertising, research and tactical planning to work for our Clients base, augment to get everyone to triumph. Indeed, we have won honors for our work. Be that
+                            as it may, we don't make ideas that are not realistic – they actually fit into the gauges of your industry.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Why Choose Section End -->
+
+    <!-- Products and Future Section Start -->
+    <section class="product-future section-padding">
+        <div class="container">
+            <div class="row  justify-content-center">
+                <div class="col-lg-8">
+                    <div class="section-title">
+                        <h2>Our <span>Products</span> & <span>Future Plans</span></h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="product-content">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="product-item">
+                                    <div class="product-item-img">
+                                        <img src="{% static 'src/img/product1.png' %}" alt="Shipping">
+                                    </div>
+                                    <h3 class="item-1">Shipping</h3>
+                                    <p>It's classic trading. Traders open and close transactions within one day. For example they buy one currency and sell it after a few hours when it's price is higher
+</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="product-item">
+                                    <div class="product-item-img">
+                                        <img src="{% static 'src/img/product3.png' %}" alt="Shipping">
+                                    </div>
+                                    <h3 class="item-2">Oil Business</h3>
+                                    <p>Represents the shortest-term trading style even shorter than day trading. Traders quickly enter and exit the market in order to skim many small profits off of a large number of trades throughout the trading day.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 vision-img">
+                    <div class="img-center">
+                        <img src="{% static 'src/img/vision.png' %}" alt="Vision">
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="product-content right">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="product-item">
+                                    <div class="product-item-img">
+                                        <img src="{% static 'src/img/product2.png' %}" alt="Shipping">
+                                    </div>
+                                    <h3 class="item-4">Crypto Trading</h3>
+                                    <p>Crypto trading is the act of speculating on crypto price movements via a CFD trading account, or buying and selling the underlying coins via an exchange.</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="product-item">
+                                    <div class="product-item-img">
+                                        <img src="{% static 'src/img/product4.png' %}" alt="Shipping">
+                                    </div>
+                                    <h3 class="item-5">Trading Robot</h3>
+                                    <p>A forex trading robot is a computer program based on a set of forex trading signals that helps determine whether to buy or sell a currency pair at a given point in time. Forex​ robots are designed to remove the psychological element of trading, which can be detrimental.
+</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-3 col-md-6">
+                    <div class="product-item product-item-center">
+                        <div class="product-item-img">
+                            <img src="{% static 'src/img/product5.png' %}" alt="Shipping">
+                        </div>
+                        <h3 class="item-3">Forex Trading</h3>
+                        <p>The foreign exchange (also known as FX or forex) market is a global marketplace for exchanging national currencies against one another. Because of the worldwide reach of trade, commerce, and finance, forex markets tend to be the largest and most liquid asset markets in the world.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Products and Future Section End -->
+
+    <!-- Upcoming Products Section Start -->
+    <section class="upcoming-products section-padding">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="section-title">
+                        <h2>Our <span>upcoming products</span></h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="up-product-item">
+                        <div class="up-product-item-inner">
+                            <div class="img-box">
+                                <img src="{% static 'src/img/up-products/coin.png' %}" alt="Coin">
+                            </div>
+                            <div class="up-product-text">
+                                <p>Coin Launching</p>
+                                <span>Launch Date: 30 Sep 2021</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="up-product-item">
+                        <div class="up-product-item-inner">
+                            <div class="img-box">
+                                <img src="{% static 'src/img/up-products/ecommerce.png' %}" alt="E-commerce">
+                            </div>
+                            <div class="up-product-text">
+                                <p>E-commerce</p>
+                                <span>Launch Date: 1 June 2022</span>
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="up-product-item">
+                        <div class="up-product-item-inner">
+                            <div class="img-box">
+                                <img src="{% static 'src/img/up-products/forex.png' %}" alt="Forex Broker">
+                            </div>
+                            <div class="up-product-text">
+                                <p>Forex Broker</p>
+                                <span>Launch Date: June 2024</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="up-product-item">
+                        <div class="up-product-item-inner">
+                            <div class="img-box">
+                                <img src="{% static 'src/img/up-products/health-gadget.png' %}" alt="Health Gadget">
+                            </div>
+                            <div class="up-product-text">
+                                <p>Health Gadget</p>
+                                <span>Launch Date: 30 Dec 2022</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="up-product-item">
+                        <div class="up-product-item-inner">
+                            <div class="img-box">
+                                <img src="{% static 'src/img/up-products/blockchain.png' %}" alt="BlockChain Edu Center">
+                            </div>
+                            <div class="up-product-text">
+                                <p>Blockchain Edu Center</p>
+                                <span>Launch Date: 1 June 2023</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="up-product-item">
+                        <div class="up-product-item-inner">
+                            <div class="img-box">
+                                <img src="{% static 'src/img/up-products/atm.png' %}" alt="ATM Machine">
+                            </div>
+                            <div class="up-product-text">
+                                <p>ATM Machine</p>
+                                <span>Launch Date: 1 June 2025</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Upcoming Products Section End -->
+
+    <!-- Country Operate Section Start -->
+    <section class="country section-padding">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="section-title">
+                        <h2><span>Country</span> We Operate</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-3 col-md-6">
+                    <div class="country-item country-usa">
+                        <div class="country-item-inner">
+                            <div class="country-flag">
+                                <img src="{% static 'src/img/flags/usa.jpg' %}" alt="USA">
+                            </div>
+                            <p>USA</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="country-item country-malaysia">
+                        <div class="country-item-inner">
+                            <div class="country-flag">
+                                <img src="{% static 'src/img/flags/malaysia.png' %}" alt="Malaysia">
+                            </div>
+                            <p>Malaysia</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="country-item country-canada">
+                        <div class="country-item-inner">
+                            <div class="country-flag">
+                                <img src="{% static 'src/img/flags/canada.png' %}" alt="Canada">
+                            </div>
+                            <p>Canada</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="country-item country-singapore">
+                        <div class="country-item-inner">
+                            <div class="country-flag">
+                                <img src="{% static 'src/img/flags/singapore.png' %}" alt="Singapore">
+                            </div>
+                            <p>Singapore</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="country-item country-uae">
+                        <div class="country-item-inner">
+                            <div class="country-flag">
+                                <img src="{% static 'src/img/flags/uae.png' %}" alt="UAE">
+                            </div>
+                            <p>UAE</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="country-item country-india">
+                        <div class="country-item-inner">
+                            <div class="country-flag">
+                                <img src="{% static 'src/img/flags/india.png' %}" alt="India">
+                            </div>
+                            <p>India</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="country-item country-bangladesh">
+                        <div class="country-item-inner">
+                            <div class="country-flag">
+                                <img src="{% static 'src/img/flags/bangladesh.png' %}" alt="Bangladesh">
+                            </div>
+                            <p>Bangladesh</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Country Operate Section End -->
+
+    <!-- How We Operate Section Start -->
+    <section class="operate section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="operate-img">
+                        <img src="{% static 'src/img/computer-robot.jpg' %}" alt="computer Robot">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="row justify-content-start">
+                        <div class="col-lg-8">
+                            <div class="section-title">
+                                <h2><span>How</span> We Do</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="operate-content">
+                                <p class="operate-subtitle">Ease with Finance Up Trade Equipment and Artificial Intelligence </p>
+                                <p>FinanceUp Trade constructs a strong establishment by covering the most popular and widely utilized Core advances and its applications, including artificially intelligent bots, Complex and repeated pattern recognition, coding
+                                    based on algorithms, High Frequency Trading (HFT)/ Trading in pattern.</p>
+                                <p>FinanceUp Trade' award winning and inventive work in AI programming has gathered universal focus. Perceived for its actual capacity to use real life experiences in the working environment and across business sectors, FinanceUp Trade
+                                    is having a Noticeable effect on the policy according to which companies organize their talent and business growth.</p>
+                                <button class="btn btn-1 operate-btn">Read More</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- How We Operate Section End -->
+
+    <!-- Drives Section Start -->
+    <section class="drive section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="section-title">
+                        <h2><span>What Drives</span> Us Ahead</h2>
+                    </div>
+                    <div class="section-subtitle">
+                        <p>We Choose to be authentic in what we do</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col-lg-3 col-md-6">
+                    <div class="drive-img">
+                        <div class="icon">
+                            <i class="fas fa-search-dollar"></i>
+                        </div>
+                        <strong class="color">Transparency</strong>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="drive-img">
+                        <div class="icon">
+                            <i class="fas fa-lock color"></i>
+                        </div>
+                        <strong>Security</strong>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="drive-img">
+                        <div class="icon">
+                            <i class="fas fa-infinity"></i>
+                        </div>
+                        <strong class="color">Infinity</strong>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="drive-img">
+                        <div class="icon">
+                            <i class="fas fa-hand-holding-water color"></i>
+                        </div>
+                        <strong>Growth</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Drives Section End -->
+
+    <!-- What do we Stand for Section Start -->
+    <section class="profit section-padding">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="profit-img">
+                        <img src="{% static 'src/img/profit.jpg' %}" alt="Profit">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="section-title">
+                        <h2><span>Profits </span> at its best</h2>
+                    </div>
+                    <p>Assistive request matching algorithms are supported by one of a kind trade engine. Interchangeability of Orderbook permits to execute hefty orders and apply market making trading, frequent trading and scalping methodologies.
+                    <ul class="list-half pb-32">
+                    <li class="list-half-item"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i><span>Scalping</span></li>
+                    <li class="list-half-item"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i><span>Day trading</span></li>
+                    <li class="list-half-item"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i><span>Swing trading</span></li>
+                    <li class="list-half-item"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i><span>Position trading</span></li>
+                </ul>
+                        </br>
+                        Agreeing
+                        with security norms, we ensure security of your assets and information. A trading procedure can be compared to a trading plan that considers different components and exigencies for an investor. It comprises of three phases: designing,
+                        putting trades, and performing trades. At each phase of the procedure, calculations relating to the methodology are calculated and changed dependent on the advancements in the market. </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- What do we Stand for Section End -->
+
+    <!-- Stand for Section Start -->
+    <section class="stand-for section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="section-title">
+                        <h2 data-heading="Join The Leading Team"><span>What do We </span> Stand for?</h2>
+                    </div>
+                    <p>Where Technology and Transparency Meets Excellence of Ease Trading to excel Success for unending Growth.
+                    </p>
+
+                    <div class="owl-carousel stand-carousel">
+                        <div class="stand-carousel-item">
+                            <div class="stand-carousel-item-inner text-center">
+                                <div class="icon">
+                                    <img src="{% static 'src/img/Stand/build-icon.png' %}" alt="build-icon">
+                                </div>
+                                <strong>Team Build Up</strong>
+                                <p>They are Human and Reliable Pamafunds Team is Highly Graduated and Professional Team to deliver Bundle of Services.</p>
+                            </div>
+                        </div>
+                        <div class="stand-carousel-item">
+                            <div class="stand-carousel-item-inner text-center">
+                                <div class="icon">
+                                    <img src="{% static 'src/img/Stand/strategy-icon.png' %}" alt="Strategy-icon">
+                                </div>
+                                <strong>Strategy</strong>
+                                <p>Strategy is what makes the impossible possible, Pamafunds has an core Strategy to deliver the Possibilities which look impossible</p>
+                            </div>
+                        </div>
+                        <div class="stand-carousel-item">
+                            <div class="stand-carousel-item-inner text-center">
+                                <div class="icon">
+                                    <img src="{% static 'src/img/Stand/communication-icon.png' %}" alt="Communication-icon">
+                                </div>
+                                <strong>Communication</strong>
+                                <p>The key to Understand Better. Reach us 24*6 at our Client support and stay Updated.</p>
+                            </div>
+                        </div>
+                        <div class="stand-carousel-item">
+                            <div class="stand-carousel-item-inner text-center">
+                                <div class="icon">
+                                    <img src="{% static 'src/img/Stand/cohesion-icon.png' %}" alt="Cohesion-icon">
+                                </div>
+                                <strong>Team Cohesion</strong>
+                                <p>Team cohesion is the strength and extent of interpersonal connection existing among the members of a group.</p>
+                            </div>
+                        </div>
+                        <div class="stand-carousel-item">
+                            <div class="stand-carousel-item-inner text-center">
+                                <div class="icon">
+                                    <img src="{% static 'src/img/Stand/leadership-icon.png' %}" alt="leadership-icon">
+                                </div>
+                                <strong>Team Leadership</strong>
+                                <p>“Doing thought leadership” isn’t simply about providing high quality products or services. It’s about Efforts.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="stand-img">
+                        <img src="{% static 'src/img/stand.jpg' %}" alt="Team Hand">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Stand for Section End -->
+
+    <!-- Team Member Section Start -->
+    <section class="team section-padding">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="section-title">
+                        <h2>Our <span>Team</span></h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="owl-carousel team-carousel">
+                    <div class="team-item">
+                        <img src="{% static 'src/img/team/team1.jpg' %}" alt="Team">
+                        <h3>Christopher Larson</h3>
+                        <span>Marketing analyst</span>
+                    </div>
+                    <div class="team-item">
+                        <img src="{% static 'src/img/team/team2.jpg' %}" alt="Team">
+                        <h3>Lee Beck</h3>
+                        <span>Marketing co-ordinator</span>
+                    </div>
+                    <div class="team-item">
+                        <img src="{% static 'src/img/team/team5.jpg' %}" alt="Team">
+                        <h3>Emma Crofts</h3>
+                        <span>Marketing consultant</span>
+                    </div>
+                    <div class="team-item">
+                        <img src="{% static 'src/img/team/team3.jpg' %}" alt="Team">
+                        <h3>David White</h3>
+                        <span>Director of marketing</span>
+                    </div>
+                    <div class="team-item">
+                        <img src="{% static 'src/img/team/team4.jpg' %}" alt="Team">
+                        <h3>Ryan Ray</h3>
+                        <span>Content Director</span>
+                    </div>
+                    <div class="team-item">
+                        <img src="{% static 'src/img/team/team6.jpg' %}" alt="Team">
+                        <h3>Mary Schillinger</h3>
+                        <span>Digital strategist</span>
+                    </div>
+                    <div class="team-item">
+                        <img src="{% static 'src/img/team/team7.jpg' %}" alt="Team">
+                        <h3>Harvey G. Rubin</h3>
+                        <span>Crypto Trading Expert</span>
+                    </div>
+                    <div class="team-item">
+                        <img src="{% static 'src/img/team/team8.jpg' %}" alt="Team">
+                        <h3>Charlie Danforth</h3>
+                        <span>Forex Trading Expert</span>
+                    </div>
+                    <div class="team-item">
+                        <img src="{% static 'src/img/team/team9.jpg' %}" alt="Team">
+                        <h3>Cindy  Binder</h3>
+                        <span>Admin (Oil and Shipping)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Team Member Section End -->
+
+    <!-- Sponsor Section Start -->
+    <section class="sponsor section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="owl-carousel sponsor-carousel">
+                    <div class="sponsor-item">
+                        <img src="{% static 'src/img/Sponsor/bicoincash.png' %}" alt="Sponsor">
+                    </div>
+                    <div class="sponsor-item">
+                        <img src="{% static 'src/img/Sponsor/bitcoin.jpg' %}" alt="Sponsor">
+                    </div>
+                    <div class="sponsor-item">
+                        <img src="{% static 'src/img/Sponsor/eth.png' %}" alt="Sponsor">
+                    </div>
+                    <div class="sponsor-item">
+                        <img src="{% static 'src/img/Sponsor/litecoin.png' %}" alt="Sponsor">
+                    </div>
+                    <div class="sponsor-item">
+                        <img src="{% static 'src/img/Sponsor/mastercard.png' %}" alt="Sponsor">
+                    </div>
+                    <div class="sponsor-item">
+                        <img src="{% static 'src/img/Sponsor/paypal.png' %}" alt="Sponsor">
+                    </div>
+                    <div class="sponsor-item">
+                        <img src="{% static 'src/img/Sponsor/pm.png' %}" alt="Sponsor">
+                    </div>
+                    <div class="sponsor-item">
+                        <img src="{% static 'src/img/Sponsor/skrill.png' %}" alt="Sponsor">
+                    </div>
+                       <div class="sponsor-item">
+                        <img src="{% static 'src/img/Sponsor/trx.png' %}" alt="Sponsor">
+                    </div>
+   
+                       <div class="sponsor-item">
+                        <img src="{% static 'src/img/Sponsor/visa.png' %}" alt="Sponsor">
+                    </div>
+                    <div class="sponsor-item">
+                        <img src="{% static 'src/img/Sponsor/bcash.png' %}" alt="Sponsor">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Sponsor Section End -->
+
+    <!-- Contact Section Start -->
+    <section class="contact section-padding" data-scroll-index="6">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="section-title">
+                        <h2>Get in <span>touch</span></h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-5">
+                    <div class="contact-info">
+                        <h3>For Any queries and support</h3>
+                        <div class="contact-info-item">
+                            <i class="fas fa-location-arrow"></i>
+                            <h4>Company Location</h4>
+                            <p>24350 Sooner Ave,Purcell, Oklahoma, 73080,United States </p>
+                        </div>
+                        <div class="contact-info-item">
+                            <i class="fas fa-envelope"></i>
+                            <h4>write to us at</h4>
+                            <p>support@financeup.trade</p>
+                        </div>
+                        <div class="contact-info-item">
+                            <i class="fas fa-phone"></i>
+                            <h4>Call us on</h4>
+                            <p>+1 313-463-8758 </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-7">
+                    <div class="contact-form">
+                        <form>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <input type="text" placeholder="Your Name" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <input type="email" placeholder="Your Email" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <input type="tel" placeholder="Your Phone" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <input type="text" placeholder="Subject" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <textarea placeholder="Your Message" class="form-control"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <button type="submit" class="btn btn-1">Send Message</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact Section End -->
+
+    <!-- Footer Section Start -->
+    {% include 'base/footer.html'   %}
+    <!-- Footer Section End -->
+
+    <!-- External JavaScript File -->
+    <script src="{% static 'src/js/jquery.min.js' %}"></script>
+    <script src="{% static 'src/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'src/js/popper.min.js' %}"></script>
+    <script src="{% static 'src/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'src/js/jquery.rcounterup.js' %}"></script>
+    <script src="{% static 'src/js/jquery.countdown.min.js' %}"></script>
+    <script src="{% static 'src/js/active.js' %}"></script>
+
+    <!-- Main JavaScript File -->
+    <script src="{% static 'src/js/script.js' %}"></script>
+    
+</body>
+
+</html>

@@ -1,0 +1,125 @@
+{% extends 'dashboard/sidebar.html' %}
+
+{% block content %}
+
+                                <!--- main content --->
+
+                                <div class="page-wrapper">
+                                    <!-- Page-header start -->
+                                    <div class="page-header">
+                                        <div class="row align-items-end">
+                                            <div class="col-lg-8">
+                                                <div class="page-header-title">
+                                                    <div class="d-inline">
+                                                        <h4>deposit history</h4>
+                                                        <span>Check deposit  history</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Page-header end -->
+
+                                    <!-- Page body start -->
+                                    <div class="page-body navbar-page">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <!-- Default Navbar card start -->
+                                                <div class="card">
+                                                    <div class="card-block">
+                                                        <div class="row row d-flex justify-content-center">
+                                                            <div class="card" style="width: 100%;">
+                                                                <!-- table -->
+                                                                <div class="card-body d-flex justify-content-center">
+                                                                    <div class="card-block table-border-style" style="width: 95%;">
+                                                                        <h4 style="font-weight: bold;margin: 10px 0;font-size: 18px;border-left: 1px solid red;">My deposit History </h4>
+                                                                        <div class="table-responsive">
+                                                                            {% if message %}
+                                                                            <div class="alert alert-danger">
+                                                                                {{message}}
+                                                                            </div>
+                                                                            {% endif %}
+                                                                            <table class="table">
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                       
+                                                                                     
+                                                                                        <th>Date</th>
+                                                                                        <th>Name</th>
+
+                                                                                        <th>Amount</th>
+                                                                                        <th>Payment method</th>
+                                                                                        <th>Payment address</th>
+                                                                                        <th>Status</th>
+
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                    {% for hist in hist %}
+                                                                                    <tr>
+
+
+                                                                                        <td>{{ hist.date }}</td>
+                                                                                        <td>{{ hist.name }}</td>
+                                                                                        <td>{{ hist.amount}}</td>
+                                                                                        <td>{{hist.method}}</td>
+                                                                                        <td>{{hist.payment_address}}</td>
+                                                                                        <td>{{hist.status}}</td>
+
+                                                                                        
+                                                                                    </tr>
+                                                                                    {% endfor %}
+                                                                                   
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                
+                                                                <!-- table ends there -->
+
+                                                                <nav aria-label="Page navigation example" style="padding-bottom: 25px">
+                                                                    <ul class="pagination justify-content-center">
+                                                                        {% if history.has_previous %}
+                                                                        <li class="page-item ">
+                                                                            <a class="page-link" href="?page={{ history.previous_page_number }}"  >Previous</a>
+                                                                        </li>
+                                                                        {% endif %}
+                                                                {% for i in history.paginator.page_range %}
+                                                                        {% if users.number == i %}
+                                                                        <li class="page-item"><a class="page-link" href="#">{{i}} (current)</a></li>
+                                                                        
+
+                                                                        {% else %}
+                                                                         <li class="page-item "><a class="page-link" href="?page={{i}}">{{i}}</a></li>
+                                                                         {% endif %}
+
+
+                                                                        {% endfor %}
+                                                                        
+                                                                        {% if history.has_next %}
+                                                                        <li class="page-item">
+
+                                                                            <a class="page-link" href="?page={{ history.next_page_number }}">Next</a>
+                                                                        </li>
+                                                                        {% endif %}
+                                                                    </ul>
+                                                                </nav>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Page body end -->
+                                </div>
+                                <style>
+                                    .table-responsive td, th{
+                                        text-align: center;
+                                    }
+                                </style>
+
+                                <!--- main content end -->
+                                {% endblock content %}

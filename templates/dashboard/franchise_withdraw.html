@@ -1,0 +1,305 @@
+{% extends 'dashboard/sidebar.html' %}
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<style>
+    @media (min-height: 500px) {
+    .modal-dialog { height: 400px; }
+}
+
+@media (min-height: 800px) {
+    .modal-dialog { height: 600px; }
+}
+
+</style>
+<form method="POST" action="{% url 'franchise_withdraw' %}" style="">{% csrf_token %}
+    <!--- main content --->
+    <div class="page-wrapper">
+        <!-- Page-header start -->
+
+        <center>
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li
+                        {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}
+                </li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </center>
+
+        <div class="page-header">
+            <div class="row align-items-end">
+                <div class="col-lg-8">
+                    <div class="page-header-title">
+                        <div class="d-inline">
+                            <h4>Franchise Withdraw</h4>
+                            <span>Get withdraw in a minute.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Page-header end -->
+
+
+        <!-- Page body start -->
+        <div class="page-body navbar-page">
+            <div class="row">
+                <div class="col-sm-12">
+                    <!-- Default Navbar card start -->
+                    <div class="card">
+                        <div class="card-block">
+                            <div class="row row d-flex justify-content-center">
+
+                                <div class="card" style="width: 100%;">
+                                    <div class="card-body d-flex justify-content-center" style="padding-left: 0">
+                                        <div class="col-sm-12" style="max-width: max-content;">
+                                            <style>
+                                                                            .cnt tr {
+                                                                                display: block;
+                                                                                margin: 0 !important;
+                                                                                padding: 4px 0px !important;
+                                                                            }
+
+                                                                            .tda {
+                                                                                width: 88px;
+                                                                            }
+
+                                                                            .tdb {}
+
+                                                                            .input-group {
+                                                                                width: 200px !important;
+                                                                            }
+
+                                                                            .bold {
+                                                                                font-weight: bold;
+                                                                            }
+
+
+
+                                            </style>
+                                            <div class="messagebox" id="messagebox"></div>
+
+                                            <h4>Available Balance &nbsp;&nbsp;&nbsp;$ {{ bal }}</h4>
+
+                                            <br/>
+                                            <p style="color:red;">withdrawal fee is 10%</p>
+                                            <br/>
+                                            <table class="cnt">
+                                                <tr>
+                                                    <td class="tda">Select Country:</td>
+                                                    <td class="tdb">
+                                                        <!-- Select Service -->
+                                                        <select class="input-group form-control" name="country">
+                                                            <option value="usa">USA</option>
+                                                            <option value="uae">UAE</option>
+                                                            <option value="malaysia">Malaysia</option>
+                                                            <option value="canada">Canada</option>
+                                                            <option value="singapore">Singapore</option>
+                                                            <option value="india">India</option>
+                                                            <option value="bangladesh" selected>Bangladesh</option>
+
+                                                        </select>
+
+                                                        <!-- End Select Service -->
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td class="tda">Amount:</td>
+                                                    <td class="tdb">
+                                                        <div class="input-group" style="">
+                                                            <input type="number" class="form-control" name="amount"
+                                                                   id="amount"
+
+                                                                   placeholder="Amount" required>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                
+                                                <tr>
+                                                    <td class="tda">Password:</td>
+                                                    <td class="tdb">
+                                                        <div class="input-group" style="margin:0;">
+                                                            <input type="password" class="form-control" name="password"
+                                                                   id="password" placeholder="Password">
+                                                        </div>
+                                                    </td>
+                                                </tr>
+
+
+                                                <tr>
+                                                    <td class="tda">Payment Method:</td>
+                                                    <td class="tdb">
+                                                        <!-- Select Service -->
+                                                        <select class="input-group form-control" name="payment_through"
+                                                                id="method_new" required>
+                                                            <option selected value="">select</option>
+                                                            <option value="mobile banking">Mobile Banking</option>
+                                                            <option value="online bank transfer">Online Bank Transfer
+                                                            </option>
+                                                        </select>
+
+                                                        <!-- End Select Service -->
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                            <br>
+                                            <button class="btn btn-primary btn-skew" id="" type="submit">Withdraw
+                                            </button>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Default Navbar card end -->
+                </div>
+            </div>
+        </div>
+        <!-- Page body end -->
+    </div>
+
+    <div class="container">
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog" style="">
+            <div class="modal-dialog" style="">
+                <!-- Modal content-->
+                <div class="modal-content"
+                     style="background-color:#7857fe;color:#000;">
+                    <br/>
+                    <div class="card-body d-flex justify-content-center">
+                        <div class="col-sm-12 modal-body" style="max-width: max-content;">
+                            <h3>Online Bank Transfer</h3>
+                            <br/>
+                            <br/>
+                            <span>Bank Name : </span>
+                            <input type="text" name="bank_name" class="form-control" placeholder="Enter Bank Name">
+                            <br/>
+                            <span>Payee Details : </span>
+                            <input type="text" name="payee_details" class="form-control" placeholder="Enter Payee Details">
+                            <br>
+                        </div>
+                    </div>
+                    <div class="" style="">
+                        <button type="button" class="btn btn-default" data-dismiss="modal"
+                                style="margin-left:170px;margin-bottom:80px;background-color:#fff;color:#000;">Ok
+                        </button>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <button type="button" class="btn btn-default" data-dismiss="modal"
+                                style="margin-right:0px;margin-bottom:80px;background-color:#fff;color:#000;">Close
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="modal fade" id="myModal1" role="dialog" style="">
+            <div class="modal-dialog" style="">
+                <!-- Modal content-->
+                <div class="modal-content"
+                     style="background-color:#7857fe;color:#000;">
+
+
+                    <br/>
+                    <div class="card-body d-flex justify-content-center">
+                        <div class="col-sm-12 modal-body" style="max-width: max-content;">
+
+                            <h3>Mobile Banking System</h3>
+                            <br/>
+                            <br/>
+                            <div>
+                                <span>Via : </span>
+                                <select class="form-control " name="mobile_banking_option" id="m_bank" >
+                                    <option selected value="">select</option>
+                                    <option value="bkash">
+                                        Bkash
+                                    </option>
+                                    <option value="rocket">Rocket</option>
+                                    <option value="nagad">Nagad</option>
+                                </select>
+                            </div>
+                            <div style="margin-top:20px;display:none;" id="number_div">
+                                <span id="number">Enter Bkash number : </span>
+                                <input type="text" name="number_details" class="form-control" >
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="">
+                        <button type="button" class="btn btn-default" data-dismiss="modal"
+                                style="margin-left:170px;margin-bottom:80px;background-color:#fff;color:#000;">Ok
+                        </button>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <button type="button" class="btn btn-default" data-dismiss="modal"
+                                style="margin-right:0px;margin-bottom:80px;background-color:#fff;color:#000;">Close
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <button type="button" class=" m-b-0 form-control" id="open_modal1" hidden style="font-size:30px;"
+            data-toggle="modal" data-target="#myModal">Pay now
+    </button>
+
+    <button type="button" class=" m-b-0 form-control" id="open_modal" hidden style="font-size:30px;"
+            data-toggle="modal" data-target="#myModal1">Pay now
+    </button>
+
+
+
+<script>
+ $(document).ready(function() {
+            $('#method_new').change(function() {
+
+                    var vall = $('#method_new').val();
+                    var final_val='';
+
+                    if(vall==="mobile banking"){
+                    document.getElementById("open_modal").click();
+                    }
+                    else if(vall==="online bank transfer"){
+                    document.getElementById("open_modal1").click();
+                    }
+                });
+
+                $('#m_bank').change(function() {
+
+                    var val_mb = $('#m_bank').val();
+                    var final_val='';
+                     $("#number_div").show();
+
+
+                    if(val_mb==="bkash"){
+                    $('#number').text('Enter Bkash number');
+                    }
+                    else if(val_mb==="rocket"){
+                    $('#number').text('Enter Rocket number');
+                    }
+                    else if(val_mb==="nagad"){
+                    $('#number').text('Enter Nagad number');
+                    }
+                });
+    });
+
+
+</script>
+</form>
+{% endblock content %}
+
+
+

@@ -1,0 +1,558 @@
+{% extends 'dashboard/sidebar.html' %}
+{% load static %}
+{% load dashboard_tags %}
+
+{% block head %}
+<link rel="icon" href="{% static 'src/img/fuf.png' %}" type="image/gif" sizes="16x16">
+<link rel="stylesheet"
+      href="{% static 'dashboard-static/dashboard.min.css' %}">
+<link rel="stylesheet" href="{% static 'dashboard-static/custom.css' %}">
+<link href="{% static 'dashboard-static/tree.css' %}" rel="stylesheet">
+<link rel="stylesheet"
+      href="{% static 'dashboard-static/color.css' %}">
+<link rel="stylesheet" href="{% static 'dashboard-static/iziToast.min.css' %}">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<style>
+    .picolor{
+    background-color:#f34859!important;
+    border-radius: 25px;
+    }
+
+
+    .picolor1{
+    background-color:#071e3d!important;
+    border-radius: 25px;
+    }
+
+     .picolor2{
+    background-color:#4fcdc3!important;
+    border-radius: 25px;
+    }
+    /Now the CSS/
+
+/*Now the CSS*/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.search-main {
+    background-color: #F7F7F7;
+}
+
+.search-main h4 {
+    font-size: 24px;
+    font-weight: 500;
+    color: #ffffff;
+    padding: 20px 30px;
+    background: -webkit-gradient(linear, left top, left bottom, from(#7579ff), to(#b224ef));
+    background: -o-linear-gradient(top, #7579ff, #b224ef);
+    background: linear-gradient(to bottom, #7579ff, #b224ef);
+}
+
+.search-inner {
+    padding: 20px 30px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.search-inner .width-80 {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 80%;
+    flex: 0 0 80%;
+    max-width: 80%;
+}
+
+.search-inner .width-10 {
+    width: 20%;
+    margin-left: 50px;
+}
+
+.search-inner .form-group {
+    margin-bottom: 25px;
+}
+
+.search-inner label {
+    color: #555555;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.search-inner .form-control {
+    height: 40px;
+    font-size: 16px;
+    padding: 0 24px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    color: #000000;
+    background-color: transparent;
+    -webkit-transition: 0.5s all ease;
+    -o-transition: 0.5s all ease;
+    transition: 0.5s all ease;
+}
+
+.search-inner .form-control:focus {
+    border-color: #7579ff;
+}
+
+.search-main .btn {
+    font-size: 16px;
+    text-transform: capitalize;
+    padding: 5px 40px;
+    border: none;
+    border-radius: 30px;
+    color: #555555;
+    -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    font-weight: 300;
+    -webkit-transition: 0.5s all ease;
+    -o-transition: 0.5s all ease;
+    transition: 0.5s all ease;
+}
+
+.search-main .btn-search {
+    background-color: #7857FE;
+    color: #ffffff;
+}
+
+.search-main .btn-search:hover {
+    background-color: #ffffff;
+    color: #7857FE;
+}
+
+.search-main #search {
+    height: 40px;
+    margin-top: 32px;
+    min-width: 150px;
+}
+
+.search-information {
+    padding: 20px 30px;
+}
+
+.search-information h4 {
+    font-size: 24px;
+    font-weight: 500;
+    color: #7857FE;
+    text-transform: capitalize;
+}
+
+.search-information p {
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 26px;
+    color: #555555;
+    margin: 0 0 5px 0;
+}
+
+.tree {
+    width: 90%;
+    margin: 40px auto;
+    text-align: center;
+}
+
+.tree a {
+    max-width: 100px;
+    word-break: break-all;
+}
+
+.tree a::before {
+    content: '';
+    position: absolute;
+    top: -44px;
+    left: 50%;
+    -webkit-transform: translate(-50%, 0);
+    -ms-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+    width: 40px;
+    height: 40px;
+    background: url('{% static "src/img/person_tree.jpg" %}') no-repeat center;
+    background-size: cover;
+    border: 1px solid #94a0b4;
+    border-radius: 50%;
+}
+
+.tree ul {
+    padding-top: 20px;
+    position: relative;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    overflow: hidden;
+}
+
+.tree>ul {
+    padding-top: 50px;
+}
+
+.tree li {
+    float: left;
+    text-align: center;
+    list-style-type: none;
+    position: relative;
+    padding: 65px 10px 0 10px;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+}
+
+
+/*We will use ::before and ::after to draw the connectors*/
+
+.tree li::before,
+.tree li::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 50%;
+    border-top: 3px solid #ccc;
+    width: 50%;
+    height: 20px;
+}
+
+.tree li::after {
+    right: auto;
+    left: 50%;
+    border-left: 3px solid #ccc;
+}
+
+
+/*We need to remove left-right connectors from elements without
+any siblings*/
+
+.tree li:only-child::after,
+.tree li:only-child::before {
+    display: none;
+}
+
+
+/*Remove space from the top of single children*/
+
+.tree li:only-child {
+    padding-top: 0;
+}
+
+
+/*Remove left connector from first child and
+the right connector from last child*/
+
+.tree li:first-child::before,
+.tree li:last-child::after {
+    border: 0 none;
+}
+
+
+/*Adding back the vertical connector to the last nodes*/
+
+.tree li:last-child::before {
+    border-right: 3px solid #ccc;
+    border-radius: 0 5px 0 0;
+    -webkit-border-radius: 0 5px 0 0;
+    -moz-border-radius: 0 5px 0 0;
+}
+
+.tree li:first-child::after {
+    border-radius: 5px 0 0 0;
+    -webkit-border-radius: 5px 0 0 0;
+    -moz-border-radius: 5px 0 0 0;
+}
+
+
+/*Time to add downward connectors from parents*/
+
+.tree ul ul::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    border-left: 3px solid #ccc;
+    width: 0;
+    height: 20px;
+}
+
+.tree li a {
+    position: relative;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    text-decoration: none;
+    color: #666;
+    font-family: arial, verdana, tahoma;
+    font-size: 14px;
+    display: inline-block;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+}
+
+.tree-last-user {
+    margin-left: -20px;
+}
+
+
+/*Time for some hover effects*/
+
+
+/*We will apply the hover effect the lineage of the element also*/
+
+.tree li a:hover,
+.tree li a:hover+ul li a {
+    background: #c8e4f8;
+    color: #000;
+    border: 1px solid #94a0b4;
+}
+
+
+/*Connector styles on hover*/
+
+.tree li a:hover+ul li::after,
+.tree li a:hover+ul li::before,
+.tree li a:hover+ul::before,
+.tree li a:hover+ul ul::before {
+    border-color: #94a0b4;
+}
+
+.tree-bottom {
+    margin: 20px 0;
+}
+
+@media (max-width: 1400px) {
+    .tree li {
+        padding: 60px 0 0 0;
+    }
+    .tree-first-user {
+        margin-left: 50px;
+    }
+}
+
+@media (max-width: 1199px) {
+    .tree li {
+        margin-left: -2px;
+    }
+}
+
+@media (max-width: 991px) {
+    .search-inner .width-80 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 70%;
+        flex: 0 0 70%;
+        max-width: 70%;
+    }
+    .tree-last-user {
+        display: none;
+    }
+    .tree li {
+        padding: 65px 18px 0 18px;
+    }
+}
+
+@media (max-width: 767px) {
+    .search-inner .width-80 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 60%;
+        flex: 0 0 60%;
+        max-width: 60%;
+    }
+    .tree>ul {
+        margin-left: -50px;
+    }
+    .tree li {
+        padding: 65px 10px 0 10px;
+    }
+    .search-main #search {
+        min-width: 100px;
+        padding: 5px 10px;
+        margin-left: auto;
+    }
+}
+
+@media (max-width: 575px) {
+    .tree li {
+        padding: 65px 0 0 0;
+    }
+    .tree>ul {
+        margin-left: 15px;
+    }
+
+    
+}
+
+@media (max-width:400px) {
+    .tree>ul {
+        margin-left: 50px;
+    }
+    .tree ul {
+        padding-left: 0!important;
+    }
+    .tree li {
+        padding: 65px 20px 0 20px;
+    }
+    .tree-third-user {
+        display: none;
+    }
+}
+
+@media (max-width:360px) {
+    .tree>ul {
+        margin-left: 2px;
+    }
+    .tree ul {
+        padding-left: 0!important;
+    }
+    .tree li {
+        padding: 64px 5px 0 5px;
+    }
+  .tree-third-user {
+        display: none;
+    }
+}
+
+/* Hover Effect  */
+
+.tooltip {
+    background-color: #c8e4f8;
+    padding: 10px;
+}
+
+.tooltip-inner {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.tooltip h3 {
+    font-size: 20px;
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+.tooltip p {
+    font-size: 16px;
+    margin: 0;
+}
+
+</style>
+{% endblock head %}
+{% block content %}
+{% load static %}
+<div class="main-container">
+    <div class="container-fluid main-body-wrapper">
+        
+               
+            </div>
+        </nav>
+        <div class="main-panel-wrapper">
+            <div class="navbar-menu-wrapper d-flex flex-row align-items-center ">
+                <button class="navbar-toggler" type="button"> <a class="mobile-menu" id="mobile-collapse" href="#!"><i class="fa fa-ellipsis-v"></i>
+    </a></button>
+                <div class="navbar-search ml-lg-4">
+                    <form class="navbar-search-form" onsubmit="return false;">
+                        <div class="input-group align-items-center">
+                            <div class="search-icon"><span class="fa fa-search"></span></div>
+                            <input type="search" name="navbar_search" id="navbar_search"
+                                   placeholder="Search any settings" autocomplete="off">
+                        </div>
+                        <div id="navbar_search_result_area">
+                            <ul class="navbar_search_result"></ul>
+                        </div>
+                    </form>
+                </div>
+                <ul class="navbar-nav ml-auto flex-row">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#" id="userProfileDropdown" role="button" data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false">
+                            <img src="{% static 'dashboard-static/default.png' %}"
+                                 alt="user-image">
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userProfileDropdown">
+                          <a class="dropdown-item" href="https://financeup.trade/contact_page/"><i class="fa fa-user"></i> contact</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="https://financeup.trade/logout/"><i class="fa fa-sign-out"></i>Logout</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+          <div class="search-information">
+        <h4>User Name: {{user.username}}</h4>
+        <p>Team A (Left) Carry: {{user.left.investment_carry}} </p>
+        <p>Team B (right) Carry: {{user.right.investment_carry}}</p>
+    </div>
+        
+            <div class="page-header ">
+                <div class="align-items-center d-flex flex-wrap justify-content-between">
+                    <h6 class="page-title">My Tree</h6>
+                </div>
+            </div>
+            <div class="content-wrapper">
+                <div class="container-fluid p-0">
+                    <div class="tree">
+                        {{ html_code|safe }}
+                    </div>
+
+                    <div class="modal fade user-details-modal-area" id="exampleModalCenter" tabindex="-1" role="dialog"
+                         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalCenterTitle">User Details</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">×</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="user-details-modal">
+                                        <div class="user-details-header ">
+                                            <div class="thumb"><img src="#" alt="*" class="tree_image"
+                                                                    style="width: 100%; height: 100%;"></div>
+                                            <div class="content">
+                                                <a class="user-name tree_url tree_name" href=""></a>
+                                                <span class="user-status tree_status"></span>
+                                                <span class="user-status tree_plan"></span>
+                                            </div>
+                                        </div>
+                                        <div class="user-details-body text-center">
+                                            <h6 class="my-3">Referred By : <span class="tree_ref"></span></h6>
+                                            <table class="table table-bordered">
+                                                <tbody>
+                                                <tr>
+                                                    <th>&nbsp;</th>
+                                                    <th>LEFT</th>
+                                                    <th>RIGHT</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>Current BV</td>
+                                                    <td><span class="lbv"></span></td>
+                                                    <td><span class="rbv"></span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Free Member</td>
+                                                    <td><span class="lfree"></span></td>
+                                                    <td><span class="rfree"></span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Paid Member</td>
+                                                    <td><span class="lpaid"></span></td>
+                                                    <td><span class="rpaid"></span></td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <footer class="footer"></footer>
+        </div>
+    </div>
+</div>
+{% endblock content %}

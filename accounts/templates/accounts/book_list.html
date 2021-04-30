@@ -1,0 +1,35 @@
+{% extends 'accounts/base.html' %}
+
+{% block content %}
+
+  {% block content_header %}
+    <h2>Books</h2>
+    <p>
+      <a href="{% url 'upload_image' %}" class="btn btn-primary">Upload Image</a>
+    </p>
+  {% endblock %}
+
+  <table class="table mb-0">
+    <thead>
+      <tr>
+        <th>Cover</th>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Download</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for book in images %}
+        <tr>
+          <td>
+
+              <img src="{{ book.image.url }}" alt="hello.jpg" style="width:100px;">
+
+
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

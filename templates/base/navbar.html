@@ -1,0 +1,76 @@
+
+    {% load static %}
+
+
+    <!-- Preloader End -->
+
+    <!-- Header Start -->
+
+ <!-- Header Start -->
+    <header class="fixed-top">
+        <div class="header-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 d-flex">
+                        <div class="header-social-link">
+                            <ul class="d-flex justify-content-start">
+                                <li><a href="https://www.facebook.com/financeup.trade"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="https://www.youtube.com/channel/UC1a9ND8QpWMZrIsIutoJMMA"><i class="fab fa-youtube"></i></a></li>
+                        <li><a href="http://www.linkedin.com/company/financeup-trade"><i class="fab fa-linkedin-in"></i></a></li>
+                        <li><a href="https://twitter.com/financeupT"><i class="fab fa-twitter"></i></a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="reg-login ml-auto d-flex">
+
+                            {% if request.user.is_authenticated %}
+                            <a href="{% url 'logout' %}" class="nav-link"><button class="btn-0 btn-login" type="button">Logout</button></a>
+                            <a href="{% url 'dashboard' %}" class="nav-link"><button class="btn-0 btn-register" type="button">Dashboard</button>
+                            </a>
+                            {% else %}
+
+                           <a href="{% url 'login' %}" class="nav-link">
+                               <button class="btn-0 btn-login" type="button">Login</button>
+                           </a>
+                            <a href="{% url 'register' %}" class="nav-link">
+                                <button class="btn-0 btn-register" type="button">Register</button>
+                            </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Navbar Start -->
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <!-- Navbar Brand -->
+                <a href="{% url 'home' %}" class="navbar-brand">
+                    <img style=" max-width: 18rem;" src="{% static 'src/img/financenewlogo.png' %}" alt="FinanceUp Trade">
+                </a>
+
+                <!-- Toggler/collapsible Button -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <!-- Main Nav -->
+                <div id="collapsibleNavbar" class="collapse navbar-collapse">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><a href="{% url 'home' %}" class="nav-link active">Home</a></li>
+                        <li class="nav-item"><a href="{% url 'about' %}" class="nav-link">About</a></li>
+                        <li class="nav-item"><a href="{% url 'investment' %}" class="nav-link">Invest Plans</a></li>
+                       <li class="nav-item"><a href="{% static 'dashboard-static/finance_up.pdf' %}" class="nav-link" target="blank">Business</a></li>
+                        <li class="nav-item"><a href="{% url 'terms' %}" class="nav-link">policy</a></li>
+                        <li class="nav-item"><a href="{% url 'testimonial' %}" class="nav-link">Success Story</a></li>
+                        <li class="nav-item"><a href="{% url 'contact_page' %}" class="nav-link">Support</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Navbar End -->
+    </header>
+    <!-- Header End -->
+
+
+

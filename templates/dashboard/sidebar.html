@@ -1,0 +1,462 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+     <title>FinanceUp Trade</title>
+
+    <!-- Favicon -->
+   <link rel="icon" href="{% static 'src/img/fuf.png' %}" type="image/gif" sizes="16x16">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="#">
+    <meta name="keywords" content="Admin , Responsive, Landing, Bootstrap, App, Template, Mobile, iOS, Android, apple, creative app">
+    <meta name="author" content="#">
+    <!-- Favicon icon -->
+   
+    <!-- Google font-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800" rel="stylesheet">
+    <!-- Required Fremwork -->
+    <link rel="stylesheet" type="text/css" href="{% static 'dashboard-static/bower_components/bootstrap/css/bootstrap.min.css' %}">
+    <!-- feather Awesome -->
+    <link rel="stylesheet" type="text/css" href="{% static 'dashboard-static/assets/icon/feather/css/feather.css' %}">
+    <!-- Style.css -->
+    <link rel="stylesheet" type="text/css" href="{% static 'dashboard-static/assets/css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'dashboard-static/assets/css/custom.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'dashboard-static/assets/css/jquery.mCustomScrollbar.css' %}">
+    <script type="text/javascript" src="{% static 'dashboard-static/bower_components/jquery/js/jquery.min.js' %}"></script>
+
+    {% block head %}
+    {% endblock head %}
+</head>
+<!-- Menu sidebar static layout -->
+
+<body style="margin-top:0px;background-color: #0D1F48;">
+    <!-- Pre-loader start -->
+    <div class="theme-loader">
+        <div class="ball-scale">
+            <div class='contain'>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Pre-loader end -->
+    <div id="pcoded" class="pcoded" style="background-color: #0D1F48!important;">
+        <div class="pcoded-overlay-box"></div>
+        <div class="pcoded-container navbar-wrapper">
+
+            <nav class="navbar header-navbar pcoded-header">
+                <div class="navbar-wrapper">
+
+                    <div class="navbar-logo" style="background-color:#0D1F48;">
+                        <a class="mobile-menu" id="mobile-collapse" href="#!">
+                            <i class="feather icon-menu"></i>
+                        </a>
+                        <a href="{% url 'dashboard' %}" class="logo-image">
+                            <img class="img-fluid" style="margin-left:45px" height="10px" width="110px" src="{% static 'style/images/financeup.png' %}" alt="Theme-Logo">
+                        </a>
+                        <a class="mobile-options">
+                            <i class="feather icon-more-horizontal"></i>
+                        </a>
+                    </div>
+
+                    <div class="navbar-container container-fluid">
+                        <ul class="nav-left">
+                            <li>
+                                <a href="#!" onclick="javascript:toggleFullScreen()">
+                                    <i class="feather icon-maximize full-screen"></i>
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="nav-right">
+                            <li class="user-profile header-notification">
+                                <div class="dropdown-primary dropdown">
+                                    <div class="dropdown-toggle" data-toggle="dropdown">
+
+
+                                        <img src="{% if request.user.image %}{{ request.user.image.url }}{% endif %}" class="img-radius" alt="user">
+
+                                        <span>{{request.user.first_name}}</span>
+                                        <i class="feather icon-chevron-down"></i>
+                                    </div>
+                                    <ul class="show-notification profile-notification dropdown-menu" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
+                                        <li>
+
+                                            <a href="{% url 'personal_info_update' %}">
+                                                <i class="feather icon-user"></i> Profile
+                                            </a>
+                                        </li>
+                                         <li>
+
+                                            <a href="https://financeup.trade/contact_page/">
+                                                <i class="feather icon-message-circle"></i> Contact
+                                            </a>
+                                        </li>
+                                        <li>
+
+                                            <a href="{% url 'logout' %}">
+                                                <i class="feather icon-log-out"></i> Logout
+                                            </a>
+                                        </li>
+                                    </ul>
+
+                                </div>
+                            </li>
+                        </ul> 
+
+
+                    </div>
+                </div>
+            </nav>
+            <div class="pcoded-main-container" >
+                <div class="pcoded-wrapper">
+                    <nav class="pcoded-navbar" style="background-color: #0D1F48!important;">
+                        <div class="pcoded-inner-navbar main-menu" style="background-color: #0D1F48!important;">
+                            <div class="pcoded-navigatio-lavel" style="color:#fff!important;">Navigation</div>
+                            <ul class="pcoded-item pcoded-left-item" style="background-color: #0D1F48!important;">
+                                <li class="pcoded-hasmenu active pcoded-trigger">
+                                    <a href="{% url 'dashboard' %}">
+<!--                                        javascript:void(0)-->
+                                        <span class="pcoded-micon"><i class="feather icon-home"></i></span>
+                                        <span class="pcoded-mtext">Dashboard</span>
+                                    </a>
+                                    <ul class="pcoded-submenu">
+                                       
+                                       <!-- <li class="">
+                                            <a href="#">
+                                                <span class="pcoded-mtext">Adpack</span>
+                                                <span class="pcoded-badge label label-info ">NEW</span>
+                                            </a>
+                                        </li> -->
+                                      
+                                    </ul>
+                                </li>
+                                <li class="pcoded-hasmenu " >
+                                    <a href="javascript:void(0)">
+                                        <span class="pcoded-micon"><i class="feather icon-users"></i></span>
+                                        <span class="pcoded-mtext">My Profile</span>
+                                    </a>
+                                    <ul class="pcoded-submenu" style="background-color: #0D1F48!important;">
+                                        <li class="">
+                                            <a href="{% url 'personal_info_update'  %} ">
+                                                <span class="pcoded-mtext">Personal Information</span>
+                                            </a>
+                                        </li>
+                                          <li class="">
+                                            <a href="{% url 'kyc_verification2'  %} ">
+                                                <span class="pcoded-mtext">KYC Verification</span>
+                                            </a>
+                                        </li>
+                                        <!--<li class="">
+                                            <a href="#">
+                                                <span class="pcoded-mtext">Verification</span>
+                                            </a>
+                                        </li> -->
+
+                                      <!--  <li class="">
+                                            <a href="#">
+                                                <span class="pcoded-mtext">User Card</span>
+                                            </a>
+                                        </li> -->
+                                    </ul>
+                                </li>
+
+                                <li class="pcoded-hasmenu ">
+                                    <a href="javascript:void(0)">
+                                        <span class="pcoded-micon"><i class="feather icon-credit-card"></i></span>
+                                        <span class="pcoded-mtext">Business</span>
+                                    </a>
+                                    <ul class="pcoded-submenu" style="background-color: #0D1F48!important;">
+                                        <li class="">
+                                            <a href="{% url 'plans' %}">
+                                                <span class="pcoded-mtext">Investment Plans</span>
+                                            </a>
+                                        </li>
+                                         <li class="">
+                                            <a href="{% url 'purchased_plans' %}">
+                                                <span class="pcoded-mtext">Purchased Plans</span>
+                                            </a>
+                                        </li>
+
+                                    </ul>
+                                </li>
+
+                                  <li class="pcoded-hasmenu ">
+                                    <a href="javascript:void(0)">
+                                        <span class="pcoded-micon"><i class="feather icon-credit-card"></i></span>
+                                        <span class="pcoded-mtext">Tree</span>
+                                    </a>
+                                    <ul class="pcoded-submenu" style="background-color: #0D1F48!important;">
+                                        <li class="">
+                                            <a href="{% url 'binary_tree' user.id%}">
+                                                <span class="pcoded-mtext">Binary Tree</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <!-- transection history menu starts here -->
+
+
+                                <li class="pcoded-hasmenu " dropdown-icon="style1" subitem-icon="style1">
+                                    <a href="javascript:void(0)">
+                                        <span class="pcoded-micon"><i class="feather icon-credit-card"></i></span>
+                                        <span class="pcoded-mtext">Affiliate Program</span>
+                                    </a>
+
+                                    <ul class="pcoded-submenu" style="background-color: #0D1F48!important;">
+                                        <li class="">
+                                            <a href="{% url 'refer' %}">
+                                                <span class="pcoded-mtext">Refer code</span>
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="{% url 'refer_list' %}">
+                                                <span class="pcoded-mtext">Referred user list</span>
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="# ">
+                                                <span class="pcoded-mtext">Referral income history</span>
+                                            </a>
+                                        </li>
+
+                                    </ul>
+
+                                </li>
+
+                                   <li class="pcoded-hasmenu " dropdown-icon="style1" subitem-icon="style1">
+                                    <a href="javascript:void(0)">
+                                        <span class="pcoded-micon"><i class="feather icon-credit-card"></i></span>
+                                        <span class="pcoded-mtext">Deposit</span>
+                                    </a>
+
+                                    <ul class="pcoded-submenu" style="background-color: #0D1F48!important;">
+                                        <li class="">
+                                            <a href="{% url 'deposit' %}">
+                                                <span class="pcoded-mtext">Deposit</span>
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="{% url 'deposits_history' %}">
+                                                <span class="pcoded-mtext">Deposit history</span>
+                                            </a>
+                                        </li>
+
+                                    </ul>
+
+                                </li>
+
+                                 <li class="pcoded-hasmenu " dropdown-icon="style1" subitem-icon="style1">
+                                    <a href="javascript:void(0)">
+                                        <span class="pcoded-micon"><i class="feather icon-credit-card"></i></span>
+                                        <span class="pcoded-mtext">Withdraw</span>
+                                    </a>
+
+                                    <ul class="pcoded-submenu" style="background-color: #0D1F48!important;">
+                                        <li class="pcoded-hasmenu " dropdown-icon="style1" subitem-icon="style1">
+                                            <a href="javascript:void(0)">
+                                                <span class="pcoded-micon"><i class="feather icon-credit-card"></i></span>
+                                                <span class="pcoded-mtext">Request withdraw</span>
+                                            </a>
+                                            <ul class="pcoded-submenu" style="background-color: #0D1F48!important;">
+                                                <li class="">
+                                            <a href="{% url 'withdraw' %}">
+                                                <span class="pcoded-micon">
+                                                    </span>
+                                                <span class="pcoded-mtext">Direct withdraw</span>
+                                            </a>
+                                        </li>
+
+                                                 <li class="">
+                                            <a href="{% url 'franchise_withdraw' %}">
+                                                <span class="pcoded-micon">
+                                                    </span>
+                                                <span class="pcoded-mtext">Franchise Withdraw</span>
+                                            </a>
+                                        </li>
+
+                                            </ul>
+
+                                        </li>
+                                        <li class="">
+                                             <a href="{% url 'withdraw_pending' %}">
+                                                <span class="pcoded-mtext">Pending withdraw</span>
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="{% url 'withdraw_history' %}">
+                                                <span class="pcoded-mtext">Withdrawal history</span>
+                                            </a>
+                                        </li>
+
+                                    </ul>
+
+                                </li>
+
+
+<li>
+                                    <a href="{% url  'receivedmoney_history' %}">
+<span class="pcoded-micon"><i class="feather icon-credit-card"></i></span>
+                                        <span class="">Income History</span>
+                                    </a>
+                                </li>
+
+
+
+
+                                <li class="pcoded-hasmenu " dropdown-icon="style1" subitem-icon="style1">
+                                    <a href="javascript:void(0)">
+                                        <span class="pcoded-micon"><i class="feather icon-credit-card"></i></span>
+                                        <span class="pcoded-mtext">Balance Transfer</span>
+                                    </a>
+
+                                    <ul class="pcoded-submenu" style="background-color: #0D1F48!important;">
+                                        <li class="">
+                                            <a href="{% url 'send_money' %}">
+                                                <span class="pcoded-mtext">Transfer balance to a user</span>
+                                            </a>
+
+
+                                        </li>
+                                        <li class="">
+                                            <a href="{% url 'sendmoney_history' %}">
+                                                <span class="pcoded-mtext">Transfer history</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+
+                                </li>
+                              
+
+
+
+                            </ul>
+
+
+
+
+                            <ul class="pcoded-item pcoded-left-item" style="background-color: #0D1F48!important;">
+
+                                <li class="pcoded-hasmenu">
+                                    <a href="javascript:void(0)">
+                                        <span class="pcoded-micon"><i class="feather icon-unlock"></i></span>
+                                        <span class="pcoded-mtext">Security</span>
+                                        <span class="pcoded-mcaret"></span>
+                                    </a>
+                                    <ul class="pcoded-submenu" style="background-color: #0D1F48!important;">
+                                        <li class=" ">
+                                            <a href="{% url 'change_password' %}">
+                                                <span class="pcoded-mtext">Change password</span>
+                                            </a>
+                                        </li>
+                                        <li class=" ">
+                                            <a href="#">
+                                                <span class="pcoded-mtext">Security Question</span>
+                                            </a>
+                                        </li>
+
+                                    </ul>
+                                </li>
+                                {% if user.is_admin %}
+                                <li class="pcoded-hasmenu">
+                                    <a href="javascript:void(0)">
+                                        <span class="pcoded-micon"><i class="feather icon-unlock"></i></span>
+                                        <span class="pcoded-mtext">Give Matching bonus</span>
+                                        <span class="pcoded-mcaret"></span>
+                                    </a>
+                                    <ul class="pcoded-submenu" style="background-color: #0D1F48!important;">
+                                        <li class=" ">
+                                            <a href="{% url 'dfs_matching' %}">
+                                                <span class="pcoded-mtext">Give matching Bonus to all parents</span>
+                                            </a>
+                                        </li>
+
+                                    </ul>
+                                </li>
+                                {% endif %}
+                                <ul class="pcoded-item pcoded-left-item" item-border="true" item-border-style="none" subitem-border="true">
+                                    <li class="">
+                                        <a href="{% url 'logout' %}">
+                                            <span class="pcoded-micon"><i class="feather icon-log-out"></i></span>
+                                            <span class="pcoded-mtext">Log Out</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </ul>
+                        </div>
+                    </nav>
+                    <div class="pcoded-content">
+                        <div class="pcoded-inner-content">
+                            <div class="main-body">
+                                
+                                <!--- main content -->
+                                
+                                {% block content %}
+
+                                {% endblock %}
+                                
+                                
+                                <!-- main content end -->
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <script type="text/javascript" src="{% static 'dashboard-static/bower_components/jquery-ui/js/jquery-ui.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'dashboard-static/bower_components/popper.js/js/popper.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'dashboard-static/bower_components/bootstrap/js/bootstrap.min.js' %}"></script>
+    <!-- jquery slimscroll js -->
+    <script type="text/javascript" src="{% static 'dashboard-static/bower_components/jquery-slimscroll/js/jquery.slimscroll.js' %}"></script>
+    <!-- modernizr js -->
+    <script type="text/javascript" src="{% static 'dashboard-static/bower_components/modernizr/js/modernizr.js' %}"></script>
+    <script type="text/javascript" src="{% static 'dashboard-static/bower_components/js/css-scrollbars.js' %}"></script>
+    <!-- Custom js -->
+    <script src="{% static 'dashboard-static/assets/js/pcoded.min.js' %}"></script>
+    <script src="{% static 'dashboard-static/assets/js/vartical-layout.min.js' %}"></script>
+    <script src="{% static 'dashboard-static/assets/js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'dashboard-static/assets/pages/dashboard/crm-dashboard.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'dashboard-static/assets/js/script.js' %}"></script>
+
+
+
+
+  
+</body>
+
+</html>

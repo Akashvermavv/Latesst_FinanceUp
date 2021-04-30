@@ -1,0 +1,273 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+{% block custom_css %}
+<style>
+
+</style>
+
+    {% endblock custom_css %}
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+    <!-- Content -->
+    <div id="content">
+        <div class="login-signup-page mx-auto my-5">
+            <h3 style="text-align: center;display: block;color: #00ae00;">An activation link was sent to your email.!!<br><small style="text-align: center;display: block;color: rebeccapurple;padding: 10px 0px 0px 0px;">Please check your email to active your account.</small></h3>
+            <div class="col-11 col-lg-9 col-xl-8 mx-auto">
+                <a class="btn btn-primary btn-block my-4" style="color:#fff;" href="{% url 'login' %}">Go to Login</a>
+            </div>
+        </div>
+    </div>
+<div class="container">
+<!--  <h2>Modal Example</h2>-->
+  <!-- Trigger the modal with a button -->
+  <button type="button" class="btn btn-info btn-lg" id="open_modal" hidden data-toggle="modal" data-target="#myModal">Open Modal</button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog" style="">
+    <div class="modal-dialog" style="">
+
+      <!-- Modal content-->
+      <div class="modal-content" style="margin-left:-45%;width: 200%;height:600px;background-color:#404e67;color:#ed7b82;">
+<!--        <div class="modal-header">-->
+<!--          <button type="button" class="close" data-dismiss="modal">&times;</button>-->
+<!--          <h4 class="modal-title">Modal Header</h4>-->
+<!--        </div>-->
+<!--        <div class="modal-body">-->
+<!--          -->
+<!--        </div>-->
+          {% if activate %}
+        <div class=" text-center">
+            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+
+            <h2 style="color:#ed7b82 ;">Your account already activated.</h2>
+        </div>
+        {% else %}
+        <div class=" text-center" style="color:#ed7b82 ;">
+            <br/>
+            <br/>
+            <h2 style="color:#ed7b82 ;">Please active your account</h2>
+            <br/>
+            <br/>
+        </div>
+        <div class="card-body d-flex justify-content-center">
+            <div class="col-sm-12" style="max-width: max-content;">
+<!--                <select name="select" class="form-control form-control-success">-->
+<!--                    <option value="opt1">USD</option>-->
+<!--                </select><br>-->
+<!--                <input type="text" class="form-control" value="Price 20$ <br/>Billing Cycle:Monthly" style="font-size:40px;" hidden>-->
+
+                <textarea class="form-control" style="overflow:hidden ;resize:none;font-size:25px;width:100%;height:40%;" readonly>
+         Activation Fee
+
+            $15 Only
+
+                </textarea>
+
+            <form action="https://perfectmoney.com/api/step1.asp" method="POST">
+                <div class="input-group">
+<!--                    <span class="input-group-addon" id="basic-addon2">$</span>-->
+<!--                <input type="text" class="form-control" name="PAYMENT_AMOUNT" placeholder="Amount" value="20"-->
+<!--                readonly>-->
+                    <input type="hidden" class="form-control" name="PAYMENT_AMOUNT"  value="20">
+                 </div>
+                <input type="hidden" name="PAYEE_ACCOUNT" value="U24170548">
+                <input type="hidden" name="PAYEE_NAME" value="Profiteebd">
+                <input type="hidden" name="PAYMENT_ID" value="{{user_id}}">
+
+                <input type="hidden" name="PAYMENT_UNITS" value="USD">
+                <input type="hidden" name="STATUS_URL" value="http://127.0.0.1:8000/dashboard/payment_status/">
+                <input type="hidden" name="PAYMENT_URL" value="http://127.0.0.1:8000/dashboard/premium_plan_success/">
+                <input type="hidden" name="PAYMENT_URL_METHOD" value="POST">
+                <input type="hidden" name="NOPAYMENT_URL" value="http://127.0.0.1:8000/dashboard/payment_failed/">
+
+                <input type="hidden" name="NOPAYMENT_URL_METHOD" value="POST">
+                <input type="hidden" name="PAYMENT_URL_METHOD" value="POST">
+                <input type="hidden" name="ORDER_NUM" value="{{order_number}}">
+                <input type="hidden" name="CUST_NUM" value="{{user_id}}">
+                <input type="hidden" name="SUGGESTED_MEMO" value="">
+                <input type="hidden" name="BAGGAGE_FIELDS" value="">
+                <br/>
+
+<!--                <button type="submit" class=" m-b-0 form-control" style="font-size:25px;">Pay Now</button>-->
+                <button type="button" class=" m-b-0 form-control" id="open_modal11" style="font-size:30px;" data-toggle="modal" data-target="#myModal22">Pay now</button>
+
+            </form>
+
+
+            </div>
+        </div>
+          <div class="">
+          <button type="button" class="btn btn-default" data-dismiss="modal" style="float:right;background-color:#fff">Close</button>
+        </div>
+        {% endif %}
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+
+<div class="container">
+<!--  <h2>Modal Example</h2>-->
+  <!-- Trigger the modal with a button -->
+<!--  <button type="button" class="btn btn-info btn-lg" id="open_modal"  data-toggle="modal" data-target="#myModal">Open Modal</button>-->
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal22" role="dialog" style="" >
+    <div class="modal-dialog" style="">
+
+      <!-- Modal content-->
+      <div class="modal-content" style="margin-top:100px;margin-left:-45%;width: 200%;height:400px;background-color:#404e67;color:#ed7b82;">
+
+
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+        <div class="card-body d-flex justify-content-center">
+            <div class="col-sm-12" style="max-width: max-content;">
+               <form action="{% url 'deposit' %}" method="GET">
+                <div class="input-group">
+<!--                    <span class="input-group-addon" id="basic-addon2">$</span>-->
+<!--                <input type="text" class="form-control" name="PAYMENT_AMOUNT" placeholder="Amount" value="20"-->
+<!--                readonly>-->
+                    <input type="hidden" class="form-control" name="PAYMENT_AMOUNT"  value="20">
+                 </div>
+                <input type="hidden" name="PAYEE_ACCOUNT" value="U24170548">
+                <input type="hidden" name="PAYEE_NAME" value="Profiteebd">
+                <input type="hidden" name="PAYMENT_ID" value="{{user_id}}">
+
+                <input type="hidden" name="PAYMENT_UNITS" value="USD">
+                <input type="hidden" name="STATUS_URL" value="http://127.0.0.1:8000/dashboard/payment_status/">
+                <input type="hidden" name="PAYMENT_URL" value="http://127.0.0.1:8000/dashboard/premium_plan_success/">
+                <input type="hidden" name="PAYMENT_URL_METHOD" value="POST">
+                <input type="hidden" name="NOPAYMENT_URL" value="http://127.0.0.1:8000/dashboard/payment_failed/">
+
+                <input type="hidden" name="NOPAYMENT_URL_METHOD" value="POST">
+                <input type="hidden" name="PAYMENT_URL_METHOD" value="POST">
+                <input type="hidden" name="ORDER_NUM" value="{{order_number}}">
+                <input type="hidden" name="CUST_NUM" value="{{user_id}}">
+                <input type="hidden" name="SUGGESTED_MEMO" value="">
+                <input type="hidden" name="BAGGAGE_FIELDS" value="">
+                <br/>
+
+                <button type="submit" class=" m-b-0 form-control" style="font-size:25px;">Pay now( directly go the payment gateway)</button>
+
+            </form>
+                <br/>
+                <br/>
+
+
+            <form action="{% url 'withdraw_request_premium' %}" method="GET">
+                {% csrf_token %}
+
+                <button type="submit" class=" m-b-0 form-control" id="withdraw_submit"  style="font-size:25px;">Pay with account balance </button>
+
+            </form>
+
+
+            </div>
+        </div>
+          <div class="">
+          <button type="button" class="btn btn-default" data-dismiss="modal" style="float:right;background-color:#fff">Close</button>
+        </div>
+
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+<script>
+
+
+
+    document.getElementById('ppay_now').onclick = function () {
+
+        document.getElementById('myModal22').style.display = "block"
+    };
+
+</script>
+
+<script>
+    window.onload = function () {
+
+    document.getElementById('open_modal').click()
+    document.getElementById('button').onclick = function () {
+        document.getElementById('myModal').style.display = "none"
+    };
+};
+</script>
+
+
+
+
+  <script>
+                                    $(document).on('click','#withdraw_1submit',function(){
+
+		via=$('.btn-select').val();
+		amount=$('#amount').val();
+		password=$('#password').val();
+
+		if (via=='' || amount=='' || password==''){
+			alert('all fields are required');
+		}else{
+			$('#withdraw_submit').text('loading......');
+
+
+			$.ajax({
+				dataType:'json',
+				type:'GET',
+				data:{amount:20},
+				url:'/dashboard/withdraw_request_premium/'
+			})
+
+			.done(function(data){
+
+				var message=data.message;
+				$('#messagebox').empty();
+				$('#messagebox').append('<div class="alert alert-info">'+message+'</div');
+				$('#withdraw_submit').text('withdraw');
+			})
+
+			.fail(function(){
+				$('#messagebox').empty();
+				$('#messagebox').append('<div class="alert alert-danger">something went wrong</div');
+
+			});
+
+
+
+
+
+
+
+
+		};
+
+
+
+
+
+
+
+
+	});
+
+
+                                </script>
+{% endblock content %}

@@ -1,0 +1,2456 @@
+/*------------------------------------------------------------------------------*/
+/*                    width : 1200px
+/*------------------------------------------------------------------------------*/
+
+@media (min-width: 1200px) {
+
+.Boxed-i {
+width: 1200px;
+}
+
+.navbar-collapse {
+  display: inline-block !important;
+}
+
+}
+
+/*------------------------------------------------------------------------------*/
+/*                    width : 991px
+/*------------------------------------------------------------------------------*/
+@media (min-width: 991px) and (max-width: 1200px) {
+
+body{
+  overflow-x: hidden !important;
+}
+
+.Boxed-i {
+width: 100% !important;
+}
+
+.col-md-push-2 {
+  left: 0% !important;
+}
+
+
+.col-md-3.portfolio-item.masonry-item {
+   width: 32% !important;
+}
+
+
+
+#about .col-md-3, ul.tabs-navigation .col-md-2, .col-md-3.portfolio-item, .block-Services.col-md-3,
+#Team .col-md-3, .col-md-4.portfolio-item, .col-md-2.portfolio-item{
+   float: left !important;
+   width: 25% !important;
+}
+
+.Cart-Login, .Contact-Header {
+    width: 50%;
+}
+
+.shop-content .col-md-4 {
+  float: left !important;
+  width: 33.33333333% !important;
+}
+
+ #Services .col-md-3 {
+  float: left !important;
+  width: 50% !important;
+  margin-bottom:30px;
+}
+
+.TopHeader .col-md-6 {
+	padding: 0;
+	width: 50%;
+}
+
+.Search-Block input {
+  width: 100%;
+}
+
+.shop-content.col-md-9 .bottom-shop-content.col-md-7 {
+padding: 0px 15px 0px 30px;
+float: left !important;
+width: 50% !important;
+}
+
+.Login-Icons {
+	text-align: right;
+}
+
+.PhoneNamber {
+	float: left;
+	display: none !important;
+	border-left: 1px Solid #e6e6e6;
+	padding: 0px 20px;
+}
+
+.Header-Style3 .Block-Search {
+  transform: translateY(-63px) !important;
+  padding: 15px !important;
+}
+
+
+.Top-ProjectItem p {
+  margin-top: 5px !important;
+}
+
+.counters-style5 .one_fourth h4 {
+  text-align: left !important;
+}
+
+iframe {
+  width: 100% !important;
+}
+
+ul.tabs-navigation:before {
+  left: 15% !important;
+  top: 47% !important;
+}
+
+.navbar .dropdown-menu {
+  top: 73px !important;
+  background-color: #FFF !important;
+}
+
+.Menu-Header {
+  float: none;
+  height: 74px !important;
+  width: 100%;
+  text-align: center !important;
+}
+
+.navbar-nav {
+  float: none !important;
+  margin: 0;
+  width: 100%;
+  text-align: center !important;
+}
+
+
+.navbar .dropdown-menu:not(.yamm-dropdown-menu) li {
+	float: none !important;
+	line-height: 1px !important;
+	display: block !important
+}
+
+.dropdown.yamm-fullwidth .dropdown-menu li {
+  position: relative;
+  display: inline-block !important;
+  width: 100%;
+}
+
+.yamm-fullwidth ul.dropdown-menu div {
+padding: 0px 15px !important;
+}
+.open-left>.dropdown-menu:not(.yamm-dropdown-menu) {
+  left: -101% !important;
+  top: -3px !important;
+}
+
+.dropdown-submenu>.dropdown-menu:not(.yamm-dropdown-menu) {
+  border-top: 2px solid #4396ff !important;
+  top: -3px !important;
+}
+
+.TopHeader {
+    display: none !important;
+}
+
+.option-box {
+display: none;
+}
+
+
+.About-over p {
+    font-size: 12px !Important;
+    line-height: 18px !Important;
+}
+
+.Block-Search input {
+  width: 80% !Important;
+  font-size: 12px;
+}
+
+.Logo-Header.col-md-4, .Logo-Header.col-md-12 {
+    display: inline-block;
+    float: left;
+    position: relative;
+    padding: 0;
+	height: 100px;
+}
+
+.Menu-responsive.col-md-12{
+  width: 80% !important;
+  display: inline-block;
+  float: left;
+  padding: 0;
+  text-align: left !important;
+}
+
+.Header-Style4 li.has-sub.yamm-fullwidth ul {
+    width: 125% !important;
+}
+
+
+.Logo-Header {
+    width: 20% !important;
+}
+
+
+.navbar-logo {
+    width: 100% !important;
+    line-height: 50px;
+    background-image: url(../images/logo/Logo-Header.png) !important;
+    height: 90px !important;
+    display: inline-block;
+    background-size: 100% auto !important;
+    background-repeat: no-repeat !important;
+    background-position: left !important;
+}
+
+
+.Menu-Header ul li a.current:before {
+  width: 0 !important;
+}
+
+.Menu-Header ul li a:focus:active:before, .Menu-Header ul li:hover a:before {
+  width: 0 !important;
+}
+
+.title-section h3, .Features-Block h3, .Purchase-wrapper h3, .TextImg-Block h3, .Title-Us h3 {
+  font-size: 20px !important;
+	  line-height: 27px;
+}
+
+.description-welcome p {
+  font-size: 15px !important;
+  padding: 15px 0% !important;
+}
+
+.description-section p, .description-section-Features p, .tabs-content li.selected p, .Features-Block p, .TextImg-Block p,
+.Rights-Reserved h2, .Testimonials-Block p, .Process-tabs-content li.selected p {
+  padding: 0px 0% !important;
+  font-size: 12px !important;
+	line-height: 18px !important;
+}
+
+.Icons-Search, .responsive-menu {
+  padding:  0px;
+}
+
+
+.Top-Img-Team, .Top-ClassServices, .Team-Block, .Top-img-news {
+  overflow: visible !important;
+  position: relative;
+}
+
+.Block-Features.selected a:after {
+  display: none !important;
+}
+
+ul.tabs-one {
+    width: 48% !important;
+}
+
+ul.tabs-tow {
+    width: 49% !important;
+}
+
+ul.tabs-navigation:before {
+   display: none;
+}
+
+.tabs-content li, .About-Content ul li {
+  width: 100% !important;
+}
+
+.btn-notback {
+  display: inline-block !important;
+  margin-top: 15px !important;
+}
+
+.Purchase-wrapper, .Purchase-Click, .Purchase {
+  padding: 15px 15px !important;
+}
+
+.Join-Footer {
+  width: 100% !important;
+}
+
+.Header-Style4 .Block-Search {
+  transform: translateY(-63px) !important;
+  padding: 15px 0px !important;
+}
+
+.Header-Style4 .right-wrapper {
+  position: absolute !important;
+  top: -90px;
+  right: 0;
+}
+
+.Lastpost-Blog span:last-child {
+  margin-left: 12px !important;
+}
+
+.Lastpost-Blog a h4 {
+  font-size: 15px !important;
+  line-height: 25px;
+}
+
+.Testimonials-Info span, .Testimonials-Info h5 {
+  width: 65% !important;
+}
+
+.Bottom-Features {
+  display: none !important;
+}
+
+.Top-Case ul li {
+  display: inline-block;
+}
+
+.Join-Footer {
+  margin-left: 0 !important;
+}
+
+ul.icons-ul li:first-child{
+	display: none;
+
+}
+
+.Header-Style5 .basic-wrapper, .Header-Style1 .basic-wrapper, .Header-Style6 .basic-wrapper {
+    padding: 0 !important;
+    width: 20%;
+}
+
+.Header-Style5 .Menu-Header ul li a i {
+  display: inline !important;
+  text-align: left !important;
+  margin-right: 15px !important;
+}
+
+.Header-Style1 .Block-Search, .Header-Style5 .Block-Search, .Header-Style6 .Block-Search {
+  transform: translateY(-65px) !important;
+  padding: 15px;
+}
+
+.Navbar-Full {
+  top: 0px !important;
+}
+
+.Header-Style2 .Block-Search {
+  transform: translateY(-161px) !important;
+  padding: 15px !important;
+}
+
+.metis.tparrows {
+    background: #fff;
+    padding: 0px !important; 
+    transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    width: 40px !important; 
+    height: 40px !important; 
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+.Login-Header {
+  padding: 0px 0px 34px 0px !important;
+  width: 100% !important;
+}
+
+.Post-f-img {
+display: none !important;
+}
+
+.Bottom-Testimonials p {
+	padding: 0px 0% !important;
+	margin: 0px 30px !important;
+  font-size: 12px !important;
+  line-height: 18px !important;
+}
+
+.Download-CV, .SocialAbout.Social-Footer {
+  width: 100% !important;
+  margin-bottom: 15px !important;
+}
+
+.Purchase a {
+  float: none !important;
+  margin-top: 15px !important;
+  display: inline-block !important;
+}
+
+.Contact-us .form-input {
+  width: 100% !important;
+}
+
+.form-submit {
+  display: block;
+  margin-top: 15px;
+  width: 100%;
+  float: left !important;
+  margin-bottom: 15px;
+}
+
+.accordions-style2 .section-content span {
+  font-size: 10px !important;
+}
+
+.accordions-style2 .section-content h4 a {
+  margin-left: 5px !important;
+}
+
+.Available-Vacancies input, .form-input input, .Available-Vacancies textarea, label.wi1 input, label.wi2 input, .order-textarea .textArea {
+  width: 100%;
+}
+
+.siteMap-nav ul ul {
+  margin: 10px 0px !important;
+  width: 100% !important;
+}
+
+.time_circles > div {
+  top: 42px !important;
+}
+
+.col-md-6.portfolio-item.masonry-item {
+  width: 32% !important;
+}
+
+.sort-by-click {
+  display: inline-block;
+  float: left !important;
+}
+
+.top-shop-content.col-md-5 {
+  padding: 15px !important;
+  width: 50% !important;
+  display: inline-block !important;
+  float: left !important;
+}
+
+
+.shop-content.col-md-9 .bottom-shop-content.col-md-7 {
+	padding: 15px !important;
+	width: 50% !important;
+	display: inline-block !important;
+	float: left !important;
+}
+
+
+.hover-shop-content {
+  padding: 30px 30px !important;
+}
+
+.img-shop-content p {
+  top: 35px !important;
+}
+
+.right-shop-content .reviews-shop-content {
+  top: 65px !important;
+}
+
+.option-items {
+  margin-top: 30px !important;
+  margin-bottom: 30px !important;
+}
+
+.Add-to-Cart {
+  float: left !important;
+  margin-top: 0 !important;
+  width: 100%;
+}
+
+.Add-to-Cart a {
+  padding: 20px 12px !important;
+	margin-left: 10px !important;
+}
+
+.info-items ul li p a:last-child {
+	display: none !important;
+}
+
+.Tabs-Style6.Shop-Tab ul.tab-nav li a {
+  padding: 0px 12px !important;
+}
+
+.shop-tab-content .Details p {
+  width: 100% !important;
+}
+
+.shop-content {
+  padding: 15px;
+}
+
+.zoomWindowContainer div {
+  border: none !important;
+  margin-left: -275px !important;
+  margin-top: 0;
+  width: 275px !important;
+  height: 100% !important;
+  border-radius: 20px 0px 0px 0px;
+}
+
+.shop-cart-content {
+  padding: 0px 15px;
+}
+
+.coupon-code input.txt-box, input#Postcode, .coupon-code-2 form #number {
+  margin-bottom: 15px !important;
+}
+
+.shop-customer p {
+  text-align: left;
+}
+
+.Credit-Card span {
+  font-size: 11px !important;
+}
+
+label.wi1, label.wi2, .Data-Expiry, .verification-Code {
+  width: 100% !important;
+  margin-right: 0 !important;
+}
+
+.form-billing h4 {
+  font-size: 18px !important;
+}
+
+.Promo-style3, .Promo-style4, .Promo-style2, .Promo-style1 {
+  padding: 20px !important;
+}
+
+.side-tabs .tab-content {
+  display: -webkit-inline-box !important;
+}
+
+.bs-docs-section:last-child {
+  padding: 15px !important;
+}
+
+.col-md-3.portfolio-item.Full-item {
+  padding: 0px;
+  width: 100% !important;
+}
+
+.title-instafeed {
+    padding: 0 !important;
+}
+
+ul#instafeed2 li {
+    width: 25% !important
+}
+
+
+.Header-Style5 .Menu-Header ul li,
+.Header-Style6 .Menu-Header ul li {
+    height: 73px !important
+}
+
+.Header-Style5 #cssmenu > ul > li.has-sub > a::after,
+.Header-Style6 #cssmenu > ul > li.has-sub > a::after {
+    top: 34px  !important;
+}
+
+#cssmenu ul ul li {
+    height: auto !important;
+}
+
+.Header-Style5 #cssmenu > ul > li > a {
+    padding: 30px 20px !important;
+}
+
+.Header-Style6 #cssmenu > ul > li > a {
+    padding: 30px 30px !important;
+}
+
+
+
+}
+/*------------------------------------------------------------------------------*/
+/*                    Width : 767px
+/*------------------------------------------------------------------------------*/
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+
+.Boxed-i {
+width: 100% !important;
+}
+
+body{
+	  overflow-x: hidden !important;
+}
+
+.col-md-3.portfolio-item.masonry-item {
+  width: 48% !important;
+}
+
+.col-md-3.portfolio-item.Full-item {
+  padding: 0px;
+  width: 100% !important;
+}
+
+.col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
+  padding-bottom: 15px;
+  padding-top: 15px;
+  float: left;
+  width: 100%;
+}
+
+#about .col-md-3, ul.tabs-navigation .col-md-2, .block-News.text-center.col-md-4, .col-md-3.portfolio-item, .block-Services.col-md-3,
+#Team .col-md-3, .col-md-4.portfolio-item, .col-md-2.portfolio-item, .shop-content .col-md-4, .TopHeader .col-md-6,
+#Our-Team .col-md-2.col-md-push-1, #Services .col-md-3 {
+  float: left !important;
+  width: 50% !important;
+}
+
+.Team-block:after {
+  left: 42% !important;
+}
+
+
+.TopHeader {
+    display: none !important;
+}
+
+.TopHeader .col-md-6 {
+	padding: 0;
+}
+
+.PhoneNamber {
+    display: none !important;
+}
+
+.Cart-top.shopping-cart-Block {
+    padding: 0px !important;
+}
+
+.Cart-top .Icons-shopping-cart span {
+    top: 10px !important;
+}
+
+.Cart-top .shop-cart-header {
+    top: 57px !important;
+}
+
+.Cart-Login.col-md-6 {
+    display: none;
+}
+
+.Contact-Header {
+    padding: 25px 30px !important;
+}
+
+
+.Header-Style3 .Block-Search {
+  transform: translateY(-123px) !important;
+    padding: 15px 10px !important;
+}
+
+
+.Top-ProjectItem p {
+  margin-top: 5px !important;
+}
+
+.counters-style5 .one_fourth h4 {
+  text-align: left !important;
+}
+
+iframe {
+  width: 100% !important;
+}
+
+.navbar .dropdown-menu {
+  top: 53px !important;
+  bottom: auto !important;
+ background-color: #FFF !important;
+}
+
+.Menu-Header {
+  float: none;
+  height: 100% !important;
+  width: 100%;
+  text-align: center !important;
+}
+
+
+.Header-Style4 .Menu-Header {
+  float: none;
+  height: 53px !important;
+  width: 100%;
+  text-align: center !important;
+}
+
+.Header-Style4 .navbar .dropdown-menu {
+    top: 53px !important;
+}
+
+.navbar-nav {
+  float: none !important;
+  margin: 0;
+  width: 100%;
+  text-align: center !important;
+}
+
+
+.navbar .dropdown-menu:not(.yamm-dropdown-menu) li {
+	float: none !important;
+  display: block !important
+}
+
+.open-left>.dropdown-menu:not(.yamm-dropdown-menu) {
+  left: -101% !important;
+  top: -3px !important;
+}
+
+.dropdown-submenu>.dropdown-menu:not(.yamm-dropdown-menu) {
+  border-top: 2px solid #4396ff !important;
+  top: -3px !important;
+}
+
+
+.option-box {
+display: none;
+}
+
+
+.Block-Search input {
+  width: 80% !Important;
+  font-size: 9px;
+}
+
+.Logo-Header.col-md-4, .Logo-Header.col-md-12 {
+    width: 100% !important;
+    display: inline-block;
+    float: left;
+	position: relative;
+    height: 60px;
+
+    padding: 0;
+}
+
+.Menu-responsive.col-md-12{
+	width: 100% !important;
+  display: inline-block;
+  float: left;
+  padding: 0;
+  text-align: left !important;
+}
+
+.navbar-logo {
+  padding: 0 !important;
+  font-size: 18px;
+  line-height: 20px;
+  background: url(../images/logo/Logo-Header.png) no-repeat center !important;
+  width: 100% !important;
+  height: 90px;
+  margin-left: 0 !important;
+  display: inline-block;
+}
+
+.navbar-collapse {
+  position: relative;
+  display: block !important;
+  width: 100%;
+}
+
+.Menu-Header ul li a.current:before {
+  width: 0 !important;
+}
+
+.Menu-Header ul li a:focus:active:before, .Menu-Header ul li:hover a:before {
+  width: 0 !important;
+}
+
+.title-section h3, .Features-Block h3, .Purchase-wrapper h3, .TextImg-Block h3, .Title-Us h3 {
+  font-size: 20px !important;
+	  line-height: 27px;
+}
+
+.description-welcome p {
+  font-size: 15px !important;
+  padding: 15px 0% !important;
+}
+
+.description-section p, .description-section-Features p, .tabs-content li.selected p, .Features-Block p, .TextImg-Block p,
+.Rights-Reserved h2, .Testimonials-Block p, .Process-tabs-content li.selected p {
+  padding: 0px 0% !important;
+  font-size: 12px !important;
+	line-height: 18px !important;
+}
+
+.Header-Style2 .sidebar-menu, .Header-Style1 .sidebar-menu {
+    padding: 8px 10px;
+    padding: 0 !important;
+    display: inline-block !important;
+    float: right !important;
+    position: absolute;
+    right: 53px;
+    z-index: 111;
+    top: -11px;
+}
+
+.sidebar-menu button:before {
+    color: #333 !important;
+}
+
+.Header-Style4 .Menu-Header ul li{
+    line-height: 3 !important;
+}
+
+.navbar .dropdown-menu:not(.yamm-dropdown-menu) li {
+    line-height: 1 !important;
+	padding: 0 !Important;
+}
+
+.shop-cart-header {
+    top: 90px !important;
+}
+
+
+.Top-Img-Team, .Top-ClassServices, .Team-Block, .Top-img-news {
+  overflow: visible !important;
+  position: relative;
+}
+
+.Block-Features.selected a:after {
+  display: none !important;
+}
+
+ul.tabs-one {
+    width: 48% !important;
+}
+
+ul.tabs-tow {
+    width: 49% !important;
+}
+
+ul.tabs-navigation:before {
+   display: none;
+}
+
+.tabs-content li, .About-Content ul li {
+  width: 100% !important;
+}
+
+.btn-notback {
+  display: inline-block !important;
+  margin-top: 15px !important;
+}
+
+.Purchase-wrapper, .Purchase-Click, .Purchase {
+  padding: 15px 15px !important;
+}
+
+.Join-Footer {
+  width: 100% !important;
+}
+
+.Header-Style4 .Block-Search {
+  transform: translateY(-123px) !important;
+    padding: 15px 11px !important;
+}
+
+.Lastpost-Blog span:last-child {
+  margin-left: 12px !important;
+}
+
+.Lastpost-Blog a h4 {
+  font-size: 15px !important;
+  line-height: 25px;
+}
+
+.Testimonials-Info span, .Testimonials-Info h5 {
+  width: 65% !important;
+}
+
+.Bottom-Features {
+  display: none !important;
+}
+
+.Top-Case ul li {
+  display: inline-block;
+}
+
+.Join-Footer {
+  margin-left: 0 !important;
+}
+
+ul.icons-ul li:first-child{
+	display: none;
+
+}
+
+.Header-Style5 .Menu-Header ul li a i {
+  display: inline !important;
+  text-align: left !important;
+  margin-right: 13px !important;
+}
+
+.sidebar-menu {
+    padding: 0 !important;
+    display: inline-block !important;
+    float: right !important;
+    position: absolute;
+    right: 53px;
+    z-index: 111;
+    top: -10px;
+}
+
+
+.Header-Style2 .TopHeader-2 {
+    background: #FFF;
+    display: none;
+}
+
+.Header-Style1 .Block-Search, .Header-Style5 .Block-Search, .Header-Style6 .Block-Search {
+    transform: translateY(-157px) !important;
+    padding: 15px 10px;
+}
+
+.Navbar-Full {
+  top: 0px !important;
+}
+
+
+.Header-Style2 .Block-Search {
+  transform: translateY(-123px) !important;
+  padding: 15px !important;
+}
+
+
+.Header-Style5 .Menu-Header ul li:not(.yamm-dropdown-menu) {
+    height: 96px;
+    line-height: 1 !important;
+}
+
+.Header-Style5 .Menu-Header ul li {
+    padding: 0px 7px !important;
+}
+
+.Login-Header {
+    padding: 0px 0px 34px 0px !important;
+    width: 20% !important;
+}
+
+.tp-simpleresponsive img {
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    display: none !important; 
+}
+
+.metis.tparrows {
+    background: #fff;
+    padding: 0px !important; 
+    transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    width: 40px !important; 
+    height: 40px !important; 
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+.Catogry-Pages {
+  text-align: left !important;
+}
+
+.Bottom-Testimonials p {
+	padding: 0px 0% !important;
+	margin: 0px 30px !important;
+  font-size: 12px !important;
+  line-height: 18px !important;
+}
+
+.Download-CV, .SocialAbout.Social-Footer {
+  width: 100% !important;
+  margin-bottom: 15px !important;
+}
+
+.Purchase a {
+  float: none !important;
+  margin-top: 15px !important;
+  display: inline-block !important;
+}
+
+.Contact-us .form-input {
+  width: 100% !important;
+}
+
+.form-submit {
+  display: block;
+  margin-top: 15px;
+  width: 100%;
+  float: left !important;
+  margin-bottom: 15px;
+}
+
+.accordions-style2 .section-content span {
+  font-size: 10px !important;
+}
+
+.accordions-style2 .section-content h4 a {
+  margin-left: 5px !important;
+}
+
+.Available-Vacancies input, .form-input input, .Available-Vacancies textarea, label.wi1 input, label.wi2 input, .order-textarea .textArea {
+  width: 100%;
+}
+
+.siteMap-nav ul ul {
+  margin: 10px 0px !important;
+  width: 100% !important;
+}
+
+.time_circles > div {
+  top: 42px !important;
+}
+
+.col-md-6.portfolio-item.masonry-item {
+  width: 90% !important;
+}
+
+.sort-by-click {
+  display: inline-block;
+  float: left !important;
+}
+
+.top-shop-content.col-md-5 {
+	padding: 15px !important;
+	width: 50% !important;
+	display: inline-block !important;
+	float: left !important;
+}
+
+.shop-content.col-md-9 .bottom-shop-content.col-md-7 {
+	padding: 15px !important;
+	width: 50% !important;
+	display: inline-block !important;
+	float: left !important;
+}
+
+.hover-shop-content {
+  padding: 30px 30px !important;
+}
+
+.img-shop-content p {
+  top: 35px !important;
+}
+
+.right-shop-content .reviews-shop-content {
+  top: 65px !important;
+}
+
+.option-items {
+  margin-top: 30px !important;
+  margin-bottom: 30px !important;
+}
+
+.Add-to-Cart {
+  float: left !important;
+  margin-top: 0 !important;
+  width: 100%;
+}
+
+.Add-to-Cart a {
+  padding: 20px 12px !important;
+	margin-left: 10px !important;
+}
+
+.info-items ul li p a:last-child {
+	display: none !important;
+}
+
+.Tabs-Style6.Shop-Tab ul.tab-nav li a {
+  padding: 0px 12px !important;
+}
+
+.shop-tab-content .Details p {
+  width: 100% !important;
+}
+
+.shop-content {
+  padding: 15px;
+}
+
+.sort-by-select select {
+    width: 82% !important;
+}
+
+
+.with1, .with2, .coupon-code-2 form  {
+  width: 50% !important;
+  display: inline-block;
+}
+
+.zoomWindowContainer div {
+  border: none !important;
+  margin-left: -275px !important;
+  margin-top: 0;
+  width: 275px !important;
+  height: 100% !important;
+  border-radius: 20px 0px 0px 0px;
+}
+
+.shop-cart-content {
+  padding: 0px 15px;
+}
+
+.coupon-code input.txt-box, input#Postcode, .coupon-code-2 form #number {
+  margin-bottom: 15px !important;
+}
+
+.shop-customer p {
+  text-align: left;
+}
+
+.Credit-Card span {
+  font-size: 11px !important;
+}
+
+label.wi1, label.wi2, .Data-Expiry, .verification-Code {
+  width: 100% !important;
+  margin-right: 0 !important;
+}
+
+.form-billing h4 {
+  font-size: 18px !important;
+}
+
+.Promo-style3, .Promo-style4, .Promo-style2, .Promo-style1 {
+  padding: 20px !important;
+}
+
+.side-tabs .tab-content {
+  display: -webkit-inline-box !important;
+}
+
+.bs-docs-section:last-child {
+  padding: 15px !important;
+}
+
+.title-instafeed {
+    padding: 0 !important;
+}
+
+ul#instafeed2 li {
+    width: 25% !important
+}
+
+.SliderText h2 {
+    font-size: 40px !important
+}
+
+.SliderText p {
+    font-size: 13px !important
+}
+
+a.Slicefive {
+    padding: 10px 30px !important;
+    font-size: 13px !important;
+}
+
+.left-content {
+    left: 40px !important;
+}
+
+.customNavigation {
+    display: none !important;
+}
+
+.content-a {
+    padding-top: 90px !important;
+}
+
+.content-b {
+    padding-top: 90px !important;
+}
+
+
+}
+/*------------------------------------------------------------------------------*/
+/*                    width : 452px
+/*------------------------------------------------------------------------------*/
+@media only screen and (min-width: 481px) and (max-width: 767px) {
+
+.Boxed-i {
+width: 100% !important;
+}
+
+body{
+	  overflow-x: hidden !important;
+}
+
+.col-md-3.portfolio-item.masonry-item {
+  width: 47% !important;
+}
+
+.col-md-3.portfolio-item.Full-item {
+  padding: 0px;
+  width: 100% !important;
+}
+
+.responsive-menu a {
+    display: block !important;
+}
+
+.Header-Style3 .right-wrapper {
+    position: relative;
+    float: none;
+    display: inline-block;
+    width: 125px;
+	width: 100%;
+}
+
+.Header-Style3 .responsive-menu {
+    padding: 8px 0px !important;
+    margin-right: 10px;
+    margin-left: 5px;
+}
+
+
+.col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
+  padding-bottom: 15px;
+  padding-top: 15px;
+  float: left;
+  width: 100%;
+}
+
+#about .col-md-3, ul.tabs-navigation .col-md-2, .col-md-3.portfolio-item, .block-Services.col-md-3,
+#Team .col-md-3, .col-md-4.portfolio-item, .col-md-2.portfolio-item, .shop-content-list,
+#Our-Team .col-md-2.col-md-push-1, #Services .col-md-3 {
+  float: left !important;
+  width: 50% !important;
+}
+
+
+.shop-content .col-md-4 {
+    width: 100%;
+    float: left;
+}
+
+
+.Team-block:after {
+  left: 42% !important;
+}
+
+.Top-ProjectItem p {
+  margin-top: 5px !important;
+}
+
+.counters-style5 .one_fourth h4 {
+  text-align: left !important;
+}
+
+
+iframe {
+  width: 100% !important;
+}
+
+.navbar-collapse.in {
+overflow-y: hidden;
+width: 100%;
+position: relative;
+display: inline-block;
+height: 100%;
+background: #FFF;
+}
+
+.Header-Style2 .Contact-Header.col-md-6 {
+    width: 100%;
+    padding: 0px 19%;
+}
+
+.Header-Style2 .Cart-Login.col-md-6 {
+    display: none;
+}
+
+.TopHeader-2 .Menu-Header ul li a {
+  color: #777777 !important;
+}
+
+.Header-Agency .responsive-menu a {
+  color: #FFF !important;
+}
+
+.Menu-Header {
+float: left;
+height: 100% !important;
+width: 100% !important;
+}
+
+
+.Menu-Header ul li a:hover:before {
+content: " ";
+color: #4396ff;
+border-top: 0px Solid #4396ff !important;
+width: 20px;
+display:block;
+margin: auto;
+height: 10px;
+}
+
+.Menu-Header ul li a {
+font-size: 15px;
+color: #777777;
+font-family: 'Lato', sans-serif;
+text-transform: uppercase;
+padding: 0px;
+font-weight: 700 !important;
+padding:5px !important;
+background:none !important;
+}
+
+.navbar .dropdown-menu:not(.yamm-dropdown-menu) > li > a:hover {
+background:none !important;
+}
+
+.navbar .dropdown-menu:not(.yamm-dropdown-menu) li a i {
+  display: inline-block;
+  text-align: right;
+  position: absolute;
+  right: 0px !important;
+}
+
+a.dropdown-toggle.js-activated {
+margin-bottom: 15px;
+}
+
+.Header-Style3 .Block-Search {
+  transform: translateY(-137px)!important;
+  padding: 15px 10px !important;
+}
+
+.option-box {
+display: none;
+}
+
+.TopHeader {
+  display: none !important;
+}
+
+.Block-Search input {
+  width: 80% !Important;
+  font-size: 9px;
+}
+
+.Logo-Header.col-md-4, .Logo-Header.col-md-12 {
+  width: 100% !important;
+  display: inline-block;
+  float: left;
+  	position: relative;
+    height: 60px;
+  padding-top: 0;
+  padding-bottom: 40px;
+}
+
+.Header-Style2 .Contact-Header .PhoneNamber {
+    display: none !important;
+}
+
+.Header-Style2 .Login-Header {
+    width: 30% !important;
+}
+
+.Header-Style2 .Logo-Header.col-md-4, .Header-Style2 .Logo-Header.col-md-12 {
+    padding-bottom: 0px !important;
+}
+
+.Header-Style2 .Icons-Search, .Header-Style2 .responsive-menu, .Header-Style2 .shopping-cart-Block {
+    padding: 0px 0px !important;
+}
+
+.Header-Style2 .Icons-shopping-cart span {
+    top: 11px !important;
+    right: -10px !important;
+}
+
+
+
+
+
+.Header-Style3 .Logo-Header.col-md-4, .Header-Style3 .Logo-Header.col-md-12 {
+    width: 100% !important;
+    display: inline-block;
+    float: left;
+    padding-top: 0;
+    padding-bottom: 0px !important;
+    position: relative;
+    height: 60px;
+}
+
+.Header-Style4 .navbar-logo {
+    margin-left: 0px;
+    margin-bottom: 0 !important;
+}
+
+.Menu-responsive.col-md-12{
+	width: 100% !important;
+  display: inline-block;
+  float: left;
+  padding: 0;
+  text-align: left !important;
+}
+
+.navbar-logo {
+  padding: 0 !important;
+  font-size: 18px;
+  line-height: 20px;
+  background: url(../images/logo/Logo-Header.png) no-repeat center !important;
+  width: 100% !important;
+  height: 90px;
+  margin-left: 0 !important;
+  display: inline-block;
+}
+
+.navbar-collapse {
+  position: relative;
+  display: block !important;
+  width: 100%;
+}
+
+.navbar .yamm-fullwidth .dropdown-menu:not(.yamm-dropdown-menu) li {
+    line-height: 3 !important;
+    padding: 0px !important;
+    margin: 0px !important;
+}
+
+.navbar .dropdown-menu:not(.yamm-dropdown-menu) li {
+    line-height: 3 !important;
+}
+
+.dropdown.yamm-fullwidth .dropdown-menu {
+    position: relative;
+    top: 0px !important;
+}
+
+.Menu-Header ul li a.current:before {
+  width: 0 !important;
+}
+
+.Menu-Header ul li a:focus:active:before, .Menu-Header ul li:hover a:before {
+  width: 0 !important;
+}
+
+.title-section h3, .Features-Block h3, .Purchase-wrapper h3, .TextImg-Block h3, .Title-Us h3 {
+  font-size: 20px !important;
+	  line-height: 27px;
+}
+
+.description-welcome p {
+  font-size: 15px !important;
+  padding: 15px 0% !important;
+}
+
+.Icons-Search, .responsive-menu, .shopping-cart-Block {
+  padding: 15px 0px;
+}
+
+.Icons-shopping-cart span {
+	top: 30px !important;
+    right: 85px !important;
+}
+
+.description-section p, .description-section-Features p, .tabs-content li.selected p, .Features-Block p, .TextImg-Block p,
+.Rights-Reserved h2, .Testimonials-Block p, .Process-tabs-content li.selected p {
+  padding: 0px 0% !important;
+  font-size: 12px !important;
+	line-height: 18px !important;
+}
+
+.About-Content a.btn-bck {
+  display: none;
+}
+
+.Top-Img-Team, .Top-ClassServices, .Team-Block, .Top-img-news {
+  overflow: visible !important;
+  position: relative;
+}
+
+.Block-Features.selected a:after {
+  display: none !important;
+}
+
+ul.tabs-one {
+    width: 48% !important;
+}
+
+ul.tabs-tow {
+    width: 49% !important;
+}
+
+.tabs-content li, .About-Content ul li {
+  width: 100% !important;
+}
+
+.btn-notback {
+  display: inline-block !important;
+  margin-top: 15px !important;
+}
+
+.Purchase-wrapper, .Purchase-Click, .Purchase {
+  padding: 15px 15px !important;
+}
+
+.Join-Footer {
+  width: 100% !important;
+}
+
+.Header-Style4 .Block-Search {
+  transform: translateY(-123px) !important;
+  padding: 15px 10px !important;
+}
+
+.Lastpost-Blog span:last-child {
+  margin-left: 12px !important;
+}
+
+.Header-Style4 .responsive-menu.pull-right {
+    margin-left: -20px;
+    margin-right: 30px;
+}
+
+.Lastpost-Blog a h4 {
+  font-size: 15px !important;
+  line-height: 25px;
+}
+
+.Testimonials-Info span, .Testimonials-Info h5 {
+  width: 65% !important;
+}
+
+.Bottom-Features {
+  display: none !important;
+}
+
+.Top-Case ul li {
+  display: inline-block;
+  width: auto;
+}
+
+ul.tabs-navigation:before {
+  display: none !important;
+}
+
+.Join-Footer {
+  margin-left: 0 !important;
+}
+
+.sidebar-menu {
+  display: none !important;
+}
+
+.Header-Style5 .Menu-Header ul li a i {
+  display: inline !important;
+  text-align: left !important;
+  margin-right: 15px !important;
+}
+
+.Header-Style1 .Block-Search, .Header-Style5 .Block-Search, .Header-Style6 .Block-Search {
+  transform: translateY(-157px) !important;
+  padding: 15px 10px !important;
+}
+
+.Navbar-Full {
+  top: 0px !important;
+}
+
+.Header-Style2 .Block-Search {
+  transform: translateY(-168px) !important;
+  padding: 15px 10px !important;
+}
+
+.Header-Style2 .Contact-Header .Email-Site p {
+    padding: 0px 20px !important;
+}
+
+.Header-Style2 .shop-cart-header {
+    top: 50px !important;
+    right: 15px !important;
+}
+
+
+.Login-Header {
+  padding: 0px 0px 34px 0px !important;
+  width: 100% !important;
+}
+
+.tp-simpleresponsive img {
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    display: none !important; 
+}
+
+.metis.tparrows {
+    background: #fff;
+    padding: 0px !important; 
+    transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    width: 40px !important; 
+    height: 40px !important; 
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+.Catogry-Pages {
+  text-align: left !important;
+}
+
+.Bottom-Testimonials p {
+	padding: 0px 0% !important;
+	margin: 0px 30px !important;
+  font-size: 12px !important;
+  line-height: 18px !important;
+}
+
+.Download-CV, .SocialAbout.Social-Footer {
+  width: 100% !important;
+  margin-bottom: 15px !important;
+}
+
+.Purchase a {
+  float: none !important;
+  margin-top: 15px !important;
+  display: inline-block !important;
+}
+
+.Contact-us .form-input {
+  width: 100% !important;
+}
+
+.form-submit {
+  display: block;
+  margin-top: 15px;
+  width: 100%;
+  float: left !important;
+  margin-bottom: 15px;
+}
+
+.accordions-style2 .section-content span {
+  font-size: 10px !important;
+}
+
+.accordions-style2 .section-content h4 a {
+  margin-left: 5px !important;
+}
+
+.Available-Vacancies input, .form-input input, .Available-Vacancies textarea, label.wi1 input, label.wi2 input, .order-textarea .textArea {
+  width: 100%;
+}
+
+.siteMap-nav ul ul {
+  margin: 10px 0px !important;
+  width: 100% !important;
+}
+
+.time_circles > div {
+  top: 42px !important;
+}
+
+.col-md-6.portfolio-item.masonry-item {
+  width: 90% !important;
+}
+
+.sort-by-click {
+  display: inline-block;
+  float: left !important;
+}
+
+.top-shop-content.col-md-5 {
+  padding: 15px !important;
+}
+
+
+.hover-shop-content {
+  padding: 30px 30px !important;
+}
+
+.img-shop-content p {
+  top: 35px !important;
+}
+
+.right-shop-content .reviews-shop-content {
+  top: 65px !important;
+}
+
+.option-items {
+  margin-top: 30px !important;
+  margin-bottom: 30px !important;
+}
+
+.Add-to-Cart {
+  float: left !important;
+  margin-top: 0 !important;
+  width: 100%;
+}
+
+.Add-to-Cart a {
+  padding: 20px 12px !important;
+	margin-left: 10px !important;
+}
+
+.info-items ul li p a:last-child {
+	display: none !important;
+}
+
+.Tabs-Style6.Shop-Tab ul.tab-nav li a {
+  padding: 0px 12px !important;
+}
+
+.shop-tab-content .Details p {
+  width: 100% !important;
+}
+
+.shop-content {
+  padding: 15px;
+}
+
+.sort-by-select select {
+    width: 80% !important;
+}
+
+
+.with1, .with2, .coupon-code-2 form  {
+  width: 50% !important;
+  display: inline-block;
+}
+
+.zoomWindowContainer div {
+  border: none !important;
+  margin-left: -275px !important;
+  margin-top: 0;
+  width: 275px !important;
+  height: 100% !important;
+  border-radius: 20px 0px 0px 0px;
+}
+
+.shop-cart-content {
+  padding: 0px 15px;
+}
+
+.coupon-code input.txt-box, input#Postcode, .coupon-code-2 form #number {
+  margin-bottom: 15px !important;
+}
+
+.shop-customer p {
+  text-align: left;
+}
+
+.Credit-Card span {
+  font-size: 11px !important;
+}
+
+label.wi1, label.wi2, .Data-Expiry, .verification-Code {
+  width: 100% !important;
+  margin-right: 0 !important;
+}
+
+.form-billing h4 {
+  font-size: 18px !important;
+}
+
+.Promo-style3, .Promo-style4, .Promo-style2, .Promo-style1 {
+  padding: 20px !important;
+}
+
+.side-tabs .tab-content {
+  display: -webkit-inline-box !important;
+}
+
+.bs-docs-section:last-child {
+  padding: 15px !important;
+}
+
+.title-instafeed {
+    padding: 0 !important;
+}
+
+ul#instafeed2 li {
+    width: 25% !important
+}
+
+.SliderText h2 {
+    font-size: 30px !important
+}
+
+.SliderText p {
+    font-size: 11px !important
+}
+
+a.Slicefive {
+    padding: 10px 30px !important;
+    font-size: 13px !important;
+}
+
+.left-content {
+    left: 40px !important;
+}
+
+.customNavigation {
+    display: none !important;
+}
+
+.content-a {
+    padding-top: 90px !important;
+}
+
+.content-b {
+    padding-top: 90px !important;
+}
+
+
+}
+/*------------------------------------------------------------------------------*/
+/*                    width : 250px
+/*------------------------------------------------------------------------------*/
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+
+.Boxed-i {
+width: 100% !important;
+}
+
+body{
+	  overflow-x: hidden !important;
+}
+
+
+.col-md-3.portfolio-item.Full-item {
+  padding: 0px;
+  width: 100% !important;
+}
+
+.container .col-md-3.portfolio-item, .container .col-md-4.portfolio-item, .container .col-md-6.portfolio-item {
+    margin-bottom: 30px;
+    width: 100% !important;
+}
+
+ul.tabs-navigation .col-md-2 {
+    float: none !important;
+}
+
+.Header-Style1 .responsive-menu a {
+    display: block !important;
+    padding: 0px !important;
+    margin-top: 8px;
+}
+
+.responsive-menu a {
+    display: block !important;
+}
+
+
+.col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
+  padding-bottom: 15px;
+  padding-top: 15px;
+}
+
+
+.navbar-collapse.in {
+overflow-y: hidden;
+width: 100%;
+position: relative;
+display: inline-block;
+height: 100%;
+background: #FFF;
+}
+
+.TopHeader-2 .Menu-Header ul li a {
+  color: #777777 !important;
+}
+
+.Header-Agency .responsive-menu a {
+  color: #FFF !important;
+}
+
+.Menu-Header {
+float: left;
+height: 100% !important;
+width: 100% !important;
+}
+
+.Menu-Header ul li a:hover:before {
+content: " ";
+color: #4396ff;
+border-top: 0px Solid #4396ff !important;
+width: 20px;
+display:block;
+margin: auto;
+height: 10px;
+}
+
+.Menu-Header ul li a {
+font-size: 15px;
+color: #777777;
+font-family: 'Lato', sans-serif;
+text-transform: uppercase;
+padding: 0px;
+font-weight: 700 !important;
+padding:5px !important;
+background:none !important;
+}
+
+.navbar .dropdown-menu:not(.yamm-dropdown-menu) > li > a:hover {
+background:none !important;
+}
+
+.navbar .dropdown-menu:not(.yamm-dropdown-menu) li a i {
+  display: inline-block;
+  text-align: right;
+  position: absolute;
+  right: 0px !important;
+}
+
+a.dropdown-toggle.js-activated {
+margin-bottom: 15px;
+}
+
+.Header-Style3 .Block-Search {
+    transform: translateY(-62px) !important;
+    position: fixed !important;
+    top: 0 !important;
+	padding: 15px 10px !important;
+}
+
+.option-box {
+display: none;
+}
+
+.TopHeader {
+  display: none !important;
+}
+
+.Block-Search input {
+  width: 80% !Important;
+  font-size: 9px;
+}
+
+.Header-Style2 .Logo-Header.col-md-4, .Header-Style2 .Logo-Header.col-md-12 {
+    width: 100% !important;
+    display: inline-block;
+    float: left;
+    padding-top: 0;
+    padding-bottom: 00px;
+	padding-left: 0;
+    padding-right: 0;
+	position: relative;
+    height: 60px;
+}
+
+
+.Header-Style4 a.responsive-menu.pull-right {
+    padding: 8px 10px !important;
+    margin-left: 0px;
+    margin-left: 0px;
+}
+
+.Menu-responsive.col-md-12{
+	width: 100% !important;
+  display: inline-block;
+  float: left;
+  padding: 0;
+  text-align: left !important;
+}
+
+.navbar-logo {
+  padding: 0 !important;
+  font-size: 18px;
+  line-height: 20px;
+  background: url(../images/logo/Logo-Header.png) no-repeat center !important;
+  width: 100% !important;
+  height: 90px;
+  margin-left: 0 !important;
+  display: inline-block;
+}
+
+.navbar-collapse {
+  position: relative;
+  width: 100%;
+  display: block;
+}
+
+.Menu-Header ul li a.current:before {
+  width: 0 !important;
+}
+
+.Menu-Header ul li a:focus:active:before, .Menu-Header ul li:hover a:before {
+  width: 0 !important;
+}
+
+.title-section h3, .Features-Block h3, .Purchase-wrapper h3, .TextImg-Block h3, .Title-Us h3 {
+  font-size: 20px !important;
+	  line-height: 27px;
+}
+
+.description-welcome p {
+  font-size: 15px !important;
+  padding: 15px 0% !important;
+}
+
+.Icons-shopping-cart span {
+    top: 32px !important;
+    right: 90px !important;
+}
+
+.Header-Style3 .Icons-shopping-cart span {
+    top: 27px !important;
+    right: 0px !important;
+}
+
+
+.description-section p, .description-section-Features p, .tabs-content li.selected p, .Features-Block p, .TextImg-Block p,
+.Rights-Reserved h2, .Testimonials-Block p, .Process-tabs-content li.selected p {
+  padding: 0px 0% !important;
+  font-size: 12px !important;
+	line-height: 18px !important;
+}
+
+.Icons-Search {
+    padding: 0 !important;
+    display: inline-block !important;
+    float: right !important;
+    position: absolute;
+    right: 60px;
+    z-index: 111;
+    top: 15px;
+}
+
+.responsive-menu {
+    padding: 8px 10px !important;
+}
+
+
+.right-wrapper {
+	position: relative;
+    display: inline-block;
+    float: right;
+}
+
+.Header-Style3 .right-wrapper {
+	position: relative;
+    display: inline-block;
+    float: right;
+	width: 100%;
+}
+
+.tp-simpleresponsive img {
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    display: none !important; 
+}
+
+.metis.tparrows {
+    background: #fff;
+    padding: 0px !important; 
+    transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    width: 40px !important; 
+    height: 40px !important; 
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+.Header-Style3 .shopping-cart-Block {
+    float: left;
+    display: block;
+    padding: 15px 0px;
+    position: absolute;
+    left: -20px;
+}
+
+.dropdown.yamm-fullwidth .dropdown-menu {
+    position: relative;
+    top: 0px !important;
+}
+
+.About-Content a.btn-bck {
+  display: none;
+}
+
+.Top-Img-Team, .Top-ClassServices, .Team-Block, .Top-img-news {
+  overflow: visible !important;
+  position: relative;
+}
+
+.Block-Features.selected a:after {
+  display: none !important;
+}
+
+ul.tabs-one {
+    width: 100% !important;
+}
+
+ul.tabs-tow {
+    width: 100% !important;
+}
+
+ul.tabs-navigation:before {
+    display: none;
+}
+.tabs-content li, .About-Content ul li {
+  width: 100% !important;
+}
+
+.About-over {
+    padding: 15px 30px !important;
+}
+
+.About-Content img {
+    width: 100%;
+    height: 260px;
+}
+
+.About-over p {
+    font-size: 12px !important;
+    margin-bottom: 0 !important;
+    line-height: 19px !important;
+}
+
+.block-tabs-content img {
+    float: none !important;
+}
+
+.btn-notback {
+  display: inline-block !important;
+  margin-top: 15px !important;
+}
+
+.Purchase-wrapper, .Purchase-Click, .Purchase {
+  padding: 15px 15px !important;
+}
+
+.Join-Footer {
+  width: 100% !important;
+}
+
+.Header-Style4 .Block-Search {
+  transform: translateY(-128px) !important;
+  padding: 15px 10px !important;
+}
+
+
+.Lastpost-Blog span:last-child {
+  margin-left: 12px !important;
+}
+
+.Lastpost-Blog a h4 {
+  font-size: 15px !important;
+  line-height: 25px;
+}
+
+.Testimonials-Info span, .Testimonials-Info h5 {
+  width: 65% !important;
+}
+
+
+.Bottom-Features {
+  display: none !important;
+}
+
+.Top-Case ul li {
+  display: inline-block;
+}
+
+.Join-Footer {
+  margin-left: 0 !important;
+}
+
+.sidebar-menu {
+  display: none !important;
+}
+
+.yamm-fullwidth ul.dropdown-menu div {
+    border-right: 0px !important;
+    width: 100%;
+}
+
+.navbar .yamm-fullwidth .dropdown-menu:not(.yamm-dropdown-menu) li {
+    line-height: 3 !important;
+    padding: 0px !important;
+    margin: 0px !important;
+}
+
+.navbar .dropdown-menu:not(.yamm-dropdown-menu) li {
+    line-height: 3 !important;
+}
+
+
+.TopBlock-Header {
+    width: 100%;
+    border-bottom: 1px Solid #e6e6e6;
+    display: none !important;
+}
+
+.Header-Style5 .Menu-Header ul li a i {
+  display: inline !important;
+  text-align: left !important;
+  margin-right: 15px !important;
+}
+
+.Header-Style1 .Block-Search, .Header-Style5 .Block-Search, .Header-Style6 .Block-Search {
+  transform: translateY(-157px) !important;
+  padding: 15px 0px;
+}
+
+.Navbar-Full {
+  top: 0px !important;
+}
+
+.Header-Style2 .Block-Search {
+  transform: translateY(-123px) !important;
+  padding: 15px 10px !important;
+}
+
+.Login-Header {
+  padding: 0px 0px 34px 0px !important;
+  width: 100% !important;
+}
+
+.Catogry-Pages {
+  text-align: left !important;
+}
+
+.Bottom-Testimonials p {
+	padding: 0px 0% !important;
+	margin: 0px 30px !important;
+  font-size: 12px !important;
+  line-height: 18px !important;
+}
+
+.Download-CV, .SocialAbout.Social-Footer {
+  width: 100% !important;
+  margin-bottom: 15px !important;
+}
+
+.Purchase a {
+  float: none !important;
+  margin-top: 15px !important;
+  display: inline-block !important;
+}
+
+.Contact-us .form-input {
+  width: 100% !important;
+}
+
+.form-submit {
+  display: block;
+  margin-top: 15px;
+  width: 100%;
+  float: left !important;
+  margin-bottom: 15px;
+}
+
+.accordions-style2 .section-content span {
+  font-size: 10px !important;
+}
+
+.accordions-style2 .section-content h4 a {
+  margin-left: 5px !important;
+}
+
+.Available-Vacancies input, .form-input input, .Available-Vacancies textarea, label.wi1 input, label.wi2 input, .order-textarea .textArea {
+  width: 100%;
+}
+
+.siteMap-nav ul ul {
+  margin: 10px 0px !important;
+  width: 100% !important;
+}
+
+.time_circles > div {
+  top: 42px !important;
+}
+
+.col-md-6.portfolio-item.masonry-item {
+  width: 90% !important;
+}
+
+.sort-by-click {
+  display: inline-block;
+  float: left !important;
+  margin: 0px 10px !important;
+}
+
+.top-shop-content.col-md-5 {
+  padding: 15px !important;
+}
+
+.hover-shop-content {
+  padding: 30px 30px !important;
+}
+
+.img-shop-content p {
+  top: 35px !important;
+}
+
+.right-shop-content .reviews-shop-content {
+  top: 65px !important;
+}
+
+.option-items {
+  margin-top: 30px !important;
+}
+
+.Add-to-Cart {
+  float: left !important;
+  margin-top: 0 !important;
+}
+
+.Add-to-Cart a {
+  padding: 20px 12px !important;
+	margin-left: 10px !important;
+}
+
+.info-items ul li p a:last-child {
+	display: none !important;
+}
+
+.Tabs-Style6.Shop-Tab ul.tab-nav li a {
+  padding: 0px 12px !important;
+}
+
+.shop-tab-content .Details p {
+  width: 100% !important;
+}
+
+.shop-content {
+  padding: 15px;
+}
+
+.with1, .with2, .coupon-code-2 form  {
+  width: 100% !important;
+  display: inline-block;
+}
+
+.zoomWindowContainer div {
+  border: none !important;
+  margin-left: -275px !important;
+  margin-top: 0;
+  width: 275px !important;
+  height: 100% !important;
+  border-radius: 20px 0px 0px 0px;
+}
+
+
+.shop-cart-content {
+  padding: 0px 15px;
+}
+
+.coupon-code input.txt-box, input#Postcode, .coupon-code-2 form #number {
+  margin-bottom: 15px !important;
+}
+
+.shop-customer p {
+  text-align: left;
+}
+
+.Credit-Card span {
+  font-size: 11px !important;
+}
+
+label.wi1, label.wi2, .Data-Expiry, .verification-Code {
+  width: 100% !important;
+  margin-right: 0 !important;
+}
+
+.form-billing h4 {
+  font-size: 18px !important;
+}
+
+.Promo-style3, .Promo-style4, .Promo-style2, .Promo-style1 {
+  padding: 20px !important;
+}
+
+.side-tabs .tab-content {
+  display: -webkit-inline-box !important;
+}
+
+.bs-docs-section:last-child {
+  padding: 15px !important;
+}
+
+iframe {
+  width: 100% !important;
+}
+
+.Comments-Post ul li ul {
+    margin-left: 0 !important;
+}
+
+.Join-Newsletter .txt-box {
+    width: 59% !important;
+}
+
+.Join-Newsletter {
+    width: 260px !important;
+}
+
+.title-instafeed {
+    padding: 0 !important;
+}
+
+ul#instafeed2 li {
+    width: 50% !important;
+}
+
+.SliderText h2 {
+    font-size: 22px !important
+}
+
+.SliderText p {
+    font-size: 9px !important
+}
+
+a.Slicefive {
+    padding: 10px 30px !important;
+    font-size: 13px !important;
+}
+
+.left-content {
+    left: 40px !important;
+}
+
+.customNavigation {
+    display: none !important;
+}
+
+.content-a {
+    padding-top: 90px !important;
+}
+
+.content-b {
+    padding-top: 90px !important;
+}
+
+
+}
+
+
+.Block-Case-Studies img {
+    width: 100%;
+}
+
+/*------------------------------------------------------------------------------*/
+/*                    width : 320px
+/*------------------------------------------------------------------------------*/
+@media only screen and (max-width: 350px) {
+
+.Header-Style3 .right-wrapper {
+    position: relative;
+    text-align: center;
+    width: 100px;
+    display: inline-block;
+}
+
+.navbar-logo {
+    padding: 0 !important;
+    width: 108% !important;
+    margin-left: 0 !important;
+}
+
+}

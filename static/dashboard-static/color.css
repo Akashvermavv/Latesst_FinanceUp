@@ -1,0 +1,181 @@
+
+
+.price-body ul li {
+
+color: rgba(0, 0, 0, 0.75);
+}
+
+.price-body ul li {
+padding: 15px 20px;
+}
+
+.price-body ul {
+margin: 0 0 30px;
+}
+
+.pricingTable {
+background-color: #fff;
+font-family: 'Lato', sans-serif;
+text-align: center;
+padding: 0 0 30px;
+margin: 25px 15px 0;
+border: 1px solid #fff;
+border-radius: 20px 20px 0 0;
+box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+position: relative;
+transition: all 0.3s;
+margin-bottom: 45px;
+}
+
+.pricingTable:after {
+content: "";
+background:  #017cff;
+height: 20px;
+margin: 0 auto;
+border-radius: 0 0 15px 15px;
+position: absolute;
+right: 0;
+bottom: -20px;
+left: 0;
+}
+
+.pricingTable .pricingTable-header {
+margin: 0 0 25px;
+position: relative;
+z-index: 1;
+}
+
+.pricingTable .pricingTable-header:before,
+.pricingTable .pricingTable-header:after {
+content: "";
+background: #fff;
+width: 47%;
+height: 29px;
+border-radius: 0 20px 20px 0;
+position: absolute;
+bottom: -29px;
+left: 0;
+}
+
+.pricingTable .pricingTable-header:after {
+border-radius: 20px 0 0 20px;
+left: auto;
+right: 0;
+}
+
+.pricingTable .title {
+color: #fff;
+background: #000036;
+font-size: 30px;
+font-weight: 800;
+letter-spacing: 1px;
+text-transform: uppercase;
+width: 80%;
+padding: 16px 12px;
+margin: -25px auto 0;
+border-radius: 50px;
+position: relative;
+}
+
+.pricingTable .price-value {
+color: #222;
+
+line-height: 123px;
+
+height: 130px;
+margin: 0 auto 20px;
+border-radius: 50%;
+position: relative;
+z-index: 1;
+}
+
+.pricingTable .price-value:before {
+content: "";
+background: #fff;
+width: 105px;
+height: 105px;
+border-radius: 50px;
+position: absolute;
+top: 13px;
+left: 13px;
+z-index: -1;
+}
+
+.pricingTable .currency {
+font-size: 40px;
+vertical-align: top;
+margin: -10px 0 0;
+display: inline-block;
+}
+
+.pricingTable .amount {
+font-size: 50px;
+font-weight: 800;
+display: inline-block;
+}
+
+.pricingTable .pricing-content {
+padding: 0 15px;
+margin: 0 0 30px;
+list-style: none;
+}
+
+.pricingTable .pricing-content li {
+color: #333;
+font-size: 17px;
+text-align: left;
+line-height: 40px;
+text-transform: uppercase;
+padding: 0 0 0 35px;
+margin-bottom: 10px;
+position: relative;
+}
+
+.pricingTable .pricing-content li:last-child {
+margin: 0;
+}
+
+.pricingTable .pricing-content li:before,
+.pricingTable .pricing-content li:after {
+content: "";
+background: #017cff;
+width: 25px;
+height: 12px;
+border-radius: 20px;
+position: absolute;
+top: 15px;
+left: 0;
+}
+
+.pricingTable .pricing-content li:after {
+background: #fff;
+width: 7px;
+height: 7px;
+top: 17px;
+left: 4px;
+}
+
+.pricingTable .pricingTable-signup a {
+color: #fff;
+background: #017cff;
+font-size: 25px;
+font-weight: 600;
+text-transform: uppercase;
+padding: 12px 25px;
+border-radius: 50px;
+transition: all 0.3s ease 0s;
+}
+
+.pricingTable .pricingTable-signup a:hover {
+background: #000036;
+box-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+}
+
+.main-sidebar[class*="bg"] .nav-item.active > .nav-link, .main-sidebar[class*="bg"] .nav-item.open > .nav-link, .main-sidebar[class*="bg"] .nav-item > .nav-link:hover {
+border-left: 4px solid #017cff;
+}
+
+
+.text-facebook {
+color: #017cff !important;
+}

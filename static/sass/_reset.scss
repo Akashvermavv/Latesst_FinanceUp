@@ -1,0 +1,48 @@
+// Root 
+:root {
+    --main-color: #7857FE;
+    --color-0: #F1F0F5;
+    --color-1: #BF06FC;
+    --shadow-black-100: 0 5px 15px rgba(0, 0, 0, 0.1);
+    --shadow-black-300: 0 5px 15px rgba(0, 0, 0, 0.3);
+    --black-900: #000000;
+    --black-400: #555555;
+    --black-100: #f7f7f7;
+    --black-000: #ffffff;
+    --black-alpha-100: rgba(0, 0, 0, 0.05);
+}
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    background-color: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: none!important;
+}
+
+img {
+    max-width: 100%;
+    width: 100%;
+    vertical-align: middle;
+}
+
+ul,
+li {
+    list-style: none;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}

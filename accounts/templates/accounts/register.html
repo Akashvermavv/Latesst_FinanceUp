@@ -1,0 +1,182 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+{% block custom_css %}
+<style>
+.country{
+color:#000!important;
+}
+#position{
+color:#000!important;
+}
+</style>
+
+    {% endblock custom_css %}
+
+
+ <section class="about-home section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="about-offset">
+                        <h1>Register</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Home Section End -->
+
+    <!-- About us Content Section Start-->
+
+<br/>
+<br/>
+<br/>
+
+
+
+<div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+<center>
+{% if messages %}
+<ul class="messages">
+
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+    </center>
+{% if form.errors %}
+    {% for field in form %}
+        {% for error in field.errors %}
+            <div class="alert alert-danger">
+                <strong>{{ error|escape }}</strong>
+            </div>
+        {% endfor %}
+    {% endfor %}
+    {% for error in form.non_field_errors %}
+        <div class="alert alert-danger">
+            <strong>{{ error|escape }}</strong>
+        </div>
+    {% endfor %}
+{% endif %}
+            </div>
+            <br/>
+            <br/>
+            <div class="col-md-12">
+                <div class="registration-main">
+                    <div class="registration-inner">
+
+                        <form method="POST" action="{% url 'register' %}" enctype="multipart/form-data" style="">{% csrf_token %}
+                            <div class="form-title text-center">
+                                <h3>Create an Account</h3>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+<!--                                    <input type="text" class="form-control" id="name" name="First Name" placeholder="First Name">-->
+                                    {{ form.first_name }}
+                                </div>
+                                <div class="form-group col-md-6">
+<!--                                    <input type="text" class="form-control" id="name" name="First Name" placeholder="Last Name">-->
+                                    {{ form.last_name }}
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+<!--                                    <input type="email" class="form-control" id="email" name="Email" placeholder="Email">-->
+                                    {{ form.email }}
+                                </div>
+                                <div class="form-group col-md-6">
+<!--                                    <input type="tel" class="form-control" id="Phone" name="Phone" placeholder="Phone">-->
+                                    {{ form.mobile }}
+                                </div>
+                            </div>
+                            <div class="row">
+                            <div class="form-group col-md-6">
+
+                                {{ form.username }}
+                            </div>
+                            <div class="form-group col-md-6">
+<!--                                <input type="text" id="referralId" class="form-control" placeholder="Referral Id" name="Referral Id">-->
+                                {{ form.referral_id }}
+                            </div>
+                                </div>
+                             <div class="form-group">
+<!--                                <input type="text" id="referralId" class="form-control" placeholder="Referral Id" name="Referral Id">-->
+                                {{ form.placement_id }}
+                            </div>
+                            <div class="form-row" style="color:#000000!important;">
+                                <div class="form-group col-md-6 select" style="color:#000!important;">
+<!--                                    <select name="Left Or Right" id="LeftOrRight" class="form-control">-->
+<!--                                        <option value="left or Right" selected disabled>Left or Right</option>-->
+<!--                                        <option value="Left">Left</option>-->
+<!--                                        <option value="Right">Right</option>-->
+                                        {{ form.position }}
+<!--                                    </select>-->
+                                </div>
+                                <div class="form-group col-md-6 select" style="color:#000000!important;">
+<!--                                                                            <option value="Country" selected disabled>Country</option>-->
+                                    {{ form.country }}
+
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+<!--                                    <input type="password" class="form-control" id="newPassword" name="New Password" placeholder="New Password">-->
+                                    {{ form.password1}}
+                                </div>
+                                <div class="form-group col-md-6">
+<!--                                    <input type="password" class="form-control" id="confirmPassword" name="confirm Password" placeholder="Confirm Password">-->
+                                    {{ form.password2}}
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+<!--                                    <input type="password" class="form-control" id="newPassword" name="New Password" placeholder="New Password">-->
+                                    {{ form.address}}
+                                </div>
+                                <div class="form-group col-md-6">
+<!--                                    <input type="password" class="form-control" id="confirmPassword" name="confirm Password" placeholder="Confirm Password">-->
+                                    {{ form.image}}
+                                </div>
+                            </div>
+                            <div class="form-check">
+<!--                                <input type="checkbox" id="checkbox">-->
+                                <div class="g-recaptcha" data-sitekey="6LdVsPEUAAAAAEH7x7ev1c_bbmPv8OUqCxcCjjVH"></div>
+                            {% if captcha %}
+
+                            <div class="validationmessage">Captcha error</div>
+
+
+                            {% endif %}
+
+<!--                                <label for="checkbox">I am not robot</label>-->
+                            </div>
+
+                            <div class="form-group new">
+                                <a href="{% url  'login' %}">Already have an account?</a>
+                            </div>
+                            <div class="form-submit text-center">
+                                <button type="submit" class="btn btn-submit">Sign Up</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<br/>
+<br/>
+
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+{% endblock content %}
+

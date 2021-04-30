@@ -1,0 +1,544 @@
+{% extends 'dashboard/sidebar.html' %}
+
+{% block content %}
+{% load static %}
+<script type="text/javascript" src="{% static 'dashboard-static/assets/js/withdraw.js' %}"></script>
+
+                                <!--- main content --->
+                                <div class="page-wrapper">
+                                    <!-- Page-header start -->
+                                    <div class="page-header">
+                                        <div class="row align-items-end">
+                                            <div class="col-lg-8">
+                                                <div class="page-header-title">
+                                                    <div class="d-inline">
+                                                        <h4>Withdraw</h4>
+                                                        <span>Get withdraw in a minute.</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Page-header end -->
+
+                                    <!-- Page body start -->
+                                    <div class="page-body navbar-page">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <!-- Default Navbar card start -->
+                                                <div class="card">
+                                                    <div class="card-block">
+                                                        <center>
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+    </center>
+                                                        <div class="row row d-flex justify-content-center">
+
+
+
+
+
+
+                                                            <div class="card" style="width: 100%;">
+                                                                <div class="card-body d-flex justify-content-center" style="padding-left: 0">
+                                                                    <div class="col-sm-12" style="max-width: max-content;">
+                                                                         {% if kyc_not_done %}
+                                                              Please complete <a href="{% url 'kyc_verification2' %}">KYC</a> verification before withdraw
+                                                            {% endif %}
+                                                                        <br/>
+                                                                        {% if bal %}
+                                                                        <h4>Available Balance   &nbsp;&nbsp;&nbsp;$ {{ bal }}</h4>
+                                                                        {% endif %}
+
+                                                                        <br/>
+                                                                        <p style="color:red;">withdrawal fee is 10%</p>
+                                                                        <br/>
+                                                                        <style>
+                                                                            .cnt tr {
+                                                                                display: block;
+                                                                                margin: 0 !important;
+                                                                                padding: 4px 0px !important;
+                                                                            }
+
+                                                                            .tda {
+                                                                                width: 88px;
+                                                                            }
+
+                                                                            .tdb {}
+
+                                                                            .input-group {
+                                                                                width: 200px !important;
+                                                                            }
+
+                                                                            .bold {
+                                                                                font-weight: bold;
+                                                                            }
+
+                                                                        </style>
+                                                                        <div class="messagebox" id="messagebox"></div>
+                                                                        <form action="{% url 'withdraw_request' %}" method="post">{% csrf_token %}
+
+
+                                                                            <table class="cnt">
+                                                                                <tr>
+                                                                                    <td class="tda">From: </td>
+                                                                                    <td class="tdb">
+                                                                                        <!-- Select Service -->
+                                                                                        <select class="vodiapicker2">
+                                                                                            <option value="en" class="test"  data-thumb="payicn/Main balance.png">Main Balance</option>
+
+                                                                                        </select>
+                                                                                        <div class="lang-select2">
+                                                                                            <button class="btn-select2" value="en">
+                                                                                                <li><img src="payicn/Main balance.png" alt="" value="en"><span>Main Balance</span></li>
+                                                                                            </button>
+                                                                                            <div class="bn">
+                                                                                                <ul id="an">
+                                                                                                    <li><img src="payicn/PayPal.png" alt="" value="en"><span>Main Balance</span></li>
+
+                                                                                                </ul>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <!-- End Select Service -->
+                                                                                    </td>
+                                                                                </tr>
+
+
+
+                                                                                <tr>
+                                                                                    <td class="tda"> Via: </td>
+                                                                                    <td class="tdb" style="margin-left:300px!important;">
+                                                                                        <!-- Payment Method -->
+                                                                                        <select class=" form-control" name="method">
+
+                                                                                            
+
+
+                                                                                            <option value="BTC" data-thumbnail="{% static 'src/img/bitcoin.png' %}">BTC</option>
+                                                                                            <option value="PM" class="test" data-thumbnail="{% static 'dashboard-static/payicn/PerfectMoney.png' %}">PM</option>
+
+                                                                                            <option value="LTC" data-thumbnail="{% static 'src/img/litecoin.png' %}">LTC</option>
+
+                                                                                            <option value="TRX" data-thumbnail="{% static 'src/img/tron.jpg' %}">TRX</option>
+                                                                                            <option value="ETH" data-thumbnail="{% static 'src/img/etherium.png' %}">ETH</option>
+
+                                                                                            
+                                                                                        </select>
+                                                                                        <!--<div class="lang-select">-->
+                                                                                        <!--    <button class="btn-select" value="pm">-->
+                                                                                        <!--        <li><img src="payicn/PayPal.png" alt="" value="pm"><span>English</span></li>-->
+                                                                                        <!--    </button>-->
+                                                                                        <!--    <div class="b">-->
+                                                                                        <!--        <ul id="a">-->
+                                                                                        <!--            <li><img src="payicn/PayPal.png" alt="" value="pm"><span>Perfect money</span></li>-->
+                                                                                        <!--            <li><img src="payicn/PerfectMoney.png" alt="" value="bt"><span>Perfect Money</span></li>-->
+                                                                                        <!--            <li><img src="payicn/SolidTrustPay.png" alt="" value="at"><span>Solid TrustPay</span></li>-->
+                                                                                        <!--        </ul>-->
+                                                                                        <!--    </div>-->
+                                                                                        <!--</div>-->
+                                                                                    </td>
+                                                                                </tr>
+
+                                                                                  <tr>
+                                                                                    <td class="tda">Payment Address:</td>
+                                                                                    <td class="tdb">
+                                                                                        <div class="input-group" style="margin: 0;">
+
+<!--                                                                                                <p id="payment_address" style="margin: 0;">$</p>-->
+
+                                                                                            <input type="text" class="form-control" name="payment_address_input"
+                                                                                            id="payment_address"
+
+                                                                                            placeholder="Enter payment address ">
+                                                                                        </div>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                
+                                                                              
+                                                                                <tr>
+                                                                                    <td class="tda">Amount:</td>
+                                                                                    <td class="tdb">
+                                                                                        <div class="input-group" style="margin: 0;">
+                                                                                            <span class="input-group-addon" id="basic-addon2">
+                                                                                                <p id="currency" style="margin: 0;">$</p>
+                                                                                            </span>
+                                                                                            <input type="number" class="form-control" name="amount" 
+                                                                                            id="amount"
+
+                                                                                            placeholder="50">
+                                                                                        </div>
+                                                                                    </td>
+                                                                                </tr>
+
+
+                                                                                <tr>
+                                                                                    <td class="tda">Password:</td>
+                                                                                    <td class="tdb">
+                                                                                        <div class="input-group" style="margin: 0;">
+                                                                                            <input type="password" class="form-control" name="password" 
+                                                                                            id="password"
+
+                                                                                            placeholder="Password">
+                                                                                        </div>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </table><br>
+
+
+                                                                            <button class="btn btn-primary btn-skew" id="withdraw_submit">Withdraw</button>
+                                                                            </form>
+                                                                 
+
+
+
+                                                                        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+                                                                        <script id="INLINE_PEN_JS_ID">
+                                                                            //test for getting url value from attr
+                                                                            // var img1 = $('.test').attr("data-thumbnail");
+                                                                            // console.log(img1);
+
+                                                                            //test for iterating over child elements
+                                                                            var langArray = [];
+                                                                            $(".vodiapicker option").each(function(event) {
+                                                                                var img = $(this).attr("data-thumbnail");
+                                                                                var text = this.innerText;
+                                                                                var value = $(this).val();
+                                                                                var item =
+                                                                                    '<li><img src="' +
+                                                                                    img +
+                                                                                    '" alt="" value="' +
+                                                                                    value +
+                                                                                    '"/><span>' +
+                                                                                    text +
+                                                                                    "</span></li>";
+                                                                                langArray.push(item);
+
+                                                                            });
+
+                                                                            $("#a").html(langArray);
+
+                                                                            //Set the button value to the first el of the array
+                                                                            $(".btn-select").html(langArray[0]);
+                                                                            $(".btn-select").attr("value", "pm");
+
+                                                                            //change button stuff on click
+                                                                            $("#a li").click(function(event) {
+                                                                                var img = $(this).find("img").attr("src");
+                                                                                var value = $(this).find("img").attr("value");
+                                                                                var text = this.innerText;
+                                                                                var item =
+                                                                                    '<li><img src="' + img + '" alt="" /><span>' + text + "</span></li>";
+                                                                                $(".btn-select").html(item);
+                                                                                $(".btn-select").attr("value", value);
+                                                                                $(".b").toggle();
+                                                                                event.preventDefault();
+                                                                                //console.log(value);
+                                                                            });
+
+                                                                            $(".btn-select").click(function(event) {
+                                                                                $(".b").toggle();
+                                                                                event.preventDefault();
+                                                                            });
+
+                                                                            //check local storage for the lang
+                                                                            var sessionLang = localStorage.getItem("lang");
+                                                                            if (sessionLang) {
+                                                                                //find an item with value of sessionLang
+                                                                                var langIndex = langArray.indexOf(sessionLang);
+                                                                                $(".btn-select").html(langArray[langIndex]);
+                                                                                $(".btn-select").attr("value", sessionLang);
+                                                                            } else {
+                                                                                var langIndex = langArray.indexOf("ch");
+                                                                                console.log(langIndex);
+                                                                                $(".btn-select").html(langArray[langIndex]);
+                                                                                //$('.btn-select').attr('value', 'en');
+                                                                            }
+                                                                            //# sourceURL=pen.js
+
+                                                                        </script>
+                                                                        <style class="INLINE_PEN_STYLESHEET_ID">
+                                                                            .vodiapicker {
+                                                                                display: none;
+                                                                            }
+
+                                                                            #a {
+                                                                                padding-left: 0px;
+                                                                                overflow: auto;
+                                                                                height: 200px;
+                                                                            }
+
+                                                                            #a img,
+                                                                            .btn-select img {
+                                                                                width: 50px;
+
+                                                                            }
+
+                                                                            #a li {
+                                                                                list-style: none;
+                                                                                padding-top: 5px;
+                                                                                padding-bottom: 5px;
+                                                                            }
+
+                                                                            #a li:hover {
+                                                                                background-color: #F4F3F3;
+                                                                            }
+
+                                                                            #a li img {
+                                                                                margin: 5px;
+                                                                            }
+
+                                                                            #a li span,
+                                                                            .btn-select li span {
+                                                                                margin-left: 5px;
+                                                                            }
+
+                                                                            /* item list */
+
+                                                                            .b {
+                                                                                display: none;
+                                                                                width: 100%;
+                                                                                max-width: 350px;
+                                                                                box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+                                                                                border: 1px solid rgba(0, 0, 0, .15);
+                                                                                border-radius: 5px;
+                                                                                position: absolute;
+                                                                                z-index: 9999;
+                                                                                background: white;
+                                                                                width: 200px;
+
+                                                                            }
+
+                                                                            .open {
+                                                                                display: show !important;
+                                                                            }
+
+                                                                            .btn-select {
+                                                                                margin-top: 10px;
+                                                                                width: 100%;
+                                                                                max-width: 350px;
+                                                                                height: 50px;
+                                                                                border-radius: 5px;
+                                                                                background-color: #fff;
+                                                                                border: 1px solid #ccc;
+
+                                                                            }
+
+                                                                            .btn-select li {
+                                                                                list-style: none;
+                                                                                float: left;
+                                                                                padding-bottom: 0px;
+                                                                            }
+
+                                                                            .btn-select:hover li {
+                                                                                margin-left: 0px;
+                                                                            }
+
+                                                                            .btn-select:hover {
+                                                                                background-color: #F4F3F3;
+                                                                                border: 1px solid transparent;
+                                                                                box-shadow: inset 0 0px 0px 1px #ccc;
+
+
+                                                                            }
+
+                                                                            .btn-select:focus {
+                                                                                outline: none;
+                                                                            }
+
+                                                                            .lang-select {
+                                                                                margin-left: ;
+                                                                                width: 200px;
+                                                                            }
+
+                                                                        </style>
+                                                                        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+                                                                        <script id="INLINE_PEN_JS_ID">
+                                                                            //test for getting url value from attr
+                                                                            // var img1 = $('.test').attr("data-thumb");
+                                                                            // console.log(img1);
+
+                                                                            //test for iterating over child elements
+                                                                            var langArrayn = [];
+                                                                            $(".vodiapicker2 option").each(function() {
+                                                                                var img = $(this).attr("data-thumb");
+                                                                                var text = this.innerText;
+                                                                                var value = $(this).val();
+                                                                                var item =
+                                                                                    '<li><img src="' +
+                                                                                    img +
+                                                                                    '" alt="" value="' +
+                                                                                    value +
+                                                                                    '"/><span>' +
+                                                                                    text +
+                                                                                    "</span></li>";
+                                                                                langArrayn.push(item);
+                                                                            });
+
+                                                                            $("#an").html(langArrayn);
+
+                                                                            //Set the button value to the first el of the array
+                                                                            $(".btn-select2").html(langArrayn[0]);
+                                                                            $(".btn-select2").attr("value", "en");
+
+                                                                            //change button stuff on click
+                                                                            $("#an li").click(function(event) {
+                                                                                var img = $(this).find("img").attr("src");
+                                                                                var value = $(this).find("img").attr("value");
+                                                                                var text = this.innerText;
+                                                                                var item =
+                                                                                    '<li><img src="' + img + '" alt="" /><span>' + text + "</span></li>";
+                                                                                $(".btn-select2").html(item);
+                                                                                $(".btn-select2").attr("value", value);
+                                                                                $(".bn").toggle();
+                                                                                event.preventDefault();
+                                                                                //console.log(value);
+                                                                            });
+
+                                                                            $(".btn-select2").click(function(event) {
+                                                                                $(".bn").toggle();
+                                                                                event.preventDefault();
+                                                                            });
+
+                                                                            //check local storage for the lang
+                                                                            var sessionLang = localStorage.getItem("lang");
+                                                                            if (sessionLang) {
+                                                                                //find an item with value of sessionLang
+                                                                                var langIndex = langArrayn.indexOf(sessionLang);
+                                                                                $(".btn-select2").html(langArrayn[langIndex]);
+                                                                                $(".btn-select2").attr("value", sessionLang);
+                                                                            } else {
+                                                                                var langIndex = langArrayn.indexOf("ch");
+                                                                                console.log(langIndex);
+                                                                                $(".btn-select2").html(langArrayn[langIndex]);
+                                                                                //$('.btn-select2').attr('value', 'en');
+                                                                            }
+                                                                            //# sourceURL=pen.js
+
+                                                                        </script>
+                                                                        <style class="INLINE_PEN_STYLESHEET_ID">
+                                                                            .vodiapicker2 {
+                                                                                display: none;
+                                                                            }
+
+                                                                            #an {
+                                                                                padding-left: 0px;
+                                                                            }
+
+                                                                            #an img,
+                                                                            .btn-select2 img {
+                                                                                width: 50px;
+
+                                                                            }
+
+                                                                            #an li {
+                                                                                list-style: none;
+                                                                                padding-top: 5px;
+                                                                                padding-bottom: 5px;
+                                                                            }
+
+                                                                            #an li:hover {
+                                                                                background-color: #F4F3F3;
+                                                                            }
+
+                                                                            #an li img {
+                                                                                margin: 5px;
+                                                                            }
+
+                                                                            #an li span,
+                                                                            .btn-select2 li span {
+                                                                                margin-left: 5px;
+                                                                            }
+
+                                                                            /* item list */
+
+                                                                            .bn {
+                                                                                display: none;
+                                                                                width: 100%;
+                                                                                max-width: 350px;
+                                                                                box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+                                                                                border: 1px solid rgba(0, 0, 0, .15);
+                                                                                border-radius: 5px;
+                                                                                position: absolute;
+                                                                                z-index: 9999;
+                                                                                background: white;
+                                                                                width: 200px;
+
+                                                                            }
+
+                                                                            .open {
+                                                                                display: show !important;
+                                                                            }
+
+                                                                            .btn-select2 {
+                                                                                margin-top: 10px;
+                                                                                width: 100%;
+                                                                                max-width: 350px;
+                                                                                height: 50px;
+                                                                                border-radius: 5px;
+                                                                                background-color: #fff;
+                                                                                border: 1px solid #ccc;
+
+                                                                            }
+
+                                                                            .btn-select2 li {
+                                                                                list-style: none;
+                                                                                float: left;
+                                                                                padding-bottom: 0px;
+                                                                            }
+
+                                                                            .btn-select2:hover li {
+                                                                                margin-left: 0px;
+                                                                            }
+
+                                                                            .btn-select2:hover {
+                                                                                background-color: #F4F3F3;
+                                                                                border: 1px solid transparent;
+                                                                                box-shadow: inset 0 0px 0px 1px #ccc;
+
+
+                                                                            }
+
+                                                                            .btn-select2:focus {
+                                                                                outline: none;
+                                                                            }
+
+                                                                            .lang-select2 {
+                                                                                margin-left: ;
+                                                                                width: 200px;
+                                                                            }
+
+                                                                        </style>
+
+                                                                        <!--- End Payment Method --->
+
+
+
+
+
+
+
+
+
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Default Navbar card end -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Page body end -->
+                                </div>
+
+                                <!--- main content end --->
+                                {% endblock content %}
+
+                            

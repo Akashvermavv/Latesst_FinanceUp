@@ -1,0 +1,1 @@
+from financeup.wsgi import application

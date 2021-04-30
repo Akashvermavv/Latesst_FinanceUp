@@ -1,0 +1,118 @@
+
+{% extends 'dashboard/sidebar.html' %}
+{% block content %}
+{% load static %}
+<script type="text/javascript" src="{% static 'dashboard-static/assets/js/adpack.js' %}"></script>
+                                <div class="page-wrapper">
+                                    <!-- Page-header start -->
+                                    <div class="page-header">
+                                        <div class="row align-items-end">
+                                            <div class="col-lg-8">
+                                                <div class="page-header-title">
+                                                    <div class="d-inline">
+                                                        <h4>Customize Adpack</h4>
+                                                        <span>Your adpack is here</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Page-header end -->
+
+                                    <!-- Page body start -->
+                                    <div class="page-body navbar-page">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <!-- Default Navbar card start -->
+                                                <div class="card">
+                                                    <div class="card-block">
+                                                        <div class="row row d-flex justify-content-center">
+                                                            <div class="col-md-4" style="margin-bottom:;">
+                                                                <span>
+                                                                    <h4 style="font-weight: bold;">New Adpack</h4>
+                                                                    <img class="clicked adpack" src="{{ adpack_details.image.url}}" width="100%">
+                                                                   <!-- <p>Adpack Price: $500<br>Details: </p>-->
+
+
+
+
+
+
+
+
+                                                                </span>
+                                                            </div>
+                                                            <div class="card" style="width: 100%;">
+                                                                <div class="card-body d-flex justify-content-center">
+                                                                    <div class="col-sm-12" style="max-width: max-content;">
+                                                                        <form action="" method="post">
+                                                                            {% csrf_token %}
+                                                                        <div class="input-group">
+                                                                            <span class="input-group-addon" id="basic-addon2">Quantity</span>
+                                                                            <input type="number" class="form-control" id="quantity" name="quantity" placeholder="Quantity">
+                                                                        </div>
+                                                                        <div class="input-group">
+                                                                            <span class="input-group-addon" id="basic-addon2">Profit</span>
+                                                                            <input type="text" class="form-control" id="profit" name="profit" disabled placeholder="Profit">
+                                                                        </div>
+                                                                        <div class="input-group">
+                                                                            <span class="input-group-addon" id="basic-addon2">Price</span>
+                                                                            <input type="text" class="form-control" id="amount" name="amount" disabled placeholder="Amount">
+                                                                        </div>
+                                                                        <input type="hidden" id="level" name="level" value="{{adpack_details.level}}">
+                                                                        <input type="hidden" id="value" name="value" value="{{adpack_details.value}}">
+                                                                        <input type="hidden" id="dailyprofit" name="dailyprofit" value="{{adpack_details.perday_revenue}}">
+
+
+                                                                        <button type="submit" class="btn btn-success m-b-0" id="buybutton">Buy Now</button>
+                                                                        <br><br>
+                                                                        <!-- If Error -->
+                                                                        {% if messages %}
+                                                                        {% for message in messages %}
+
+                                                                        {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+                                                                        <div class="alert alert-success">{{message}}</div>
+
+                                                                        {% endif %}
+
+
+                                                                        {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+                                                                       <div class="alert alert-danger"> {{message}} </div>
+
+                                                                        {% endif %}
+
+
+
+
+                                                                        {% if message.level == DEFAULT_MESSAGE_LEVELS.WARNING %}
+                                                                       <div class="alert alert-warning"> {{message}} </div>
+
+                                                                        {% endif %}
+                                                                        {% if message.level == DEFAULT_MESSAGE_LEVELS.INFO %}
+                                                                        <div class="alert alert-warning border-warning">
+                                                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                                                <i class="icofont icofont-close-line-circled"></i>
+                                                                            </button>
+                                                                            <strong>Warning!</strong> Not enough fund.
+                                                                            <a href="{% url 'add_fund' %}" class="btn hor-grd btn-grd-warning">Add Fund</a>
+                                                                        </div>
+                                                                        {% endif %}
+                                                                        {% endfor %}
+                                                                        {% endif %}
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Default Navbar card end -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Page body end -->
+                                </div>
+
+                                <!--- main content end -->
+
+                                {% endblock content %}
